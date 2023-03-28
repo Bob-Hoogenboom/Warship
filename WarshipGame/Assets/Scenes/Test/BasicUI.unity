@@ -530,7 +530,12 @@ PrefabInstance:
     - target: {fileID: 3722155606781851311, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
       propertyPath: m_Name
-      value: Main Menu
+      value: Main_Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722155606781851311, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3722155606815310605, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}

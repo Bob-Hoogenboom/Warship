@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 9051098727833975807}
   - component: {fileID: 7204830050370026776}
   m_Layer: 5
-  m_Name: Options Title
+  m_Name: OptionsTitle_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 2122793043394498154}
   - component: {fileID: 6783090262180457533}
   m_Layer: 5
-  m_Name: Option Panel
+  m_Name: Option_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1310,7 +1310,7 @@ GameObject:
   - component: {fileID: 2795016092659548522}
   - component: {fileID: 6602295083763508550}
   m_Layer: 5
-  m_Name: Back Button (2)
+  m_Name: Back_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1642,7 +1642,7 @@ GameObject:
   - component: {fileID: 1812561384764548360}
   - component: {fileID: 1350141471655073935}
   m_Layer: 5
-  m_Name: Video Title
+  m_Name: VideoTitle_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 378334899875078257}
   - component: {fileID: 4963377199096341882}
   m_Layer: 5
-  m_Name: Video Button
+  m_Name: Video_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2140,7 +2140,7 @@ GameObject:
   - component: {fileID: 9175511721935336568}
   - component: {fileID: 2402044656782552825}
   m_Layer: 5
-  m_Name: System Sound Button
+  m_Name: SystemSound_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2262,7 +2262,7 @@ GameObject:
   - component: {fileID: 1350465589193712911}
   - component: {fileID: 9009537567439964152}
   m_Layer: 5
-  m_Name: Video Panel
+  m_Name: Video_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2456,7 +2456,7 @@ GameObject:
   - component: {fileID: 3680241774083650851}
   - component: {fileID: 5809863678402131179}
   m_Layer: 5
-  m_Name: Controls Button
+  m_Name: Controls_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3281,7 +3281,7 @@ GameObject:
   - component: {fileID: 1223159561567284662}
   - component: {fileID: 2494989036305321650}
   m_Layer: 5
-  m_Name: Sound Effect Button
+  m_Name: SoundEffect_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3495,7 +3495,7 @@ GameObject:
   - component: {fileID: 1261424275811667574}
   - component: {fileID: 8273278221012819881}
   m_Layer: 5
-  m_Name: Back Button
+  m_Name: Back_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3864,7 +3864,7 @@ GameObject:
   - component: {fileID: 6825101598296646013}
   - component: {fileID: 657939235023140452}
   m_Layer: 5
-  m_Name: Audio Title
+  m_Name: AudioTitle_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4037,7 +4037,7 @@ GameObject:
   - component: {fileID: 6186798042884857731}
   - component: {fileID: 8275150051588707625}
   m_Layer: 5
-  m_Name: BMG Button
+  m_Name: BMG_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5555,7 +5555,7 @@ GameObject:
   - component: {fileID: 6718395670427943350}
   - component: {fileID: 8032615116423782879}
   m_Layer: 5
-  m_Name: Resolution Button
+  m_Name: Resolution_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5876,7 +5876,7 @@ GameObject:
   - component: {fileID: 6494768157128344301}
   - component: {fileID: 4733572268715166775}
   m_Layer: 5
-  m_Name: Controls Panel
+  m_Name: Controls_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6398,7 +6398,7 @@ GameObject:
   - component: {fileID: 7447137719090487293}
   - component: {fileID: 5348312113829752889}
   m_Layer: 5
-  m_Name: Audio Panel
+  m_Name: Audio_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6481,7 +6481,7 @@ GameObject:
   - component: {fileID: 9047288491740911519}
   - component: {fileID: 8739531770756260299}
   m_Layer: 5
-  m_Name: Audio Button
+  m_Name: Audio_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6904,7 +6904,7 @@ GameObject:
   - component: {fileID: 2668279902072037111}
   - component: {fileID: 938808255394158062}
   m_Layer: 5
-  m_Name: Back Button
+  m_Name: Back_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7026,7 +7026,7 @@ GameObject:
   - component: {fileID: 7169286310903374434}
   - component: {fileID: 8164661638082335370}
   m_Layer: 5
-  m_Name: Master Volume Button
+  m_Name: MasterVolume_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7283,7 +7283,7 @@ GameObject:
   - component: {fileID: 3837361119689444011}
   - component: {fileID: 351988333409275015}
   m_Layer: 5
-  m_Name: Controls Title
+  m_Name: ControlsTitle_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7494,7 +7494,7 @@ GameObject:
   - component: {fileID: 7093450142094340331}
   - component: {fileID: 4020330033025921816}
   m_Layer: 5
-  m_Name: Screen Mode Button
+  m_Name: ScreenMode_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7708,7 +7708,7 @@ GameObject:
   - component: {fileID: 8736100889953433214}
   - component: {fileID: 233025520970301009}
   m_Layer: 5
-  m_Name: Back Button
+  m_Name: Back_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
