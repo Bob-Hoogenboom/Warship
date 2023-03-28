@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1850954964014289669}
   - component: {fileID: 1043428043277065501}
   m_Layer: 5
-  m_Name: NormalMode_Button
+  m_Name: NormalModeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 5606932622258258044}
   - component: {fileID: 8070632935947251276}
   m_Layer: 5
-  m_Name: Levels_Panels
+  m_Name: LevelsPanels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 3722155606035230783}
   - component: {fileID: 3722155606035230782}
   m_Layer: 5
-  m_Name: GameModes_Panel
+  m_Name: GameModesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 3722155606369993948}
   - component: {fileID: 3722155606369993950}
   m_Layer: 5
-  m_Name: Main_Panel
+  m_Name: MainPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 3722155606394835116}
   - component: {fileID: 3722155606394835107}
   m_Layer: 5
-  m_Name: GamemodesTitle_Text
+  m_Name: GamemodesTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 3722155606706333650}
   - component: {fileID: 3722155606706333649}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 3722155606781851305}
   - component: {fileID: 3722155606781851304}
   m_Layer: 5
-  m_Name: Main_Menu
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,7 +1779,7 @@ GameObject:
   - component: {fileID: 3722155606858366939}
   - component: {fileID: 3722155606858366938}
   m_Layer: 5
-  m_Name: Level_3
+  m_Name: Level3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1901,7 +1901,7 @@ GameObject:
   - component: {fileID: 3722155607050339888}
   - component: {fileID: 3722155607050339895}
   m_Layer: 5
-  m_Name: Level_2
+  m_Name: Level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2145,7 +2145,7 @@ GameObject:
   - component: {fileID: 3722155607234382037}
   - component: {fileID: 3722155607234382036}
   m_Layer: 5
-  m_Name: DemoMode_Button
+  m_Name: DemoModeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2267,7 +2267,7 @@ GameObject:
   - component: {fileID: 3722155607323090676}
   - component: {fileID: 3722155607323090571}
   m_Layer: 5
-  m_Name: GameModes_Button
+  m_Name: GameModesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2389,7 +2389,7 @@ GameObject:
   - component: {fileID: 3722155607411920918}
   - component: {fileID: 3722155607411920917}
   m_Layer: 5
-  m_Name: Level_1
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,7 +2782,7 @@ GameObject:
   - component: {fileID: 3722155607579541394}
   - component: {fileID: 3722155607579541393}
   m_Layer: 5
-  m_Name: WarshipTitle_Text
+  m_Name: WarshipTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2918,7 +2918,7 @@ GameObject:
   - component: {fileID: 3722155607733953529}
   - component: {fileID: 3722155607733953528}
   m_Layer: 5
-  m_Name: Option_Button
+  m_Name: OptionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3174,7 +3174,7 @@ GameObject:
   - component: {fileID: 4901083231477897682}
   - component: {fileID: 4413042603436287453}
   m_Layer: 5
-  m_Name: LevelsTitle_Text
+  m_Name: LevelsTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

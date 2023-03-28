@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1500886550030841403}
   - component: {fileID: 3008658241716411703}
   m_Layer: 5
-  m_Name: FleetPreset_Button
+  m_Name: FleetPresetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8165776279929290666}
   - component: {fileID: 2632894038692694533}
   m_Layer: 5
-  m_Name: FleetSelect_Button
+  m_Name: FleetSelectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 7203059942255911588}
   - component: {fileID: 5386761029626127743}
   m_Layer: 5
-  m_Name: FleetSelection_Menu
+  m_Name: FleetSelectionMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 5418460796680648553}
   - component: {fileID: 1684225000756464890}
   m_Layer: 5
-  m_Name: FleetSelectionTitle_Text
+  m_Name: FleetSelectionTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 626321523040034405}
   - component: {fileID: 1359846677350914555}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
