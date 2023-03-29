@@ -8,11 +8,11 @@ public class HexGrid : MonoBehaviour
     private GridNode[,] _grid;
     
     [Header("Grid Settings")] 
-    [SerializeField] private int Width = 26;
-    [SerializeField] private int Length = 26;
-    [SerializeField] private Vector2 CellSize = new Vector2(.75f, .865f);
-    [SerializeField] private Vector3 CheckBoxSize = new Vector3 (0.3f, 2f, 0.3f);
-    [SerializeField] private LayerMask ObstacleMak;
+    [SerializeField] private int width = 26;
+    [SerializeField] private int length = 26;
+    [SerializeField] private Vector2 cellSize = new (.75f, .865f);
+    [SerializeField] private Vector3 checkBoxSize = new (0.3f, 2f, 0.3f);
+    [SerializeField] private LayerMask obstacleMask;
     
     //Calculation Variable
     private bool _hasOffset;
@@ -26,7 +26,7 @@ public class HexGrid : MonoBehaviour
     //instantiates a new GridNode before calculating the grid 
     private void GenerateGrid()
     {
-        _grid = new GridNode[Length, Width];
+        _grid = new GridNode[length, width];
         CheckPossibleTerrain();
     }
 
@@ -35,16 +35,15 @@ public class HexGrid : MonoBehaviour
     {
         _hasOffset = true;
         
-        for (int x = 0; x < Width; x++)
+        for (int x = 0; x < width; x++)
         {
             _hasOffset = !_hasOffset;
             
-            for (int y = 0; y < Length; y++)
+            for (int y = 0; y < length; y++)
             {
-                Vector3 WorldPosition = GetWorldPosition(x, y);
-                bool Passable = Physics.CheckBox(WorldPosition,  CheckBoxSize , Quaternion.identity, ObstacleMak); 
-                _grid[x, y] = new GridNode();
-                _grid[x, y].Passable = Passable;
+                Vector3 worldPosition = GetWorldPosition(x, y);
+                bool passable = Physics.CheckBox(worldPosition,  checkBoxSize , Quaternion.identity, obstacleMask); 
+                _grid[x, y] = new GridNode{Passable = passable};
             }
         }
     }
@@ -52,17 +51,16 @@ public class HexGrid : MonoBehaviour
     //draws the position of every checkbox cube
     private void OnDrawGizmos()
     {
-        if (_grid == null) { return; }
+        if (_grid == null)  return; 
 
-        for (int x = 0; x < Width; x++)
+        for (int x = 0; x < width; x++)
         {
             _hasOffset = !_hasOffset;
 
-            for (int y = 0; y < Length; y++)
+            for (int y = 0; y < length; y++)
             {
-                Vector3 pos = GetWorldPosition(x, y);
                 Gizmos.color = _grid[x, y].Passable ? Color.red : Color.white;
-                Gizmos.DrawWireCube(pos, CheckBoxSize);
+                Gizmos.DrawWireCube(GetWorldPosition(x,y), checkBoxSize);
             }
         }
     }
@@ -70,7 +68,8 @@ public class HexGrid : MonoBehaviour
     //Calculates the world position of every tile and returns it
     private Vector3 GetWorldPosition(int x, int y)
     {
-        _positionOffset = _hasOffset ? CellSize.y / 2 : 0f;
-        return new Vector3(transform.position.x + (x * CellSize.x), 0f, transform.position.z + (y * CellSize.y - _positionOffset));
+        Vector3 gridTransform = transform.position;
+        _positionOffset = _hasOffset ? cellSize.y / 2 : 0f;
+        return new Vector3(gridTransform.x + (x * cellSize.x), 0f, gridTransform.z + (y * cellSize.y - _positionOffset));
     }
 }
