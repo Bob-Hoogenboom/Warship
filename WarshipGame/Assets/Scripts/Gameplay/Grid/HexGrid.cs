@@ -42,10 +42,18 @@ public class HexGrid : MonoBehaviour
             for (int y = 0; y < length; y++)
             {
                 Vector3 worldPosition = GetWorldPosition(x, y);
-                bool passable = Physics.CheckBox(worldPosition,  checkBoxSize , Quaternion.identity, obstacleMask); 
+                bool passable = !Physics.CheckBox(worldPosition,  checkBoxSize , Quaternion.identity, obstacleMask); 
                 _grid[x, y] = new GridNode{Passable = passable};
             }
         }
+    }
+
+    //needs optimization i know*
+    public Vector2 GetGridPosition(Vector3 worldPosition)
+    {
+        worldPosition -= transform.position;
+        Vector2 positionOnGrid = new Vector2(worldPosition.x / cellSize.x, worldPosition.z / cellSize.y);
+        return positionOnGrid;
     }
     
     //draws the position of every checkbox cube
@@ -59,7 +67,7 @@ public class HexGrid : MonoBehaviour
 
             for (int y = 0; y < length; y++)
             {
-                Gizmos.color = _grid[x, y].Passable ? Color.red : Color.white;
+                Gizmos.color = _grid[x, y].Passable ? Color.white : Color.red;
                 Gizmos.DrawWireCube(GetWorldPosition(x,y), checkBoxSize);
             }
         }
