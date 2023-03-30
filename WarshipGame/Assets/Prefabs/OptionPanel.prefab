@@ -3477,11 +3477,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: Full Screen
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Windowed
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: WindowedFull
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
