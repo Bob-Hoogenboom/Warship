@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
-    public string name = "Bob";
+    public string name = "Unnamed";
 }
