@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab134b856e0ac44468bab881da0cf1bf, type: 3}
+  m_Name: SoundProfile
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 94cc914e06ba53b4e9bdb0d4cc3c77e1, type: 2}
+  volumeControl:
+  - name: Master
+    volume: 0.8611849
+    tempVolume: 0.8611849
+  - name: BMG
+    volume: 0.17750996
+    tempVolume: 0.42536938
+  - name: SoundEffect
+    volume: 0.6133255
+    tempVolume: 0.6133255
+  - name: System
+    volume: 0.3239723
+    tempVolume: 0.5943646
+  saveInPlayerPref: 1
+  prefPrefix: Settings_
