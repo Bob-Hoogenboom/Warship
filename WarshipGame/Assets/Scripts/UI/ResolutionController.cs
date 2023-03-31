@@ -22,7 +22,7 @@ public class ResolutionController : MonoBehaviour
 
         for (int i = 0; i < _resolutions.Length; i++)
         {
-            if (_resolutions[i].refreshRate != _currentRefreshRate) return;
+            if (_resolutions[i].refreshRate != _currentRefreshRate) continue;
                 _filteredResolution.Add(_resolutions[i]);
         }
 
@@ -31,7 +31,7 @@ public class ResolutionController : MonoBehaviour
         {
             string resolutionOption = _filteredResolution[i].width + "x" + _filteredResolution[i].height + " " + _filteredResolution[i].refreshRate + " Hz";
             options.Add(resolutionOption);
-            if (_filteredResolution[i].width == Screen.width && _filteredResolution[i].height == Screen.height)
+            if (_filteredResolution[i].width != Screen.width && _filteredResolution[i].height != Screen.height) continue;
                 _currentResolutionIndex = i;
         }
         
