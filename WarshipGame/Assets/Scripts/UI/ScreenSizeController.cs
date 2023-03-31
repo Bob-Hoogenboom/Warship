@@ -1,23 +1,20 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class ScreenSizeController : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown Dropdown;
-    private int screenMode;
+    private int _screenMode;
 
-    void Awake()
+    private void Awake()
     {
         Dropdown.value = 0;
     }
 
     public void setScreenSize()
     {
-        screenMode = Dropdown.value;
-        switch (screenMode)
+        _screenMode = Dropdown.value;
+        switch (_screenMode)
         {
             case 0:
                 Dropdown.value = 0;

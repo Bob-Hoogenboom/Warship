@@ -6,48 +6,44 @@ public class ResolutionController : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown resolutionDropdown;
 
-    private Resolution[] resolutions;
-    private List<Resolution> filteredResolution;
+    private Resolution[] _resolutions;
+    private List<Resolution> _filteredResolution;
 
-    private float currentRefreshRate;
-    private int currentResolutionIndex = 0;
+    private float _currentRefreshRate;
+    private int _currentResolutionIndex = 0;
 
-    void Start()
+    private void Start()
     {
-        resolutions = Screen.resolutions;
-        filteredResolution = new List<Resolution>();
+        _resolutions = Screen.resolutions;
+        _filteredResolution = new List<Resolution>();
         
         resolutionDropdown.ClearOptions();
-        currentRefreshRate = Screen.currentResolution.refreshRate;
+        _currentRefreshRate = Screen.currentResolution.refreshRate;
 
-        for (int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < _resolutions.Length; i++)
         {
-            if (resolutions[i].refreshRate == currentRefreshRate)
-            {
-                filteredResolution.Add(resolutions[i]);
-            }
+            if (_resolutions[i].refreshRate != _currentRefreshRate) return;
+                _filteredResolution.Add(_resolutions[i]);
         }
 
         List<string> options = new List<string>();
-        for (int i = 0; i < filteredResolution.Count; i++)
+        for (int i = 0; i < _filteredResolution.Count; i++)
         {
-            string resolutionOption = filteredResolution[i].width + "x" + filteredResolution[i].height + " " + filteredResolution[i].refreshRate + " Hz";
+            string resolutionOption = _filteredResolution[i].width + "x" + _filteredResolution[i].height + " " + _filteredResolution[i].refreshRate + " Hz";
             options.Add(resolutionOption);
-            if (filteredResolution[i].width == Screen.width && filteredResolution[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
+            if (_filteredResolution[i].width == Screen.width && _filteredResolution[i].height == Screen.height)
+                _currentResolutionIndex = i;
         }
         
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.value = _currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
         
     }
 
     public void SetResolution(int resolutionIndex)
     {
-        Resolution resolution = filteredResolution[resolutionIndex];
+        Resolution resolution = _filteredResolution[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, true);
     }
 }

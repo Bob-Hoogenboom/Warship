@@ -1,54 +1,34 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UserInterfaceManager : MonoBehaviour
 {
-    [SerializeField] private Profiles m_profile;
+    [SerializeField] private Profiles profiles;
 
-    [SerializeField] private List<AudioSliders> m_audioSliders = new List<AudioSliders>();
+    [SerializeField] private List<AudioSliders> audioSliders = new List<AudioSliders>();
 
-    void Awake()
+    private void Awake()
     {
-        if (m_profile != null)
-        {
-            m_profile.SetProfile(m_profile);
-        }
+        if (profiles == null) return;
+            profiles.SetProfile(profiles);
     }
 
-    void Start()
+    private void Start()
     {
-        if (Settings.profile && Settings.profile.audioMixer != null)
-        {
+        if (Settings.profile && Settings.profile.audioMixer == null) return;
             Settings.profile.GetAudioLevels();
         }
-    }
 
     public void ApplyAudioChanges()
     {
-        if (Settings.profile && Settings.profile.audioMixer != null)
-        {
+        if (Settings.profile && Settings.profile.audioMixer == null) return;
             Settings.profile.SaveAudioLevels();
-        }
     }
 
-    // public void CancelAudioChanges()
-    // {
-    //     if (Settings.profile && Settings.profile.audioMixer != null)
-    //     {
-    //         Settings.profile.GetAudioLevels();
-    //     }
-    //
-    //     for (int i = 0; i < m_audioSliders.Count; i++)
-    //     {
-    //         m_audioSliders[i].ResetSliderValue();
-    //     }
-    // }
-
-    public void LoadScene(string _loadNextScene)
+    public void LoadScene(string loadNextScene)
     {
-        SceneManager.LoadScene(_loadNextScene);
+        SceneManager.LoadScene(loadNextScene);
     }
     
     public void QuitGame()
