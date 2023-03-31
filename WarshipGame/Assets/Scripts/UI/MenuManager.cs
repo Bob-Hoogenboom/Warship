@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Handles all the panels in a list and activated these when an int is assigned.
+/// Handles all userinterface data being used by the player.
 /// </summary>
 public class MenuManager : MonoBehaviour
 {
@@ -18,5 +19,15 @@ public class MenuManager : MonoBehaviour
         currentPanel.SetActive(false);
         if (currentPanel == null) return;
             currentPanel = nextPanel[i];
+    }
+    
+    public void LoadScene(string loadNextScene)
+    {
+        SceneManager.LoadScene(loadNextScene);
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 94cc914e06ba53b4e9bdb0d4cc3c77e1, type: 2}
   volumeControl:
-  - name: Master
-    volume: 0.8611849
-    tempVolume: 0.8611849
-  - name: BMG
-    volume: 0.17750996
-    tempVolume: 0.42536938
-  - name: SoundEffect
-    volume: 0.6133255
-    tempVolume: 0.6133255
-  - name: System
-    volume: 0.3239723
-    tempVolume: 0.5943646
+  - AudioName: Master
+    AudioVolume: 0.68092346
+    TempVolume: 0.68092346
+  - AudioName: BMG
+    AudioVolume: 0.29017335
+    TempVolume: 0.29017335
+  - AudioName: SoundEffect
+    AudioVolume: 0.6358582
+    TempVolume: 0.6358582
+  - AudioName: System
+    AudioVolume: 0.86475676
+    TempVolume: 0.86475676
   saveInPlayerPref: 1
   prefPrefix: Settings_

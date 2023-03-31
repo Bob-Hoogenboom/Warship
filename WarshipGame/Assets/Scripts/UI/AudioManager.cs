@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class UserInterfaceManager : MonoBehaviour
+/// <summary>
+/// Manages data getters and setters for the audio settings.
+/// </summary>
+public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Profiles profiles;
 
@@ -18,21 +20,11 @@ public class UserInterfaceManager : MonoBehaviour
     {
         if (Settings.profile && Settings.profile.audioMixer == null) return;
             Settings.profile.GetAudioLevels();
-        }
+    }
 
     public void ApplyAudioChanges()
     {
         if (Settings.profile && Settings.profile.audioMixer == null) return;
             Settings.profile.SaveAudioLevels();
-    }
-
-    public void LoadScene(string loadNextScene)
-    {
-        SceneManager.LoadScene(loadNextScene);
-    }
-    
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

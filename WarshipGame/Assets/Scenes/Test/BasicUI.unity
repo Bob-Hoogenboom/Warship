@@ -283,6 +283,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3722155606706333649, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1400047021}
+    - target: {fileID: 3722155606706333649, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3722155606781851307, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
       propertyPath: m_Pivot.x
@@ -467,6 +477,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8857401646191589002, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
+      propertyPath: audioSliders.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857401646191589002, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
       propertyPath: m_audioSliders.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -585,6 +600,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dropdown: {fileID: 1206224542}
+--- !u!114 &1400047021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1721034520925985651, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 943210681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400047012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf909acb56edcf54980b7c52391e7164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1915032353
 GameObject:
   m_ObjectHideFlags: 0
