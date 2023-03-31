@@ -455,6 +455,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857401646191589002, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
+      propertyPath: profiles
+      value: 
+      objectReference: {fileID: 11400000, guid: 875913b82e856aa458af421af6840ca8,
+        type: 2}
+    - target: {fileID: 8857401646191589002, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
       propertyPath: m_profile
       value: 
       objectReference: {fileID: 11400000, guid: 875913b82e856aa458af421af6840ca8,
