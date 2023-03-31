@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4d6ff91875391d4b8f7700e3887585e, type: 2}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78038a3693fe74696a4afafc0d29c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  occupied: {r: 1, g: 0, b: 0, a: 1}
-  free: {r: 0, g: 1, b: 0, a: 1}
+  shipLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!135 &4562248876766735287
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115213162729169854}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.49999997
