@@ -25,7 +25,7 @@ public class TurnManager : MonoBehaviour
         {
             if (!Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity)) continue;
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.black);
-            _hit[] = hit;
+            // _hit[] = hit;
         }
         // foreach (Ray ray in _ray)
         // {
