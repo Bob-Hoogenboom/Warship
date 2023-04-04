@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
-public class TileData : MonoBehaviour
+public class HexData : MonoBehaviour
 {
     public Vector2Int Grid;
-
-    public Vector2Int _gridCoords => Grid;
 
 
 

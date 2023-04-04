@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class HexGrid : MonoBehaviour
 {
-    private Dictionary<Vector2Int, Hex> _hexTileDict = new Dictionary<Vector2Int, Hex>();
+    private Dictionary<Vector2Int, HexData> _hexTileDict = new Dictionary<Vector2Int, HexData>();
 
     private Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict =
         new Dictionary<Vector2Int, List<Vector2Int>>();
@@ -14,22 +11,15 @@ public class HexGrid : MonoBehaviour
     private void Start()
     {
         //fills dictionary with hextiles
-        foreach (Hex hex in FindObjectsOfType<Hex>())
+        foreach (HexData hex in FindObjectsOfType<HexData>())
         {
             _hexTileDict[hex.Grid] = hex;
         }
-
-        List<Vector2Int> neighbours = GetNeighboursFor(new Vector2Int(0, 0));
-        Debug.Log("neighbours for(0,0) are:");
-        foreach (Vector2Int neighbourPosition in neighbours)
-        {
-            Debug.Log(neighbourPosition);
-        }
     }
 
-    public Hex GetTileAt(Vector2Int hexCoordinates)
+    public HexData GetTileAt(Vector2Int hexCoordinates)
     {
-        Hex result = null;
+        HexData result = null;
         _hexTileDict.TryGetValue(hexCoordinates, out result);
         return result;
     }
