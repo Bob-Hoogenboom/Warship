@@ -33,6 +33,7 @@ public class GlowManager : MonoBehaviour
                 {
                     mat = new Material(_selectionMaterial);
                     mat.color = originalMaterials[i].color;
+                    _cachedSelectionMaterials.Add(originalMaterials[i].color, mat);
                 }
 
                 newMaterials[i] = mat;

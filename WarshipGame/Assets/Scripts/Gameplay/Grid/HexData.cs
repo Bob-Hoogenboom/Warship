@@ -1,15 +1,28 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [SelectionBase]
 public class HexData : MonoBehaviour
 {
     [SerializeField] private GlowManager _highlight;
+    [SerializeField] private HexType hexType;
     public Vector2Int Grid;
 
     private void Awake()
     {
         _highlight = GetComponent<GlowManager>();
+    }
+
+    public int GetType() => hexType switch
+    {
+        HexType.Default => 1,
+        _ => throw new Exception($"Hex of type{hexType} not supported")
+    };
+
+    public bool IsObstacle()
+    {
+        return this.hexType == HexType.Occupied;
     }
 
     public void EnableHighlight()
@@ -20,6 +33,12 @@ public class HexData : MonoBehaviour
     public void DisableHighlight()
     {
         _highlight.ToggleGlow(false);
+    }
+
+    public enum HexType
+    {
+        Default,
+        Occupied
     }
     
 

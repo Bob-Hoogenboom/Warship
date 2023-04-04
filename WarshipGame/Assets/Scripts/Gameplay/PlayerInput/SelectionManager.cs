@@ -30,7 +30,10 @@ public class SelectionManager : MonoBehaviour
             {
                 HexGridScript.GetTileAt(neighbours). DisableHighlight();
             }
-            _varNeighbours = HexGridScript.GetNeighboursFor(selectedHex.Grid);
+            //_varNeighbours = HexGridScript.GetNeighboursFor(selectedHex.Grid);
+
+            BFSResult bfsResult = GraphSearch.BFSGetRange(HexGridScript, selectedHex.Grid, 3);
+            _varNeighbours = new List<Vector2Int>(bfsResult.GetRangePositions());
             
             foreach (Vector2Int neighbours in _varNeighbours)
             {
@@ -43,7 +46,11 @@ public class SelectionManager : MonoBehaviour
                 Debug.Log(neighbourPosition);
             }
         }
-
+        
+        else
+        {
+            print("Missed");
+        }
     }
 
     //find closest point? Insteasd of hit collider?

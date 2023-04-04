@@ -7,15 +7,17 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        OnMouseClick();
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnMouseClick();
+        }
     }
 
     private void OnMouseClick()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePos = Input.mousePosition;
-            onPointerClick?.Invoke(mousePos);
-        }
+        if (onPointerClick == null) return;
+        
+        Vector3 mousePos = Input.mousePosition;
+        onPointerClick?.Invoke(mousePos);
     }
 }
