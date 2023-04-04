@@ -11,6 +11,7 @@ public class SelectionManager : MonoBehaviour
     public HexGrid HexGridScript;
     
     private RaycastHit _hit;
+    private List<Vector2Int> _varNeighbours = new List<Vector2Int>();
     
     private void Awake()
     {
@@ -24,9 +25,20 @@ public class SelectionManager : MonoBehaviour
         {
             HexData selectedHex = result.GetComponent<HexData>();
 
-            List<Vector2Int> neighbours = HexGridScript.GetNeighboursFor(selectedHex.Grid);
+            selectedHex.DisableHighlight();
+            foreach (Vector2Int neighbours in _varNeighbours)
+            {
+                HexGridScript.GetTileAt(neighbours). DisableHighlight();
+            }
+            _varNeighbours = HexGridScript.GetNeighboursFor(selectedHex.Grid);
+            
+            foreach (Vector2Int neighbours in _varNeighbours)
+            {
+                HexGridScript.GetTileAt(neighbours). EnableHighlight();
+            }
+            
             Debug.Log($"neighbours for {selectedHex.Grid} are:");
-            foreach (Vector2Int neighbourPosition in neighbours) 
+            foreach (Vector2Int neighbourPosition in _varNeighbours) 
             {
                 Debug.Log(neighbourPosition);
             }

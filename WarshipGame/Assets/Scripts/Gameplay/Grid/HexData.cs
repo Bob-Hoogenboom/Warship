@@ -1,11 +1,27 @@
+using System;
 using UnityEngine;
 
+[SelectionBase]
 public class HexData : MonoBehaviour
 {
+    [SerializeField] private GlowManager _highlight;
     public Vector2Int Grid;
 
+    private void Awake()
+    {
+        _highlight = GetComponent<GlowManager>();
+    }
 
-
+    public void EnableHighlight()
+    {
+        _highlight.ToggleGlow(true);
+    }
+    
+    public void DisableHighlight()
+    {
+        _highlight.ToggleGlow(false);
+    }
+    
 
 
     // [SerializeField] private LayerMask shipLayerMask;

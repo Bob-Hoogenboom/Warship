@@ -5,11 +5,10 @@ public class HexGrid : MonoBehaviour
 {
     private Dictionary<Vector2Int, HexData> _hexTileDict = new Dictionary<Vector2Int, HexData>();
 
-    private Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict =
-        new Dictionary<Vector2Int, List<Vector2Int>>();
+    private Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new Dictionary<Vector2Int, List<Vector2Int>>();
 
     private void Start()
-    {
+    { 
         //fills dictionary with hextiles
         foreach (HexData hex in FindObjectsOfType<HexData>())
         {

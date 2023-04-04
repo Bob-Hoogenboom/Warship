@@ -11,7 +11,7 @@ public class GlowManager : MonoBehaviour
 
     public Material _selectionMaterial;
 
-    private bool isGlowing = false;
+    public bool isGlowing = false;
 
     private void Awake()
     {
@@ -25,6 +25,47 @@ public class GlowManager : MonoBehaviour
             Material[] originalMaterials = renderer.materials;
             _originalMaterialDictionary.Add(renderer, originalMaterials);
             Material[] newMaterials = new Material[renderer.materials.Length];
+
+            for (int i = 0; i < originalMaterials.Length; i++)
+            {
+                Material mat = null;
+                if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out mat))
+                {
+                    mat = new Material(_selectionMaterial);
+                    mat.color = originalMaterials[i].color;
+                }
+
+                newMaterials[i] = mat;
+            }
+
+            _selectionMaterialDictionary.Add(renderer, newMaterials);
         }
+    }
+
+    public void ToggleGlow()
+    {
+        if (!isGlowing)
+        {
+            foreach (Renderer renderer in _originalMaterialDictionary.Keys)
+            {
+                renderer.materials = _selectionMaterialDictionary[renderer];
+            }
+        }
+        else
+        {
+            foreach (Renderer renderer in _originalMaterialDictionary.Keys)
+            {
+                renderer.materials = _originalMaterialDictionary[renderer];
+            }
+        }
+
+        isGlowing = !isGlowing;
+    }
+
+    public void ToggleGlow(bool state)
+    {
+        if (isGlowing == state) return;
+        isGlowing = !state;
+        ToggleGlow();
     }
 }

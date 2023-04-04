@@ -30,8 +30,8 @@ public class HexCoordinates : MonoBehaviour
             float x = _hexTileDatas[i].Position.GetPositionVector(_hexTileDatas[i].Diameter).x;
             float y = _hexTileDatas[i].Position.Elevation;
             float z = _hexTileDatas[i].Position.GetPositionVector(_hexTileDatas[i].Diameter).z;
-        
-            _instantiateObject = Instantiate(gridPrefab, new Vector3(x, y, z), Quaternion.identity);
+
+            _instantiateObject = Instantiate(gridPrefab, new Vector3(x, y, z), Quaternion.Euler(0,90,0));
             _instantiateObject.transform.SetParent(gameObject.transform);
         
             Coordinates(i);
