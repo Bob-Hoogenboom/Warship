@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GlowManager : MonoBehaviour
@@ -8,14 +9,18 @@ public class GlowManager : MonoBehaviour
     private Dictionary<Renderer, Material[]> _selectionMaterialDictionary = new Dictionary<Renderer, Material[]>();
     private Dictionary<Renderer, Material[]> _originalMaterialDictionary = new Dictionary<Renderer, Material[]>();
     private Dictionary<Color, Material> _cachedSelectionMaterials = new Dictionary<Color, Material>();
-
+    private Color _validHexColor = Color.green;
+    private Color _originalColor;
+    
     public Material _selectionMaterial;
 
     public bool isGlowing = false;
+    
 
     private void Awake()
     {
         prepareMaterialDictionaries();
+        _originalColor = _selectionMaterial.GetColor("_GlowColor");
     }
 
     private void prepareMaterialDictionaries()
@@ -68,5 +73,30 @@ public class GlowManager : MonoBehaviour
         if (isGlowing == state) return;
         isGlowing = !state;
         ToggleGlow();
+    }
+
+    internal void ResetSelectedHighlight()
+    {
+        if (!isGlowing) return;
+        foreach (Renderer renderer in _selectionMaterialDictionary.Keys)
+        {
+            foreach (Material item in _selectionMaterialDictionary[renderer])
+            { 
+                item.SetColor("_GlowColor", _originalColor);
+            }
+            renderer.materials = _selectionMaterialDictionary[renderer];
+        }
+    }
+
+    internal void HighlightValidPath()
+    {
+        if (!isGlowing) return;
+        foreach (Renderer renderer in _selectionMaterialDictionary.Keys)
+        {
+            foreach (Material item in _selectionMaterialDictionary[renderer])
+            { 
+                item.SetColor("_GlowColor", _validHexColor);
+            }
+        }
     }
 }

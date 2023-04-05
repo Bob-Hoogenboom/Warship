@@ -13229,7 +13229,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8e59ae4b33b02c74ba228999648e74cb,
         type: 3}
       propertyPath: m_Name
-      value: VH_Fregatship1
+      value: VH_Fregatship
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8e59ae4b33b02c74ba228999648e74cb,
         type: 3}
@@ -13707,29 +13707,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2105787315}
-  - component: {fileID: 2105787314}
   - component: {fileID: 2105787317}
   - component: {fileID: 2105787316}
+  - component: {fileID: 2105787319}
+  - component: {fileID: 2105787318}
   m_Layer: 7
-  m_Name: Boatin'
+  m_Name: FregatShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2105787314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105787312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470c942896810b341aef2238c2fb85c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Bob
 --- !u!4 &2105787315
 Transform:
   m_ObjectHideFlags: 0
@@ -13775,6 +13763,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.22949274, y: 0.21721484, z: 0.56402314}
   m_Center: {x: -1.9868e-41, y: 0.09605927, z: 0.027042791}
+--- !u!114 &2105787318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105787312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51dcd36421a28e41964fd19235431e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectionMaterial: {fileID: 2100000, guid: 6946a71c24caa554c9560bb44e6243ad, type: 2}
+  isGlowing: 0
+--- !u!114 &2105787319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105787312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe1ecd2d2fed50419dd38a7e752b042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationTime: 0.3
+  MovementTime: 1
+  Points: 3
 --- !u!1 &2135012737
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,13 @@ public class HexGrid : MonoBehaviour
 
         return _hexTileNeighboursDict[hexCoordinates];
     }
-
+    
+    //14:43 position return?
+    public Vector2Int GetClosestHex(Vector3 worldPosition)
+    {
+        worldPosition.y = 0;
+        throw new System.NotImplementedException();
+    }
 
     public static class Directions
     {
