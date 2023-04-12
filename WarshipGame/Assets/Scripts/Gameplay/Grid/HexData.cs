@@ -44,12 +44,11 @@ public class HexData : MonoBehaviour
     {
         _highlight.HighlightValidPath();
     }
-    
-    
+}
+
     //enum not quite right. needs better placing
     public enum HexType
     {
         Default,
         Occupied
     }
-}

@@ -7,8 +7,10 @@ public class HexGrid : MonoBehaviour
 
     private Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new Dictionary<Vector2Int, List<Vector2Int>>();
 
+    private HexCoordinates _hexCoords;
     private void Start()
-    { 
+    {
+        _hexCoords = FindObjectOfType<HexCoordinates>();
         //fills dictionary with hextiles
         foreach (HexData hex in FindObjectsOfType<HexData>())
         {
@@ -45,11 +47,11 @@ public class HexGrid : MonoBehaviour
         return _hexTileNeighboursDict[hexCoordinates];
     }
     
-    //14:43 position return?
+    //14:00 
     public Vector2Int GetClosestHex(Vector3 worldPosition)
     {
-        worldPosition.y = 0;
-        throw new System.NotImplementedException();
+        worldPosition.y = 0; 
+        return _hexCoords.PosToCord(worldPosition);
     }
 
     public static class Directions

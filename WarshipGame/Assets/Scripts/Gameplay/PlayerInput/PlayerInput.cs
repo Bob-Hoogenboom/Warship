@@ -9,14 +9,12 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnMouseClick();
+            InputReader();
         }
     }
 
-    private void OnMouseClick()
+    private void InputReader()
     {
-        if (onPointerClick == null) return;
-        
         Vector3 mousePos = Input.mousePosition;
         onPointerClick?.Invoke(mousePos);
     }

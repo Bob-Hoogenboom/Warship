@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     
     public LayerMask SelectionMask;
-    public HexGrid HexGridScript;
+    //public HexGrid HexGridScript;
     
     private RaycastHit _hit;
-    private List<Vector2Int> _varNeighbours = new List<Vector2Int>();
-    
+    //private List<Vector2Int> _varNeighbours = new List<Vector2Int>();
+
+    public UnityEvent<GameObject> OnShipSelected;
+    public UnityEvent<GameObject> OnTerrainSelected;
+
     private void Awake()
     {
         if (mainCamera == null) mainCamera = Camera.main;
@@ -20,44 +24,30 @@ public class SelectionManager : MonoBehaviour
 
     public void HandleClick(Vector3 mousePosition)
     {
-        GameObject result; 
-        if (FindTarget(mousePosition, out result))
+        if (FindTarget(mousePosition, out var result))
         {
-            HexData selectedHex = result.GetComponent<HexData>();
-
-            selectedHex.DisableHighlight();
-            foreach (Vector2Int neighbours in _varNeighbours)
+            if (ShipSelected(result))
             {
-                HexGridScript.GetTileAt(neighbours). DisableHighlight();
+                OnShipSelected?.Invoke(result);
             }
-            //_varNeighbours = HexGridScript.GetNeighboursFor(selectedHex.Grid);
-
-            BFSResult bfsResult = GraphSearch.BFSGetRange(HexGridScript, selectedHex.Grid, 3);
-            _varNeighbours = new List<Vector2Int>(bfsResult.GetRangePositions());
-            
-            foreach (Vector2Int neighbours in _varNeighbours)
+            else
             {
-                HexGridScript.GetTileAt(neighbours). EnableHighlight();
-            }
-            
-            Debug.Log($"neighbours for {selectedHex.Grid} are:");
-            foreach (Vector2Int neighbourPosition in _varNeighbours) 
-            {
-                Debug.Log(neighbourPosition);
+                OnTerrainSelected.Invoke(result);
             }
         }
         
-        else
-        {
-            print("Missed");
-        }
+    }
+
+    private bool ShipSelected(GameObject result)
+    {
+        return result.GetComponent<Ship>() != null;
     }
 
     //find closest point? Insteasd of hit collider?
     private bool FindTarget(Vector3 mousePosition, out GameObject result)
     {
         Ray ray = mainCamera.ScreenPointToRay(mousePosition);
-        if (Physics.Raycast(ray, out _hit, SelectionMask))
+        if (Physics.Raycast(ray, out _hit, 100,SelectionMask))
         {
             result = _hit.collider.gameObject;
             return true;
@@ -67,3 +57,26 @@ public class SelectionManager : MonoBehaviour
         return false;
     }
 }
+
+// HexData selectedHex = result.GetComponent<HexData>();
+//
+// selectedHex.DisableHighlight();
+// foreach (Vector2Int neighbours in _varNeighbours)
+// {
+//     HexGridScript.GetTileAt(neighbours). DisableHighlight();
+// }
+// //_varNeighbours = HexGridScript.GetNeighboursFor(selectedHex.Grid);
+//
+// BFSResult bfsResult = GraphSearch.BFSGetRange(HexGridScript, selectedHex.Grid, 3);
+// _varNeighbours = new List<Vector2Int>(bfsResult.GetRangePositions());
+//             
+// foreach (Vector2Int neighbours in _varNeighbours)
+// {
+//     HexGridScript.GetTileAt(neighbours). EnableHighlight();
+// }
+//             
+// Debug.Log($"neighbours for {selectedHex.Grid} are:");
+// foreach (Vector2Int neighbourPosition in _varNeighbours) 
+// {
+//     Debug.Log(neighbourPosition);
+// }

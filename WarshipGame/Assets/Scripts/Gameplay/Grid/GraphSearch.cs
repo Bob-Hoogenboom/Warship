@@ -82,7 +82,7 @@ public struct BFSResult
             return GraphSearch.GeneratePathBFS(destination, VisitedHexesDict);
         }
 
-        public bool IsHExPositionInRange(Vector2Int position)
+        public bool IsHexPositionInRange(Vector2Int position)
         {
             return VisitedHexesDict.ContainsKey(position);
         }

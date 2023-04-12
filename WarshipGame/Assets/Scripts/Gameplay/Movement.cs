@@ -21,14 +21,19 @@ public class Movement : MonoBehaviour
     public void ShowRange(Ship selectedShip, HexGrid hexGrid)
     {
         CalculateRange(selectedShip, hexGrid);
+
+        Vector2Int shipPos = hexGrid.GetClosestHex(selectedShip.transform.position);
+        
         foreach (Vector2Int hexPosition in _movementRange.GetRangePositions())
         {
+            if (shipPos == hexPosition) continue;
             hexGrid.GetTileAt(hexPosition).EnableHighlight();
         }
     }
 
-    public void CalculateRange(Ship selectedShip, HexGrid hexGrid)
+    private void CalculateRange(Ship selectedShip, HexGrid hexGrid)
     {
+        Debug.Log(selectedShip + "---" + hexGrid);
         _movementRange = GraphSearch.BFSGetRange(hexGrid, hexGrid.GetClosestHex(selectedShip.transform.position), selectedShip.MovementPoints);
     }
 
@@ -58,6 +63,6 @@ public class Movement : MonoBehaviour
 
     public bool IsHexInRange(Vector2Int hexPosition)
     {
-        return _movementRange.IsHExPositionInRange(hexPosition);
+        return _movementRange.IsHexPositionInRange(hexPosition);
     }
 }
