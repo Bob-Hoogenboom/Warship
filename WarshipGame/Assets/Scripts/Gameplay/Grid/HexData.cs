@@ -13,20 +13,30 @@ public enum HexType
 [SelectionBase]
 public class HexData : MonoBehaviour
 {
-    [SerializeField] private GlowManager _highlight;
+    [SerializeField] private GlowManager highlight;
     [SerializeField] private HexType hexType;
     public Vector2Int Grid;
 
     private void Awake()
     {
-        _highlight = GetComponent<GlowManager>();
+        highlight = GetComponent<GlowManager>();
     }
 
-    public int GetType() => hexType switch
+    /// <summary>
+    /// Switch Case. Hex of type Default have a value of 1, every other type is not supported
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public int GetType()
     {
-        HexType.Default => 1,
-        _ => throw new Exception($"Hex of type{hexType} not supported")
-    };
+        switch (hexType)
+        {
+            case HexType.Default:
+                return 1;
+            default:
+                throw new Exception($"Hex of type{hexType} not supported");
+        }   
+    }
 
     public bool IsObstacle()
     {
@@ -35,21 +45,21 @@ public class HexData : MonoBehaviour
 
     public void EnableHighlight()
     {
-        _highlight.ToggleGlow(true);
+        highlight.ToggleGlow(true);
     }
     
     public void DisableHighlight()
     {
-        _highlight.ToggleGlow(false);
+        highlight.ToggleGlow(false);
     }
 
     public void ResetHighlight()
     {
-        _highlight.ResetSelectedHighlight();
+        highlight.ResetSelectedHighlight();
     }
 
     public void HighlightPath()
     {
-        _highlight.HighlightValidPath();
+        highlight.HighlightValidPath();
     }
 }
