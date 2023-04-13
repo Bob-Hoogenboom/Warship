@@ -2253,7 +2253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8504059556690447652}
   m_Layer: 0
-  m_Name: VH_Fregat
+  m_Name: MultipurposeFregat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
