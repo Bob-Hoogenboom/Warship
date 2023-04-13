@@ -6,30 +6,28 @@ using UnityEngine.UI;
 /// </summary>
 public class Stats : MonoBehaviour
 {
-    [Tooltip("Stats of the Ship")]
+    private Camera _camera;
+    
+    [Header("Stats of the Ship")]
     [SerializeField] private int maxHealth;
     [SerializeField] private int damage;
-    [SerializeField] private bool isPlayer;
-    private Camera _camera;
-    public Slider healthBar;
-    
+    [SerializeField] private Slider healthBar;
 
-    // this allows us to use the stats cross script
-    public bool Selected { get; set; }
-    public int CurrentHealth { get; set; }
-    public int MaxHealth => maxHealth;
-    public bool IsPlayer => isPlayer;
+    // This allows us to use the stats cross script
     public int Damage => damage;
+    public Slider HealthBar => healthBar;
 
+    // This updated the health bar rotation to always look at the camera
     private void LateUpdate()
     {
         healthBar.transform.LookAt(healthBar.transform.position + _camera.transform.forward);
     }
 
-    // sets the CurrentHealth to the maxHealth the moment the ship becomes active
+    // Sets the CurrentHealth to the maxHealth the moment the ship becomes active
     private void Awake()
     {
         _camera = Camera.main;
-        CurrentHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.value = maxHealth;
     }
 }

@@ -1,93 +1,60 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script makes it so that the ships can lose health and die which will turn them off and allows the ships current health to be displayed in a ui element
 /// </summary>
 public class HealthManager : MonoBehaviour
 {
-    // Here we can set which element is for the enemy and which one is for the player
+    [SerializeField] private GameObject playerFleet;
+    // Here we set which fleet is the enemy so we can check later who we are targeting
     [SerializeField] private GameObject enemyFleet;
 
+    // Here we have variable used to keep track of what has happened and who is receiving damage
     private bool _alreadyHaveTarget;
-    private GameObject _playerTarget;
-    private GameObject _enemyTarget;
-    private Ray _ray;
-    private RaycastHit _hit;
     private Camera _camera;
-    private Stats _stats;
-    
-    // here we check if a ship got and hit and if that ship is a player or a enemy
+    private Stats _playerStats;
+    private Stats _enemyStats;
+    private Transform _hit;
+
+    // Here we set the main camera for later use
     private void Awake()
     {
         _camera = Camera.main;
+        
+        // Here we set default stats for the HealthManager to work with in case something goes wrong
+        _enemyStats = enemyFleet.GetComponentInChildren<Stats>();
+        _playerStats = playerFleet.GetComponentInChildren<Stats>();
     }
-
+    
+    // Here we check if a ship got and hit and if that ship is a player or a enemy
     private void Update()
     {
         if (!Input.GetMouseButtonDown(0)) return;
         
-        _ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(_ray, out _hit, Mathf.Infinity)) return;
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
 
-        _stats = _hit.transform.GetComponent<Stats>();
-        if (_stats.transform.IsChildOf(enemyFleet.transform))
+        _hit = hit.transform;
+        // Here we check if the target is an enemy ship and then change the health of one of the enemies ships if true
+        if (_hit.IsChildOf(enemyFleet.transform))
         {
-            _enemyTarget = _hit.transform.gameObject;
-            EnemyDamage();
+            _enemyStats = _hit.GetComponent<Stats>();
+            ChangeHealth(_playerStats.Damage, _enemyStats.HealthBar);
             return;
         }
         
-        _playerTarget = _hit.transform.gameObject;
-        
-        PlayerDamage();
-    }
-
-    // Here we deal the damage to the player
-    private void PlayerDamage()
-    {
-        if (_stats.Selected)
-        {
-            _stats.Selected = false;
-            _alreadyHaveTarget = false;
-            return;
-        }
-
-        if (_alreadyHaveTarget) return;
-
-        _stats.healthBar.maxValue = _stats.MaxHealth;
-        _stats.healthBar.value = _stats.CurrentHealth;
-        
-        _alreadyHaveTarget = true;
-        _stats.Selected = true;
-        
+        // Here we change the health of one of the players ships
+        _playerStats = _hit.GetComponent<Stats>();
+        ChangeHealth(_enemyStats.Damage, _playerStats.HealthBar);
     }
     
-    
-    // Here we deal the damage to the enemy
-    private void EnemyDamage()
+    // Here we change the health value to the player or the enemy depending on who is the target
+    private void ChangeHealth(int damageTaken, Slider healthBar)
     {
-        ChangeHealth(_stats.Damage, _stats.IsPlayer);
+        healthBar.value -= damageTaken;
         
-        _stats.healthBar.maxValue = _stats.MaxHealth;
-        _stats.healthBar.value = _stats.CurrentHealth;
-    }
-    
-    // Here we change the health value to the player or the enemy depending on if we call PlayerDamage() or EnemyDamage()
-    private void ChangeHealth(int damageTaken, bool player)
-    {
-        if (!player)
-        {
-            _stats.CurrentHealth -= damageTaken;
-            _stats.healthBar.value = _stats.CurrentHealth;
-
-            if (_stats.CurrentHealth > 0) return;
-            _enemyTarget.SetActive(false);
-            return;
-        }
-        _stats.CurrentHealth -= damageTaken;
-        _stats.healthBar.value = _stats.CurrentHealth;
-        
-        if (_stats.CurrentHealth > 0) return;
-        _playerTarget.SetActive(false);
+        if (healthBar.value > 0) return; 
+        _hit.gameObject.SetActive(false);
     }
 }
