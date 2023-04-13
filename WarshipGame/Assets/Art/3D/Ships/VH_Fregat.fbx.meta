@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: e50caf27e252c77428b57543257f6b5f
+guid: 8be0fb1ddce66064898d4421d5a5eaa8
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antennas
+    second: {fileID: 2100000, guid: 5513e3f85bb24444f942a0be6fdc2e3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base metal
+    second: {fileID: 2100000, guid: 5513e3f85bb24444f942a0be6fdc2e3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 5513e3f85bb24444f942a0be6fdc2e3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sonar
+    second: {fileID: 2100000, guid: 5513e3f85bb24444f942a0be6fdc2e3d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
