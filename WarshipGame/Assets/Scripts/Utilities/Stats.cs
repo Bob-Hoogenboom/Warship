@@ -17,16 +17,9 @@ public class Stats : MonoBehaviour
     public int Damage => damage;
     public Slider HealthBar => healthBar;
 
-    // This updated the health bar rotation to always look at the camera
-    private void LateUpdate()
-    {
-        healthBar.transform.LookAt(healthBar.transform.position + _camera.transform.forward);
-    }
-
-    // Sets the CurrentHealth to the maxHealth the moment the ship becomes active
+    // Sets the healthBar value to the maxHealth
     private void Awake()
     {
-        _camera = Camera.main;
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
     }

@@ -2,32 +2,32 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This script makes it so that the ships can lose health and die which will turn them off and allows the ships current health to be displayed in a ui element
+/// This script makes it so that the ship's can lose health and die which will turn them off and allows the ships current health to be displayed in a UI element
 /// </summary>
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private GameObject playerFleet;
-    // Here we set which fleet is the enemy so we can check later who we are targeting
+    // Here we set which fleet is the enemy fleet so we can check later who we are targeting
     [SerializeField] private GameObject enemyFleet;
 
-    // Here we have variable used to keep track of what has happened and who is receiving damage
+    // Here we have a variable used to keep track of what has happened and who is receiving damage
     private bool _alreadyHaveTarget;
     private Camera _camera;
     private Stats _playerStats;
     private Stats _enemyStats;
     private Transform _hit;
 
-    // Here we set the main camera for later use
     private void Awake()
     {
+        // Here we set the main camera for later use
         _camera = Camera.main;
         
-        // Here we set default stats for the HealthManager to work with in case something goes wrong
+        // Here we set a default stats value for the HealthManager to work with in case something goes wrong
         _enemyStats = enemyFleet.GetComponentInChildren<Stats>();
         _playerStats = playerFleet.GetComponentInChildren<Stats>();
     }
     
-    // Here we check if a ship got and hit and if that ship is a player or a enemy
+    // Here we check if a ship got hit and if that ship is a player or an enemy
     private void Update()
     {
         if (!Input.GetMouseButtonDown(0)) return;
@@ -44,7 +44,7 @@ public class HealthManager : MonoBehaviour
             return;
         }
         
-        // Here we change the health of one of the players ships
+        // Here we change the health of one of the player's ships
         _playerStats = _hit.GetComponent<Stats>();
         ChangeHealth(_enemyStats.Damage, _playerStats.HealthBar);
     }
