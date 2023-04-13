@@ -1,7 +1,15 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
+public enum HexType
+{
+    Default,
+    Occupied
+}
+
+/// <summary>
+/// Holds the data of every hexagon
+/// </summary>
 [SelectionBase]
 public class HexData : MonoBehaviour
 {
@@ -45,10 +53,3 @@ public class HexData : MonoBehaviour
         _highlight.HighlightValidPath();
     }
 }
-
-    //enum not quite right. needs better placing
-    public enum HexType
-    {
-        Default,
-        Occupied
-    }

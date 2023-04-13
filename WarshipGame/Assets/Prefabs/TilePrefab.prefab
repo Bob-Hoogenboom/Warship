@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51dcd36421a28e41964fd19235431e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionMaterial: {fileID: 2100000, guid: 3657ba4c389e9f0429166ae10a34124f, type: 2}
-  isGlowing: 0
+  SelectionMaterial: {fileID: 2100000, guid: 3657ba4c389e9f0429166ae10a34124f, type: 2}
+  IsGlowing: 0
 --- !u!114 &5876271150163288081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _highlight: {fileID: 821190975059637167}
+  hexType: 0
   Grid: {x: 0, y: 0}
 --- !u!1 &4250047340244201784
 GameObject:

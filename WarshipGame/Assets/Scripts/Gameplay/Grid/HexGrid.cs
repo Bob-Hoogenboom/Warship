@@ -1,23 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class contains all the data of the grid, position of tiles [Vector2Int Coordinates]
+/// </summary>
 public class HexGrid : MonoBehaviour
 {
     private Dictionary<Vector2Int, HexData> _hexTileDict = new Dictionary<Vector2Int, HexData>();
-
     private Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new Dictionary<Vector2Int, List<Vector2Int>>();
 
     private HexCoordinates _hexCoords;
+    
+    
+    //fills dictionary with hextiles
     private void Start()
     {
         _hexCoords = FindObjectOfType<HexCoordinates>();
-        //fills dictionary with hextiles
+        
         foreach (HexData hex in FindObjectsOfType<HexData>())
         {
             _hexTileDict[hex.Grid] = hex;
         }
     }
 
+    /// <summary>
+    /// Returns the coordinate value of a tile
+    /// </summary>
+    /// <param name="hexCoordinates"></param>
+    /// <returns></returns>
     public HexData GetTileAt(Vector2Int hexCoordinates)
     {
         HexData result = null;
@@ -25,6 +35,11 @@ public class HexGrid : MonoBehaviour
         return result;
     }
 
+    /// <summary>
+    /// Gets a Tile-Coordinate and returns the surrounding tiles [neighbours] of the given Tile-Coordinate
+    /// </summary>
+    /// <param name="hexCoordinates"></param>
+    /// <returns></returns>
     public List<Vector2Int> GetNeighboursFor(Vector2Int hexCoordinates)
     {
         //if the dictionary doesn't contains the key it will return an empty list
@@ -47,13 +62,20 @@ public class HexGrid : MonoBehaviour
         return _hexTileNeighboursDict[hexCoordinates];
     }
     
-    //14:00 
+    /// <summary>
+    /// Parses the worldPosition of a ship to the HexCoord script and returns the closest tile.
+    /// </summary>
+    /// <param name="worldPosition"></param>
+    /// <returns></returns>
     public Vector2Int GetClosestHex(Vector3 worldPosition)
     {
-        worldPosition.y = 0; 
+        worldPosition.y = transform.position.y; 
         return _hexCoords.PosToCord(worldPosition);
     }
 
+    /// <summary>
+    /// Coordinate offsets
+    /// </summary>
     public static class Directions
     {
         public static List<Vector2Int> directions = new List<Vector2Int>()

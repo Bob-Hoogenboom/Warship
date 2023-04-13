@@ -1,13 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Handles the movement of the Ships
+/// </summary>
 public class Movement : MonoBehaviour
 {
     private BFSResult _movementRange = new BFSResult();
     private List<Vector2Int> _currentPath = new List<Vector2Int>();
 
+    /// <summary>
+    /// Hides the Range of the currently selected Ships
+    /// </summary>
+    /// <param name="hexGrid"></param>
     public void HideRange(HexGrid hexGrid)
     {
         foreach (Vector2Int hexPosition in _movementRange.GetRangePositions())
@@ -18,6 +24,11 @@ public class Movement : MonoBehaviour
         _movementRange = new BFSResult();
     }
 
+    /// <summary>
+    /// Draws the Range of the currently selected Ship
+    /// </summary>
+    /// <param name="selectedShip"></param>
+    /// <param name="hexGrid"></param>
     public void ShowRange(Ship selectedShip, HexGrid hexGrid)
     {
         CalculateRange(selectedShip, hexGrid);
@@ -30,13 +41,17 @@ public class Movement : MonoBehaviour
             hexGrid.GetTileAt(hexPosition).EnableHighlight();
         }
     }
-
+    
     private void CalculateRange(Ship selectedShip, HexGrid hexGrid)
     {
-        Debug.Log(selectedShip + "---" + hexGrid);
         _movementRange = GraphSearch.BFSGetRange(hexGrid, hexGrid.GetClosestHex(selectedShip.transform.position), selectedShip.MovementPoints);
     }
 
+    /// <summary>
+    /// Highlights the currently selected path for the currently selected Ship
+    /// </summary>
+    /// <param name="selectedHexPosition"></param>
+    /// <param name="hexGrid"></param>
     public void ShowPath(Vector2Int selectedHexPosition, HexGrid hexGrid)
     {
         if (_movementRange.GetRangePositions(). Contains(selectedHexPosition))
@@ -54,10 +69,9 @@ public class Movement : MonoBehaviour
 
         }
     }
-
+    
     public void MoveShip(Ship selectedShip, HexGrid hexGrid)
     {
-        Debug.Log("moving Ship " + selectedShip.name);
         selectedShip.MoveTroughPath(_currentPath.Select(pos=> hexGrid.GetTileAt(pos).transform.position).ToList());
     }
 

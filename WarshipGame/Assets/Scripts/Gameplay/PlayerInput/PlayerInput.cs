@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// A very simple input listener script
+/// </summary>
 public class PlayerInput : MonoBehaviour
 {
     public UnityEvent<Vector3> onPointerClick;
-
+    
     private void Update()
     {
+        //GetMouseButtonDown(0) == Left mouse button
         if (Input.GetMouseButtonDown(0))
         {
             InputReader();
         }
     }
-
+    
     private void InputReader()
     {
         Vector3 mousePos = Input.mousePosition;

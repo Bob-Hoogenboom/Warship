@@ -1,29 +1,30 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Manages material colors and shaders to be activated and changed on selection.
+/// </summary>
 public class GlowManager : MonoBehaviour
 {
-    private Dictionary<Renderer, Material[]> _selectionMaterialDictionary = new Dictionary<Renderer, Material[]>();
-    private Dictionary<Renderer, Material[]> _originalMaterialDictionary = new Dictionary<Renderer, Material[]>();
-    private Dictionary<Color, Material> _cachedSelectionMaterials = new Dictionary<Color, Material>();
-    private Color _validHexColor = Color.green;
+    private readonly Dictionary<Renderer, Material[]> _selectionMaterialDictionary = new Dictionary<Renderer, Material[]>();
+    private readonly Dictionary<Renderer, Material[]> _originalMaterialDictionary = new Dictionary<Renderer, Material[]>();
+    private readonly Dictionary<Color, Material> _cachedSelectionMaterials = new Dictionary<Color, Material>();
+    private readonly Color _validHexColor = Color.green;
     private Color _originalColor;
     
-    public Material _selectionMaterial;
-
-    public bool isGlowing = false;
+    public Material SelectionMaterial;
+    public bool IsGlowing = false;
     
-
     private void Awake()
     {
-        prepareMaterialDictionaries();
-        _originalColor = _selectionMaterial.GetColor("_GlowColor");
+        PrepareMaterialDictionaries();
+        _originalColor = SelectionMaterial.GetColor("_GlowColor");
     }
 
-    private void prepareMaterialDictionaries()
+    /// <summary>
+    /// Fills in material dictionaries for later use 
+    /// </summary>
+    private void PrepareMaterialDictionaries()
     {
         foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
@@ -36,8 +37,10 @@ public class GlowManager : MonoBehaviour
                 Material mat = null;
                 if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out mat))
                 {
-                    mat = new Material(_selectionMaterial);
-                    mat.color = originalMaterials[i].color;
+                    mat = new Material(SelectionMaterial)
+                    {
+                        color = originalMaterials[i].color
+                    };
                     _cachedSelectionMaterials.Add(originalMaterials[i].color, mat);
                 }
 
@@ -48,36 +51,46 @@ public class GlowManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles the glow on or off when the function is called
+    /// </summary>
     public void ToggleGlow()
     {
-        if (!isGlowing)
+        if (!IsGlowing)
         {
             foreach (Renderer renderer in _originalMaterialDictionary.Keys)
             {
                 renderer.materials = _selectionMaterialDictionary[renderer];
             }
-        }
-        else
-        {
-            foreach (Renderer renderer in _originalMaterialDictionary.Keys)
-            {
-                renderer.materials = _originalMaterialDictionary[renderer];
-            }
+            IsGlowing = true;
+            return;
         }
 
-        isGlowing = !isGlowing;
+        foreach (Renderer renderer in _originalMaterialDictionary.Keys)
+        {
+            renderer.materials = _originalMaterialDictionary[renderer];
+        }
+
+        IsGlowing = false;
     }
 
+    /// <summary>
+    /// Returns the state of the glow when the function is called
+    /// </summary>
+    /// <param name="state"></param>
     public void ToggleGlow(bool state)
     {
-        if (isGlowing == state) return;
-        isGlowing = !state;
+        if (IsGlowing == state) return;
+        IsGlowing = !state;
         ToggleGlow();
     }
 
+    /// <summary>
+    /// Removes and reapplies the new highlight on the newly selected object
+    /// </summary>
     internal void ResetSelectedHighlight()
     {
-        if (!isGlowing) return;
+        if (!IsGlowing) return;
         foreach (Renderer renderer in _selectionMaterialDictionary.Keys)
         {
             foreach (Material item in _selectionMaterialDictionary[renderer])
@@ -88,9 +101,12 @@ public class GlowManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Highlights a valid path, every hex that isn't valid does not get highlighted
+    /// </summary>
     internal void HighlightValidPath()
     {
-        if (!isGlowing) return;
+        if (!IsGlowing) return;
         foreach (Renderer renderer in _selectionMaterialDictionary.Keys)
         {
             foreach (Material item in _selectionMaterialDictionary[renderer])

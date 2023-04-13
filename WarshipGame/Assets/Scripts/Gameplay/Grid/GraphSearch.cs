@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Calculates the range of the character, the cost of the path and the possibility of the range and path
+/// </summary>
 public class GraphSearch
 {
     //Breadth First Search Result*
@@ -25,24 +28,22 @@ public class GraphSearch
             {
                 if (hexGrid.GetTileAt(neighbourPosition).IsObstacle()) continue;
 
-                int _hexCost = hexGrid.GetTileAt(neighbourPosition).GetType();
+                int hexCost = hexGrid.GetTileAt(neighbourPosition).GetType();
                 int currentCost = rangeCost[currentHex];
-                int newCost = currentCost + _hexCost;
-
-
-                if (newCost <= movementPoints)
+                int newCost = currentCost + hexCost;
+                
+                if (newCost > movementPoints) continue;
+                
+                if (!visitedHexes.ContainsKey(neighbourPosition))
                 {
-                    if (!visitedHexes.ContainsKey(neighbourPosition))
-                    {
-                        visitedHexes[neighbourPosition] = currentHex;
-                        rangeCost[neighbourPosition] = newCost;
-                        hexesToVisitQueue.Enqueue(neighbourPosition);
-                    }
-                    else if (rangeCost[neighbourPosition] > newCost)
-                    {
-                        rangeCost[neighbourPosition] = newCost;
-                        visitedHexes[neighbourPosition] = currentHex;
-                    }
+                    visitedHexes[neighbourPosition] = currentHex;
+                    rangeCost[neighbourPosition] = newCost;
+                    hexesToVisitQueue.Enqueue(neighbourPosition);
+                }
+                else if (rangeCost[neighbourPosition] > newCost)
+                {
+                    rangeCost[neighbourPosition] = newCost;
+                    visitedHexes[neighbourPosition] = currentHex;
                 }
             }
         }
@@ -71,23 +72,29 @@ public class GraphSearch
     }
 }
 
-
+/// <summary>
+/// Holds hexes the Ship has already visited
+/// </summary>
 public struct BFSResult
+{
+    public Dictionary<Vector2Int, Vector2Int?> VisitedHexesDict;
+
+    public List<Vector2Int> GetPathTo(Vector2Int destination)
     {
-        public Dictionary<Vector2Int, Vector2Int?> VisitedHexesDict;
-
-        public List<Vector2Int> GetPathTo(Vector2Int destination)
-        {
-            if (!VisitedHexesDict.ContainsKey(destination)) return new List<Vector2Int>();
-            return GraphSearch.GeneratePathBFS(destination, VisitedHexesDict);
-        }
-
-        public bool IsHexPositionInRange(Vector2Int position)
-        {
-            return VisitedHexesDict.ContainsKey(position);
-        }
-
-        public IEnumerable<Vector2Int> GetRangePositions() => VisitedHexesDict.Keys;
+        return !VisitedHexesDict.ContainsKey(destination) ? new List<Vector2Int>() : GraphSearch.GeneratePathBFS(destination, VisitedHexesDict);
     }
+
+    /// <summary>
+    /// Returns the key of the dictionary if the hex tile is in range of the Ship
+    /// </summary>
+    /// <param name="position"></param>
+    /// <returns></returns>
+    public bool IsHexPositionInRange(Vector2Int position)
+    {
+        return VisitedHexesDict.ContainsKey(position);
+    }
+
+    public IEnumerable<Vector2Int> GetRangePositions() => VisitedHexesDict.Keys;
+}
 
 

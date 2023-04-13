@@ -1,15 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Holds data specifically for the ship like movement speed and the range it can move
+/// Also activates shaders on selection
+/// </summary>
 [SelectionBase]
 public class Ship : MonoBehaviour
 {
     [Header("Movement")]
+    [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
     [SerializeField] private float RotationTime = 0.3f;
+    [Tooltip("The time it takes the ship to move from tile to tile")]
     [SerializeField] private float MovementTime = 1f;
+    [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
     [SerializeField] private int Points = 3;
     
     private Queue<Vector3> _pathPositions = new Queue<Vector3>();
@@ -33,6 +39,10 @@ public class Ship : MonoBehaviour
         _glowManager.ToggleGlow();
     }
 
+    /// <summary>
+    /// Cycles trough the current path queue and removes the tiles it passed out of the queue
+    /// </summary>
+    /// <param name="currentPath"></param>
     internal void MoveTroughPath(List<Vector3> currentPath)
     {
         _pathPositions = new Queue<Vector3>(currentPath);
@@ -40,6 +50,13 @@ public class Ship : MonoBehaviour
         StartCoroutine(RotationCoroutine(firstTarget, RotationTime, true));
     }
 
+    /// <summary>
+    /// Rotates from the start location to the end location in a set time
+    /// </summary>
+    /// <param name="endPosition"></param>
+    /// <param name="rotationTime"></param>
+    /// <param name="firstRotation"></param>
+    /// <returns></returns>
     private IEnumerator RotationCoroutine(Vector3 endPosition, float rotationTime, bool firstRotation = false)
     {
         Quaternion startRotation = transform.rotation;
@@ -64,7 +81,12 @@ public class Ship : MonoBehaviour
         StartCoroutine(MovementCoroutine(endPosition));
     }
 
-    
+    /// <summary>
+    /// Lerps the player from the start position to the end position in a set Time
+    /// And checks if the Ship reached its end goal.
+    /// </summary>
+    /// <param name="endPosition"></param>
+    /// <returns></returns>
     private IEnumerator MovementCoroutine(Vector3 endPosition)
     {
         Vector3 startPosition = transform.position;

@@ -1,15 +1,24 @@
 using UnityEngine;
 
+/// <summary>
+/// This script handles manages all the Ships and parses data to the Ships
+/// like movement data and grid data.
+/// </summary>
 public class ShipManager : MonoBehaviour
 {
     [SerializeField] private HexGrid HexGridScript;
     [SerializeField] private Movement MovementScript;
-
-    public bool PlayersTurn { get; private set; } = true;
-
     [SerializeField] private Ship SelectedShip;
-    private HexData PreviouslySelectedHex;
-
+    
+    private HexData _previouslySelectedHex;
+    
+    public bool PlayersTurn { get; private set; } = true;
+    
+    /// <summary>
+    /// Checks if its the players turn
+    /// And fills in the reference to the current Ship's ship class
+    /// </summary>
+    /// <param name="ship"></param>
     public void HandleShipSelected(GameObject ship)
     {
         if (!PlayersTurn) return;
@@ -21,16 +30,23 @@ public class ShipManager : MonoBehaviour
         PrepareShipForMovement(shipReference);
     }
 
+    /// <summary>
+    /// Checks if the player tried to select the same ship twice
+    /// </summary>
+    /// <param name="shipReference"></param>
+    /// <returns></returns>
     private bool CheckIfTheSameShipIsSelected(Ship shipReference)
     {
-        if (this.SelectedShip == shipReference)
-        {
-            ClearOldSelection();
-            return true;
-        }
-        return false;
+        if (SelectedShip != shipReference) return false;
+        ClearOldSelection();
+        return true;
     }
-
+    
+    /// <summary>
+    /// Checks if a ship is selected and if its the players turn
+    /// And fills in the reference of the selected Tile
+    /// </summary>
+    /// <param name="hexGameObject"></param>
     public void HandleTerrainSelected(GameObject hexGameObject)
     {
         if (SelectedShip == null || !PlayersTurn) return;
@@ -42,60 +58,88 @@ public class ShipManager : MonoBehaviour
         HandleTargetHexSelected(selectedHex);
     }
     
-
+    /// <summary>
+    /// Clears the Range of the ships if its not selected
+    /// And draws the range if the ship is selected
+    /// </summary>
+    /// <param name="shipReference"></param>
     private void PrepareShipForMovement(Ship shipReference)
     {
-        if (this.SelectedShip != null)
+        if (SelectedShip != null)
         {
             ClearOldSelection();
         }
 
-        this.SelectedShip = shipReference;
-        this.SelectedShip.Select();
-        MovementScript.ShowRange(this.SelectedShip, this.HexGridScript);
+        SelectedShip = shipReference;
+        SelectedShip.Select();
+        MovementScript.ShowRange(SelectedShip, HexGridScript);
     }
 
+    /// <summary>
+    /// Hides the range of the previous turn
+    /// And empties the previouslySelectedHex variable for next turn
+    /// </summary>
     private void ClearOldSelection()
     {
-        PreviouslySelectedHex = null;
-        this.SelectedShip.Deselect();
-        MovementScript.HideRange(this.HexGridScript);
-        this.SelectedShip = null;
+        _previouslySelectedHex = null;
+        SelectedShip.Deselect();
+        MovementScript.HideRange(HexGridScript);
+        SelectedShip = null;
     }
 
+    /// <summary>
+    /// Shows the path of the selected hex to Ship
+    /// If the hex is pressed again invoke the Ship movement
+    /// </summary>
+    /// <param name="selectedHex"></param>
     private void HandleTargetHexSelected(HexData selectedHex)
     {
-        if (PreviouslySelectedHex == null || PreviouslySelectedHex != selectedHex)
+        if (_previouslySelectedHex == null || _previouslySelectedHex != selectedHex)
         {
-            PreviouslySelectedHex = selectedHex;
-            MovementScript.ShowPath(selectedHex.Grid, this.HexGridScript);
+            _previouslySelectedHex = selectedHex;
+            MovementScript.ShowPath(selectedHex.Grid, HexGridScript);
+            return;
         }
-        else
-        {
-            MovementScript.MoveShip(SelectedShip,this.HexGridScript);
-            PlayersTurn = false;
-            SelectedShip.MovementFinished += ResetTurn;
-            ClearOldSelection();
-        }
+
+        MovementScript.MoveShip(SelectedShip,HexGridScript); 
+        PlayersTurn = false;
+        SelectedShip.MovementFinished += ResetTurn;
+        ClearOldSelection();
     }
     
+    /// <summary>
+    /// If you select a ship and you then click the hex the ship is standing on
+    /// this function will prevent an error and just deselect the ship
+    /// </summary>
+    /// <param name="hexPosition"></param>
+    /// <returns></returns>
     private bool HandleSelectedHexIsShipHex(Vector2Int hexPosition)
     {
         if (hexPosition != HexGridScript.GetClosestHex(SelectedShip.transform.position)) return false;
         
-            SelectedShip.Deselect();
-            ClearOldSelection();
+        SelectedShip.Deselect();
+        ClearOldSelection();
             
-            return true;
+        return true;
     }
     
+    /// <summary>
+    /// If the selected hex is not inside the movement range of the currently selected ship it will just be ignored
+    /// </summary>
+    /// <param name="hexPosition"></param>
+    /// <returns></returns>
     private bool HandelHexOutOfRange(Vector2Int hexPosition)
     {
         if (MovementScript.IsHexInRange(hexPosition)) return false;
-        Debug.Log("Hex Out Of Range!");
+        //Hex out of range, deselect maybe?
         return true;
     }
 
+    /// <summary>
+    /// Resets the players Turn
+    /// [should be handled later by a separate turn handler for the enemies ships ;)]
+    /// </summary>
+    /// <param name="selectedShip"></param>
     private void ResetTurn(Ship selectedShip)
     {
         selectedShip.MovementFinished -= ResetTurn;
