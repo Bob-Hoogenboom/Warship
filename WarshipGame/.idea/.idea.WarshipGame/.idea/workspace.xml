@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="792531c9-20c6-484b-96ff-b6ad9fb29710" name="Changes" comment="">
+    <list default="true" id="b7547dcc-fa89-4ed2-ad44-22d00d3fef12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/GlowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/GlowManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/GraphSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/GraphSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/HexCoordinates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/HexCoordinates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/HexGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Grid/HexGrid.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,20 +25,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f66344f2f89470293d8b67d71308c0746a800/0f/4469179e/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ca7bdfed5874f329433256f548490641a000/27/f486b01e/RaycastHit.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ca7bdfed5874f329433256f548490641a000/98/45428c7a/Physics.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/3e/2e60290f/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/4f/1fae9618/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/c3/2c3cc646/Debug.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/cd/c44b5789/Ray.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/ce/45d4c082/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/dc/a5dabec6/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5173ac30abe64b739b8c7b173c48cb237400/bf/423ca9e5/Input.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf6c2050e0704e8ca0f4cbd841499fc03a00/95/791529e7/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/EnemyInRange.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/HexGrid.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.10/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,14 +36,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.18f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\Firestorm\Documents\Project\Warship\WarshipGame -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Firestorm\Documents\Project\Warship\WarshipGame" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.18f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Firestorm\Documents\Project\Warship\WarshipGame -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Firestorm\Documents\Project\Warship\WarshipGame" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -86,6 +85,16 @@
       <workItem from="1679654656350" duration="850000" />
       <workItem from="1679991033101" duration="5820000" />
       <workItem from="1680002253513" duration="9237000" />
+      <workItem from="1680609742632" duration="5494000" />
+      <workItem from="1680644291006" duration="3450000" />
+      <workItem from="1680677860525" duration="1030000" />
+      <workItem from="1680680723172" duration="15973000" />
+      <workItem from="1680765524090" duration="7150000" />
+      <workItem from="1681288183362" duration="1455000" />
+      <workItem from="1681294176591" duration="8938000" />
+      <workItem from="1681371119646" duration="3223000" />
+      <workItem from="1681374408398" duration="257000" />
+      <workItem from="1681375576395" duration="3151000" />
     </task>
     <servers />
   </component>
@@ -97,14 +106,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Type#TurnManager" memberName="_closestTarget" />
-        <PinnedItemInfo parentTag="Type#UnityEngine.RaycastHit" memberName="distance" />
-        <PinnedItemInfo parentTag="Type#TurnManager" memberName="_shipToFireAt" />
-      </pinned-members>
-    </pin-to-top-manager>
   </component>
 </project>

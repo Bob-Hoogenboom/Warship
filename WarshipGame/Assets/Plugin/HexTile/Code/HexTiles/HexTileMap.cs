@@ -83,7 +83,7 @@ namespace HexTiles
         /// <summary>
         /// Collection of all hex tiles that are part of this map.
         /// </summary>
-        private IEnumerable<HexTileData> Tiles
+        public IEnumerable<HexTileData> Tiles
         {
             get
             {
