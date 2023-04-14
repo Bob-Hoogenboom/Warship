@@ -2525,9 +2525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a823ec8f8b348c4ea0dfbe953f1fc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HexGridScript: {fileID: 681266366}
-  MovementScript: {fileID: 147960819}
-  SelectedShip: {fileID: 0}
+  hexGridScript: {fileID: 681266366}
+  movementScript: {fileID: 147960819}
+  selectedShip: {fileID: 0}
 --- !u!4 &344223588
 Transform:
   m_ObjectHideFlags: 0
@@ -13813,9 +13813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe1ecd2d2fed50419dd38a7e752b042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationTime: 0.3
-  MovementTime: 1
-  Points: 3
+  rotationTime: 0.3
+  movementTime: 1
+  points: 3
 --- !u!1 &2135012737
 GameObject:
   m_ObjectHideFlags: 0
