@@ -6,14 +6,14 @@ using UnityEngine;
 /// </summary>
 public class GlowManager : MonoBehaviour
 {
-    private readonly Dictionary<Renderer, Material[]> _selectionMaterialDictionary = new Dictionary<Renderer, Material[]>();
-    private readonly Dictionary<Renderer, Material[]> _originalMaterialDictionary = new Dictionary<Renderer, Material[]>();
-    private readonly Dictionary<Color, Material> _cachedSelectionMaterials = new Dictionary<Color, Material>();
+    private readonly Dictionary<Renderer, Material[]> _selectionMaterialDictionary = new();
+    private readonly Dictionary<Renderer, Material[]> _originalMaterialDictionary = new();
+    private readonly Dictionary<Color, Material> _cachedSelectionMaterials = new();
     private readonly Color _validHexColor = Color.green;
     private Color _originalColor;
     
     public Material SelectionMaterial;
-    public bool IsGlowing = false;
+    public bool IsGlowing;
     
     private void Awake()
     {
@@ -34,8 +34,7 @@ public class GlowManager : MonoBehaviour
 
             for (int i = 0; i < originalMaterials.Length; i++)
             {
-                Material mat = null;
-                if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out mat))
+                if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out var mat))
                 {
                     mat = new Material(SelectionMaterial)
                     {

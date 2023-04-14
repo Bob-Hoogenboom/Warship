@@ -7,18 +7,18 @@ using UnityEngine;
 /// </summary>
 public class GraphSearch
 {
-    //Breadth First Search Result*
+    //Breadth First Search*
     public static BFSResult BFSGetRange(HexGrid hexGrid, Vector2Int startPoint, int movementPoints)
     {
-        Dictionary<Vector2Int, Vector2Int?> visitedHexes = new Dictionary<Vector2Int, Vector2Int?>();
-        Dictionary<Vector2Int, int> rangeCost = new Dictionary<Vector2Int, int>();
-        Queue<Vector2Int> hexesToVisitQueue = new Queue<Vector2Int>();
+        Dictionary<Vector2Int, Vector2Int?> visitedHexes = new();
+        Dictionary<Vector2Int, int> rangeCost = new();
+        Queue<Vector2Int> hexesToVisitQueue = new();
 
         hexesToVisitQueue.Enqueue(startPoint);
         rangeCost.Add(startPoint, 0);
         visitedHexes.Add(startPoint, null);
 
-        //as long as there is a queue, this will work trough the queue
+        //As long as there is a queue, this will work trough the queue
         while (hexesToVisitQueue.Count > 0)
         {
             Vector2Int currentHex = hexesToVisitQueue.Dequeue();
@@ -42,8 +42,8 @@ public class GraphSearch
                 }
                 else if (rangeCost[neighbourPosition] > newCost)
                 {
-                    rangeCost[neighbourPosition] = newCost;
                     visitedHexes[neighbourPosition] = currentHex;
+                    rangeCost[neighbourPosition] = newCost;
                 }
             }
         }
@@ -60,7 +60,7 @@ public class GraphSearch
     /// <returns></returns>
     public static List<Vector2Int> GeneratePathBFS(Vector2Int current, Dictionary<Vector2Int, Vector2Int?> visitedHexesDict)
     {
-        List<Vector2Int> path = new List<Vector2Int>();
+        List<Vector2Int> path = new();
         path.Add(current);
         while (visitedHexesDict[current] != null)
         {

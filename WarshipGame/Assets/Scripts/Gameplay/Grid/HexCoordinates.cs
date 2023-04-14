@@ -13,7 +13,7 @@ public class HexCoordinates : MonoBehaviour
     [SerializeField] private Material hexMat;
     [SerializeField] private GameObject gridPrefab;
 
-    private readonly List<GameObject> _gridPrefabsList = new List<GameObject>();
+    private readonly List<GameObject> _gridPrefabsList = new();
     private GameObject _instantiateObject;
     private HexTileData[] _hexTileData;
     
@@ -25,8 +25,13 @@ public class HexCoordinates : MonoBehaviour
     {
         map = FindObjectOfType<HexTileMap>();
 
-        if (gridPrefab) SetTileData();
-        else print("Missing prefab, please assign");
+        if (gridPrefab == null)
+        {
+            print("Missing prefab, please assign");
+            return;
+        }
+
+        SetTileData();
     }
 
     /// <summary>
@@ -55,13 +60,15 @@ public class HexCoordinates : MonoBehaviour
     /// Fills in the grid variable in the waypoint with coordinate data
     /// </summary>
     /// <param name="i"></param>
-    private void Coordinates(int i)  
+    private void Coordinates(int i)
     {
+        HexData hexData = _instantiateObject.GetComponent<HexData>();
+        
         int gridX = _hexTileData[i].Position.Coordinates.Q;
-        _instantiateObject.GetComponent<HexData>().Grid.x = gridX;
+        hexData.Grid.x = gridX;
         
         int gridY = _hexTileData[i].Position.Coordinates.R;
-        _instantiateObject.GetComponent<HexData>().Grid.y = gridY;
+        hexData.Grid.y = gridY;
     }
 
     /// <summary>
