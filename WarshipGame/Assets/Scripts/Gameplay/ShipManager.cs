@@ -6,13 +6,13 @@ using UnityEngine;
 /// </summary>
 public class ShipManager : MonoBehaviour
 {
-    [SerializeField] private HexGrid HexGridScript;
-    [SerializeField] private Movement MovementScript;
-    [SerializeField] private Ship SelectedShip;
+    [SerializeField] private HexGrid hexGridScript;
+    [SerializeField] private Movement movementScript;
+    [SerializeField] private Ship selectedShip;
     
     private HexData _previouslySelectedHex;
-    
-    public bool PlayersTurn { get; private set; } = true;
+
+    private bool PlayersTurn { get; set; } = true;
     
     /// <summary>
     /// Checks if its the players turn
@@ -37,7 +37,7 @@ public class ShipManager : MonoBehaviour
     /// <returns></returns>
     private bool CheckIfTheSameShipIsSelected(Ship shipReference)
     {
-        if (SelectedShip != shipReference) return false;
+        if (selectedShip != shipReference) return false;
         ClearOldSelection();
         return true;
     }
@@ -49,7 +49,7 @@ public class ShipManager : MonoBehaviour
     /// <param name="hexGameObject"></param>
     public void HandleTerrainSelected(GameObject hexGameObject)
     {
-        if (SelectedShip == null || !PlayersTurn) return;
+        if (selectedShip == null || !PlayersTurn) return;
 
         HexData selectedHex = hexGameObject.GetComponent<HexData>();
 
@@ -65,14 +65,14 @@ public class ShipManager : MonoBehaviour
     /// <param name="shipReference"></param>
     private void PrepareShipForMovement(Ship shipReference)
     {
-        if (SelectedShip != null)
+        if (selectedShip != null)
         {
             ClearOldSelection();
         }
 
-        SelectedShip = shipReference;
-        SelectedShip.Select();
-        MovementScript.ShowRange(SelectedShip, HexGridScript);
+        selectedShip = shipReference;
+        selectedShip.Select();
+        movementScript.ShowRange(selectedShip, hexGridScript);
     }
 
     /// <summary>
@@ -82,9 +82,9 @@ public class ShipManager : MonoBehaviour
     private void ClearOldSelection()
     {
         _previouslySelectedHex = null;
-        SelectedShip.Deselect();
-        MovementScript.HideRange(HexGridScript);
-        SelectedShip = null;
+        selectedShip.Deselect();
+        movementScript.HideRange(hexGridScript);
+        selectedShip = null;
     }
 
     /// <summary>
@@ -97,13 +97,13 @@ public class ShipManager : MonoBehaviour
         if (_previouslySelectedHex == null || _previouslySelectedHex != selectedHex)
         {
             _previouslySelectedHex = selectedHex;
-            MovementScript.ShowPath(selectedHex.Grid, HexGridScript);
+            movementScript.ShowPath(selectedHex.Grid, hexGridScript);
             return;
         }
 
-        MovementScript.MoveShip(SelectedShip,HexGridScript); 
+        movementScript.MoveShip(selectedShip,hexGridScript); 
         PlayersTurn = false;
-        SelectedShip.MovementFinished += ResetTurn;
+        selectedShip.MovementFinished += ResetTurn;
         ClearOldSelection();
     }
     
@@ -115,9 +115,9 @@ public class ShipManager : MonoBehaviour
     /// <returns></returns>
     private bool HandleSelectedHexIsShipHex(Vector2Int hexPosition)
     {
-        if (hexPosition != HexGridScript.GetClosestHex(SelectedShip.transform.position)) return false;
+        if (hexPosition != hexGridScript.GetClosestHex(selectedShip.transform.position)) return false;
         
-        SelectedShip.Deselect();
+        selectedShip.Deselect();
         ClearOldSelection();
             
         return true;
@@ -130,7 +130,7 @@ public class ShipManager : MonoBehaviour
     /// <returns></returns>
     private bool HandelHexOutOfRange(Vector2Int hexPosition)
     {
-        if (MovementScript.IsHexInRange(hexPosition)) return false;
+        if (movementScript.IsHexInRange(hexPosition)) return false;
         //Hex out of range, deselect maybe?
         return true;
     }

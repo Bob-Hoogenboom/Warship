@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Movement : MonoBehaviour
 {
-    private BFSResult _movementRange = new BFSResult();
-    private List<Vector2Int> _currentPath = new List<Vector2Int>();
+    private BFSResult _movementRange;
+    private List<Vector2Int> _currentPath = new();
 
     /// <summary>
     /// Hides the Range of the currently selected Ships
@@ -54,19 +54,16 @@ public class Movement : MonoBehaviour
     /// <param name="hexGrid"></param>
     public void ShowPath(Vector2Int selectedHexPosition, HexGrid hexGrid)
     {
-        if (_movementRange.GetRangePositions(). Contains(selectedHexPosition))
+        if (!_movementRange.GetRangePositions().Contains(selectedHexPosition)) return;
+        foreach (Vector2Int hexPosition in _currentPath)
         {
-            foreach (Vector2Int hexPosition in _currentPath)
-            {
-                hexGrid.GetTileAt(hexPosition).ResetHighlight();
-            }
+            hexGrid.GetTileAt(hexPosition).ResetHighlight();
+        }
 
-            _currentPath = _movementRange.GetPathTo(selectedHexPosition);
-            foreach (Vector2Int hexPosition in _currentPath)
-            {
-                hexGrid.GetTileAt(hexPosition).HighlightPath();
-            }
-
+        _currentPath = _movementRange.GetPathTo(selectedHexPosition);
+        foreach (Vector2Int hexPosition in _currentPath)
+        {
+            hexGrid.GetTileAt(hexPosition).HighlightPath();
         }
     }
     

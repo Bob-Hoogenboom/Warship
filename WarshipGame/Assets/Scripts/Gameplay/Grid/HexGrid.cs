@@ -6,13 +6,13 @@ using UnityEngine;
 /// </summary>
 public class HexGrid : MonoBehaviour
 {
-    private Dictionary<Vector2Int, HexData> _hexTileDict = new();
-    private Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new();
+    private readonly Dictionary<Vector2Int, HexData> _hexTileDict = new();
+    private readonly Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new();
 
     private HexCoordinates _hexCoords;
     
     
-    //fills dictionary with hextiles
+    //Fills dictionary with hex tiles
     private void Start()
     {
         _hexCoords = FindObjectOfType<HexCoordinates>();
@@ -30,8 +30,7 @@ public class HexGrid : MonoBehaviour
     /// <returns></returns>
     public HexData GetTileAt(Vector2Int hexCoordinates)
     {
-        HexData result = null;
-        _hexTileDict.TryGetValue(hexCoordinates, out result);
+        _hexTileDict.TryGetValue(hexCoordinates, out var result);
         return result;
     }
 
@@ -42,13 +41,13 @@ public class HexGrid : MonoBehaviour
     /// <returns></returns>
     public List<Vector2Int> GetNeighboursFor(Vector2Int hexCoordinates)
     {
-        //if the dictionary doesn't contains the key it will return an empty list
+        //If the dictionary doesn't contains the key it will return an empty list
         if (!_hexTileDict.ContainsKey(hexCoordinates)) return new List<Vector2Int>();
 
-        //if the neighbours does contain the key it will return the correct value
+        //If the neighbours does contain the key it will return the correct value
         if (_hexTileNeighboursDict.ContainsKey(hexCoordinates)) return _hexTileNeighboursDict[hexCoordinates];
    
-        //if both do not work it will return a new value and an empty list
+        //If both do not work it will return a new value and an empty list
         _hexTileNeighboursDict.Add(hexCoordinates, new List<Vector2Int>());
 
         foreach (Vector2Int direction in Directions.directions)
@@ -76,9 +75,9 @@ public class HexGrid : MonoBehaviour
     /// <summary>
     /// Coordinate offsets
     /// </summary>
-    public static class Directions
+    private static class Directions
     {
-        public static List<Vector2Int> directions = new List<Vector2Int>()
+        public static readonly List<Vector2Int> directions = new()
         {
             new Vector2Int(0, 1), //N
             new Vector2Int(1, 0), //NO

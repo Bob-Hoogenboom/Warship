@@ -8,7 +8,7 @@ public class SelectionManager : MonoBehaviour
 {
     private Camera _mainCamera;
     private RaycastHit _hit;
-    private float _rayDistance = 100f;
+    private readonly float _rayDistance = 100f;
     
     public LayerMask SelectionMask;
 
@@ -17,7 +17,7 @@ public class SelectionManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_mainCamera == null) _mainCamera = Camera.main;
+        _mainCamera = Camera.main;
     }
 
     /// <summary>

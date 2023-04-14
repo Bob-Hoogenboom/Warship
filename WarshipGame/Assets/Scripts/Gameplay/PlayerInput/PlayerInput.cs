@@ -10,7 +10,6 @@ public class PlayerInput : MonoBehaviour
     
     private void Update()
     {
-        //GetMouseButtonDown(0) == Left mouse button
         if (Input.GetMouseButtonDown(0))
         {
             InputReader();

@@ -40,7 +40,7 @@ public class HexData : MonoBehaviour
 
     public bool IsObstacle()
     {
-        return this.hexType == HexType.Occupied;
+        return hexType == HexType.Occupied;
     }
 
     public void EnableHighlight()

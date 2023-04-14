@@ -12,16 +12,16 @@ public class Ship : MonoBehaviour
 {
     [Header("Movement")]
     [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
-    [SerializeField] private float RotationTime = 0.3f;
+    [SerializeField] private float rotationTime = 0.3f;
     [Tooltip("The time it takes the ship to move from tile to tile")]
-    [SerializeField] private float MovementTime = 1f;
+    [SerializeField] private float movementTime = 1f;
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
-    [SerializeField] private int Points = 3;
+    [SerializeField] private int points = 3;
     
-    private Queue<Vector3> _pathPositions = new Queue<Vector3>();
+    private Queue<Vector3> _pathPositions = new();
     private GlowManager _glowManager;
     
-    public int MovementPoints => Points;
+    public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
 
     private void Awake()
@@ -47,7 +47,7 @@ public class Ship : MonoBehaviour
     {
         _pathPositions = new Queue<Vector3>(currentPath);
         Vector3 firstTarget = _pathPositions.Dequeue();
-        StartCoroutine(RotationCoroutine(firstTarget, RotationTime, true));
+        StartCoroutine(RotationCoroutine(firstTarget, rotationTime));
     }
 
     /// <summary>
@@ -57,11 +57,13 @@ public class Ship : MonoBehaviour
     /// <param name="rotationTime"></param>
     /// <param name="firstRotation"></param>
     /// <returns></returns>
-    private IEnumerator RotationCoroutine(Vector3 endPosition, float rotationTime, bool firstRotation = false)
+    private IEnumerator RotationCoroutine(Vector3 endPosition, float rotationTime)
     {
+        Vector3 currentTransform = transform.position;
         Quaternion startRotation = transform.rotation;
-        endPosition.y = transform.position.y;
-        Vector3 direction = endPosition - transform.position;
+        
+        endPosition.y = currentTransform.y;
+        Vector3 direction = endPosition - currentTransform;
         Quaternion endRotation = Quaternion.LookRotation(direction, Vector3.up);
 
         if (!Mathf.Approximately(Mathf.Abs(Quaternion.Dot(startRotation, endRotation)),1.0f))
@@ -93,10 +95,10 @@ public class Ship : MonoBehaviour
         endPosition.y = startPosition.y;
         float timeElapsed = 0;
         
-        while(timeElapsed < MovementTime)
+        while(timeElapsed < movementTime)
         {
             timeElapsed += Time.deltaTime;
-            float lerpStep = timeElapsed / MovementTime;
+            float lerpStep = timeElapsed / movementTime;
             transform.position = Vector3.Lerp(startPosition,endPosition, lerpStep);
             yield return null;
         }
@@ -104,13 +106,11 @@ public class Ship : MonoBehaviour
         transform.position = endPosition;
 
         if (_pathPositions.Count > 0)
-        {   
-            Debug.Log("Selecting the next position");
-            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), RotationTime));
+        {
+            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), rotationTime));
         }
         else
         {
-            Debug.Log("Movement Finished!");
             MovementFinished?.Invoke(this);
         }
     }
