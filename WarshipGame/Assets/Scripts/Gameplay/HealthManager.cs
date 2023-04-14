@@ -28,29 +28,24 @@ public class HealthManager : MonoBehaviour
     }
     
     // Here we check if a ship got hit and if that ship is a player or an enemy
-    private void Update()
-    {
-        if (!Input.GetMouseButtonDown(0)) return;
-        
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
-
-        _hit = hit.transform;
-        // Here we check if the target is an enemy ship and then change the health of one of the enemies ships if true
-        if (_hit.IsChildOf(enemyFleet.transform))
-        {
-            _enemyStats = _hit.GetComponent<Stats>();
-            ChangeHealth(_playerStats.Damage, _enemyStats.HealthBar);
-            return;
-        }
-        
-        // Here we change the health of one of the player's ships
-        _playerStats = _hit.GetComponent<Stats>();
-        ChangeHealth(_enemyStats.Damage, _playerStats.HealthBar);
-    }
+    // public void Health(RaycastHit hit)
+    // {
+    //     _hit = hit.transform;
+    //     // Here we check if the target is an enemy ship and then change the health of one of the enemies ships if true
+    //     if (_hit.IsChildOf(enemyFleet.transform))
+    //     {
+    //         _enemyStats = _hit.GetComponent<Stats>();
+    //         ChangeHealth(_playerStats.Damage, _enemyStats.HealthBar);
+    //         return;
+    //     }
+    //     
+    //     // Here we change the health of one of the player's ships
+    //     _playerStats = _hit.GetComponent<Stats>();
+    //     ChangeHealth(_enemyStats.Damage, _playerStats.HealthBar);
+    // }
     
     // Here we change the health value to the player or the enemy depending on who is the target
-    private void ChangeHealth(int damageTaken, Slider healthBar)
+    public void ChangeHealth(int damageTaken, Slider healthBar)
     {
         healthBar.value -= damageTaken;
         
