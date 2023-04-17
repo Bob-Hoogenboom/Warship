@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Holds data specifically for the ship like movement speed and the range it can move
@@ -20,6 +21,7 @@ public class Ship : MonoBehaviour
     
     private Queue<Vector3> _pathPositions = new();
     private GlowManager _glowManager;
+    public bool shipMoved;
     
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
