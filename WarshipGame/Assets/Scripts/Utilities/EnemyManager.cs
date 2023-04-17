@@ -1,18 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] EnemyObjects;
+    [SerializeField] private bool _enemiesRemaining = true;
     private new List<GameObject> livingEnemies;
-
     private bool _isObjectInScene;
-
-    private bool _enemiesRemaining = true;
 
     void Start()
     {
@@ -22,11 +16,11 @@ public class EnemyManager : MonoBehaviour
     public void CheckEnemiesInScene()
     {
         EnemyObjects = GameObject.FindGameObjectsWithTag("Opponent");
-        if (EnemyObjects != null)
+        if (EnemyObjects.Length != 0)
         {
-            //Continue
+            _enemiesRemaining = true;
             return;
         }
-        //victory
+        _enemiesRemaining = false;
     }
 }
