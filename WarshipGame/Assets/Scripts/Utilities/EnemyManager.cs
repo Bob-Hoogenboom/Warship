@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Puts all the enemy objects with the "opponent" tag in a list ann detects if there are remaining enemy objects in the scene
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] EnemyObjects;
@@ -13,6 +16,10 @@ public class EnemyManager : MonoBehaviour
         CheckEnemiesInScene();
     }
 
+    /// <summary>
+    /// Detects any objects with the opponent tag and puts these in a  list
+    /// If there are enemies left then the bool will be set to true, if there are none then its false.
+    /// </summary>
     public void CheckEnemiesInScene()
     {
         EnemyObjects = GameObject.FindGameObjectsWithTag("Opponent");
