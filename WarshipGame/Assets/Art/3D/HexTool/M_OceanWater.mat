@@ -26,7 +26,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -86,6 +86,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1783a56b2a2c493086a6b20718a75932_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 0eb48a28cbed61b40a634e54213a5d54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6c0bcec873034ab4abbfd316f0b72ebc_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b854ecf30df7b084cad8a3e4bd56eefe, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ed8e4bff2a684b5aadb8e8b3a045a34e_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 6bdf9040f877e084f920b568a8b5512f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -116,10 +128,11 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Fresnel_power: 0.48
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Hight: 0.54
+    - _Hight: 1.06
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -132,23 +145,25 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Transparency: 0.861
-    - _Wavescale: 2.38
+    - _Transparency: 1
+    - _Wavescale: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _contrast: 0.37
+    - _contrast: -0.65
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.06808473, g: 0.17602922, b: 0.3207547, a: 1}
+    - _Color: {r: 0.12655748, g: 0.22222513, b: 0.33962262, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Hightscrollspeed: {r: 1, g: 0, b: 0, a: 0}
+    - _Hightscrollspeed: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UV1: {r: 1, g: 1, b: 1, a: 1}
     - _UV2: {r: 1, g: 1, b: 1, a: 1}
     - _UV3: {r: 1, g: 1, b: 1, a: 1}
     - _Water_Movement: {r: 0.33, g: 0, b: 0, a: 0}
-    - _Water_Movement_1: {r: -0.2, g: -0.1, b: 0, a: 0}
-    - _Water_Movement_2: {r: 0.3, g: 0, b: 0, a: 0}
-    - _Water_Movement_3: {r: 0.12, g: -0.12, b: 0, a: 0}
+    - _Water_Movement_1: {r: -0.02, g: -0.02, b: 0, a: 0}
+    - _Water_Movement_2: {r: 0.01, g: 0.03, b: 0, a: 0}
+    - _Water_Movement_3: {r: -0.04, g: -0.06, b: 0, a: 0}
+    - _Water_Movement_4: {r: 0.09, g: 0.04, b: 0, a: 0}
+    - _WaveScrollspeed: {r: 0, g: 0, b: 0, a: 0}
     - _hightscroll: {r: 0.2, g: 0.19, b: 0, a: 0}
   m_BuildTextureStacks: []
