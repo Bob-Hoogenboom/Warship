@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationTime: 0.5
   movementTime: 1
-  points: 1
+  points: 2
 --- !u!114 &4640324429296480685
 MonoBehaviour:
   m_ObjectHideFlags: 0

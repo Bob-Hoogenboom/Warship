@@ -29,6 +29,8 @@ public class EnemyAttack : MonoBehaviour
     [Tooltip("The time it takes the ship to move from tile to tile")]
     [SerializeField] private float movementTime = 1f;
 
+    [SerializeField] private float DistanceThreshold = 0.1f;
+
     private Transform _currentWaypoint;
 
 
@@ -90,7 +92,7 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator MoveState()
     {
         Debug.Log("I am going to move to " + _currentWaypoint);
-        while (transform.position != _currentWaypoint.transform.position)
+        while (Vector3.Distance(transform.position, _currentWaypoint.position) < DistanceThreshold)
         {
             transform.position = Vector3.MoveTowards(transform.position, _currentWaypoint.position, movementTime * Time.deltaTime);
             yield return null;
