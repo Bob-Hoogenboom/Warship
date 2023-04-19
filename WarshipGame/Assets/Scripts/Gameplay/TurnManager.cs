@@ -3,21 +3,23 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     [SerializeField] private GameObject playerInput;
+    [SerializeField] private GameObject playerFleet;
     [SerializeField] private bool playerTurn;
 
     public void EndTurn()
     {
         if (!playerTurn)
         {
-            playerInput.SetActive(true);
             playerTurn = true;
+            playerFleet.GetComponentInChildren<Ship>().shipMoved = false;
+
             Debug.Log("Player turn");
             return;
         }
-        
-        playerInput.SetActive(false);
+        playerFleet.GetComponentInChildren<Ship>().shipMoved = true;
         playerTurn = false;
-        Debug.Log("Enemy turn");
         // Call enemy ai script
+        
+        Debug.Log("Enemy turn");
     }
 }
