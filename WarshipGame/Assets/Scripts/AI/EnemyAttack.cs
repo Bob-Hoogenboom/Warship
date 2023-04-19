@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using RSG;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -57,6 +58,7 @@ public class EnemyAttack : MonoBehaviour
         if (targetColliders.Length == 0)
         {
             _states = WaypointsScript == null ? States.Skip : States.Move;
+            Debug.Log(_states);
             
             EnemyAction();
             return;
@@ -92,17 +94,19 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator MoveState()
     {
         Debug.Log("I am going to move to " + _currentWaypoint);
-        while (Vector3.Distance(transform.position, _currentWaypoint.position) < DistanceThreshold)
+        transform.LookAt(_currentWaypoint);
+        while (Vector3.Distance(transform.position, _currentWaypoint.position) > DistanceThreshold)
         {
             transform.position = Vector3.MoveTowards(transform.position, _currentWaypoint.position, movementTime * Time.deltaTime);
             yield return null;
         }
+
+        _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
     }
     
     private void AttackState()
     {
         Debug.Log("I am Going to Attack " + _targetShip);
-        
     }
 
     private void OnDrawGizmos()
