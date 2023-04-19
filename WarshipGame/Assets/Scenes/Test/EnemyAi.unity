@@ -5302,7 +5302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectionMask:
     serializedVersion: 2
-    m_Bits: 144
+    m_Bits: 272
   OnShipSelected:
     m_PersistentCalls:
       m_Calls:
@@ -13626,6 +13626,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFergatShip
       objectReference: {fileID: 0}
+    - target: {fileID: 4640324429296480683, guid: adeec9d2d093be842b617f3f8f6d051d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
 --- !u!1001 &4725573120301774036
@@ -13635,15 +13640,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618366510, guid: 78fc2d20f41a4754a9fa92bd128f78c5, type: 3}
+      propertyPath: Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
         type: 3}
       propertyPath: m_Name
       value: EnemyFergatShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4725573120478115687, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
         type: 3}

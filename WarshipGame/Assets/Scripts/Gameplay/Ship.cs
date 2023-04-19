@@ -112,6 +112,7 @@ public class Ship : MonoBehaviour
         else
         {
             MovementFinished?.Invoke(this);
+            Debug.Log("movement finished");
         }
     }
 }
