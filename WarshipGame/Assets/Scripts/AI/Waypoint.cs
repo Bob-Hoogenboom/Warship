@@ -12,7 +12,7 @@ public class Waypoint : MonoBehaviour
         foreach (Transform t in transform)
         {
             Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(t.position, GizmoRadius * 0.866f);
+            Gizmos.DrawWireSphere(t.position, GizmoRadius * 0.866f /2);
         }
 
         
@@ -39,13 +39,14 @@ public class Waypoint : MonoBehaviour
         if (currentWaypoint.GetSiblingIndex() < transform.childCount - 1)
         {
             return transform.GetChild(currentWaypoint.GetSiblingIndex() + 1);
-            
-        }
-        else
-        {
-            return null;
         }
         
+        if (currentWaypoint.GetSiblingIndex() >= transform.childCount - 1 && !IsPatroling)
+        {
+            Debug.Log("End");
+            return null;
+        }
 
+        return transform.GetChild(0);
     }
 }

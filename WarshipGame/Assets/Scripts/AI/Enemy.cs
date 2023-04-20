@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using RSG;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,7 +11,7 @@ public enum States {
     Skip,
 }
 
-public class EnemyAttack : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [Header("Detection")]
     [SerializeField] private LayerMask PlayerShips;
@@ -18,6 +19,7 @@ public class EnemyAttack : MonoBehaviour
     private States _states;
 
     //attack
+    private Ship _shipScript;
     private Transform _targetShip;
 
     //movement
@@ -37,6 +39,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
+        _shipScript = gameObject.GetComponent<Ship>();
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
         transform.position = _currentWaypoint.position;
         
@@ -107,6 +110,7 @@ public class EnemyAttack : MonoBehaviour
     private void AttackState()
     {
         Debug.Log("I am Going to Attack " + _targetShip);
+        _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
     }
 
     private void OnDrawGizmos()
