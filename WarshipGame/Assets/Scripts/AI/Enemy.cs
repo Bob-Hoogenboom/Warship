@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _shipScript = gameObject.GetComponent<Ship>();
+        
+        if (WaypointsScript == null) return;
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
         transform.position = _currentWaypoint.position;
         
@@ -96,9 +98,10 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private IEnumerator MoveState()
     {
-        Debug.Log("I am going to move to " + _currentWaypoint);
+        if (Vector3.Distance(transform.position, _currentWaypoint.position) < .2f) yield break;
+            Debug.Log("I am going to move to " + _currentWaypoint);
         transform.LookAt(_currentWaypoint);
-        while (Vector3.Distance(transform.position, _currentWaypoint.position) > DistanceThreshold)
+        while (Vector3.Distance(transform.position, _currentWaypoint.position) >= DistanceThreshold)
         {
             transform.position = Vector3.MoveTowards(transform.position, _currentWaypoint.position, movementTime * Time.deltaTime);
             yield return null;
