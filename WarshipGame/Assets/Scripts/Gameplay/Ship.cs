@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Holds data specifically for the ship like movement speed and the range it can move
@@ -18,16 +19,38 @@ public class Ship : MonoBehaviour
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
     [SerializeField] private int points = 3;
     
+    [Header("Health")]
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int damage;
+    [SerializeField] private Slider healthBar;
+    
+    public int Damage => damage;
+    public Slider HealthBar => healthBar;
+    
     private Queue<Vector3> _pathPositions = new();
     private GlowManager _glowManager;
     
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
 
+    /// <summary>
+    /// Gets glow manager to prevent Editor usage
+    /// </summary>
     private void Awake()
     {
         _glowManager = GetComponent<GlowManager>();
+        healthBar.maxValue = maxHealth;
+        healthBar.value = maxHealth;
     }
+
+    public void TakeDamage(int damageTaken)
+    {
+        healthBar.value -= damageTaken;
+        
+        if (healthBar.value > 0) return; 
+        gameObject.SetActive(false);
+    }
+    
 
     internal void Deselect()
     {
@@ -112,6 +135,7 @@ public class Ship : MonoBehaviour
         else
         {
             MovementFinished?.Invoke(this);
+            Debug.Log("movement finished");
         }
     }
 }

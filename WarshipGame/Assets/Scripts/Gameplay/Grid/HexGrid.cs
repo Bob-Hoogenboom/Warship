@@ -7,7 +7,7 @@ using UnityEngine;
 public class HexGrid : MonoBehaviour
 {
     private readonly Dictionary<Vector2Int, HexData> _hexTileDict = new();
-    private readonly Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new();
+    public readonly Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new();
 
     private HexCoordinates _hexCoords;
     

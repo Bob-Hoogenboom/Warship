@@ -27,7 +27,7 @@ public class HexData : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public int GetType()
+    public new int GetType()
     {
         switch (hexType)
         {

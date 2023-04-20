@@ -8,7 +8,7 @@ public class SelectionManager : MonoBehaviour
 {
     private Camera _mainCamera;
     private RaycastHit _hit;
-    private readonly float _rayDistance = 100f;
+    private readonly float _rayDistance = 200;
     
     public LayerMask SelectionMask;
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -10,10 +11,13 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private Movement movementScript;
     [SerializeField] private Ship selectedShip;
     
+    public GameObject[] SelectedTargetShip { get; private set; }
+
     private HexData _previouslySelectedHex;
 
     private bool PlayersTurn { get; set; } = true;
     
+
     /// <summary>
     /// Checks if its the players turn
     /// And fills in the reference to the current Ship's ship class
@@ -117,21 +121,23 @@ public class ShipManager : MonoBehaviour
     {
         if (hexPosition != hexGridScript.GetClosestHex(selectedShip.transform.position)) return false;
         
-        selectedShip.Deselect();
         ClearOldSelection();
             
         return true;
     }
     
     /// <summary>
-    /// If the selected hex is not inside the movement range of the currently selected ship it will just be ignored
+    /// If the selected hex is not inside the movement range of the currently selected ship it will
+    /// deselect the selected Ship.
     /// </summary>
     /// <param name="hexPosition"></param>
     /// <returns></returns>
     private bool HandelHexOutOfRange(Vector2Int hexPosition)
     {
         if (movementScript.IsHexInRange(hexPosition)) return false;
-        //Hex out of range, deselect maybe?
+
+        selectedShip.Deselect();
+        ClearOldSelection();
         return true;
     }
 
