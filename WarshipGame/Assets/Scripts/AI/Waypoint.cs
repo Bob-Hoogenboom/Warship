@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Waypoint : MonoBehaviour
@@ -34,6 +33,11 @@ public class Waypoint : MonoBehaviour
         Gizmos.DrawLine(EndPoint.position, new Vector3(EndPoint.position.x, EndPoint.position.y +1f, EndPoint.position.z ));
     }
 
+    /// <summary>
+    /// Sets the new waypoint transform to the next objects transform in line
+    /// </summary>
+    /// <param name="currentWaypoint"></param>
+    /// <returns>returns the new waypoint</returns>
     public Transform GetNextWaypoint(Transform currentWaypoint)
     {
         if (currentWaypoint == null)

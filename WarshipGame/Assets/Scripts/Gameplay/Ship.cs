@@ -13,9 +13,9 @@ public class Ship : MonoBehaviour
 {
     [Header("Movement")]
     [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
-    [SerializeField] private float rotationTime = 0.3f;
+    public float RotationTime = 0.3f;
     [Tooltip("The time it takes the ship to move from tile to tile")]
-    [SerializeField] private float movementTime = 1f;
+    public float MovementTime = 1f;
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
     [SerializeField] private int points = 3;
     
@@ -70,7 +70,7 @@ public class Ship : MonoBehaviour
     {
         _pathPositions = new Queue<Vector3>(currentPath);
         Vector3 firstTarget = _pathPositions.Dequeue();
-        StartCoroutine(RotationCoroutine(firstTarget, rotationTime));
+        StartCoroutine(RotationCoroutine(firstTarget, RotationTime));
     }
 
     /// <summary>
@@ -118,10 +118,10 @@ public class Ship : MonoBehaviour
         endPosition.y = startPosition.y;
         float timeElapsed = 0;
         
-        while(timeElapsed < movementTime)
+        while(timeElapsed < MovementTime)
         {
             timeElapsed += Time.deltaTime;
-            float lerpStep = timeElapsed / movementTime;
+            float lerpStep = timeElapsed / MovementTime;
             transform.position = Vector3.Lerp(startPosition,endPosition, lerpStep);
             yield return null;
         }
@@ -130,7 +130,7 @@ public class Ship : MonoBehaviour
 
         if (_pathPositions.Count > 0)
         {
-            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), rotationTime));
+            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), RotationTime));
         }
         else
         {
