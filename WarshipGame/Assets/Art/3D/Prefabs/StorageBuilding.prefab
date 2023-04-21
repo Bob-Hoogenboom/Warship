@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4228938160860427124
+--- !u!1 &3230616075214931922
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3601723520014199246}
-  - component: {fileID: 456059694307518059}
-  - component: {fileID: 2427660830574269089}
+  - component: {fileID: 2854900189400538472}
+  - component: {fileID: 1166853476243018445}
+  - component: {fileID: 4023271667872949767}
   m_Layer: 0
-  m_Name: SM_SmallBuilding2
+  m_Name: SM_BigBuilding1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3601723520014199246
+--- !u!4 &2854900189400538472
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4228938160860427124}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.07255174, y: -0.14294578, z: 0.03216448}
+  m_GameObject: {fileID: 3230616075214931922}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0.13805108, y: -0.28915203, z: 0.14716189}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3630869219874314924}
+  m_Father: {fileID: 1358183617822512209}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!33 &456059694307518059
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!33 &1166853476243018445
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4228938160860427124}
-  m_Mesh: {fileID: -3537709356157935800, guid: f842c02248bf9be438d5c31beeaa7ff6, type: 3}
---- !u!23 &2427660830574269089
+  m_GameObject: {fileID: 3230616075214931922}
+  m_Mesh: {fileID: -5495902117074765545, guid: 1edc4836dcc2fe943b6a60649468ac1c, type: 3}
+--- !u!23 &4023271667872949767
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4228938160860427124}
+  m_GameObject: {fileID: 3230616075214931922}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 559ca161296dc1048b9c4232e3bbc417, type: 2}
+  - {fileID: 2100000, guid: 7ff62b30e20da6743b13742f49968e2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8992186464322909843
+--- !u!1 &5180148373562099591
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,27 +91,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3630869219874314924}
+  - component: {fileID: 1358183617822512209}
   m_Layer: 0
-  m_Name: SmallBuilding2
+  m_Name: StorageBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3630869219874314924
+--- !u!4 &1358183617822512209
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8992186464322909843}
+  m_GameObject: {fileID: 5180148373562099591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07255174, y: 0.14294578, z: -0.03216448}
+  m_LocalPosition: {x: -0.13805108, y: 0.28915203, z: -0.14716189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3601723520014199246}
+  - {fileID: 2854900189400538472}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
