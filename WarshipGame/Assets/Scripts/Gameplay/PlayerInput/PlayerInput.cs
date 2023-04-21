@@ -18,6 +18,7 @@ public class PlayerInput : MonoBehaviour
     
     private void InputReader()
     {
+        if (onPointerClick == null) return;
         Vector3 mousePos = Input.mousePosition;
         onPointerClick?.Invoke(mousePos);
     }
