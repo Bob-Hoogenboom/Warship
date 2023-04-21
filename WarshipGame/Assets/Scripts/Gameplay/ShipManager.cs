@@ -10,8 +10,6 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private HexGrid hexGridScript;
     [SerializeField] private Movement movementScript;
     [SerializeField] private Ship selectedShip;
-    
-    public GameObject[] SelectedTargetShip { get; private set; }
 
     private HexData _previouslySelectedHex;
 

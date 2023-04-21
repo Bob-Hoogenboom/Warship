@@ -4,8 +4,7 @@ public class Waypoint : MonoBehaviour
 {
     [SerializeField] private float GizmoRadius;
     [SerializeField] private bool IsPatroling;
-
-    private GameObject[] _childObjects;
+    
 
     private void OnDrawGizmos()
     {
@@ -26,9 +25,19 @@ public class Waypoint : MonoBehaviour
         if (IsPatroling)
         {
             Gizmos.DrawLine(transform.GetChild(transform.childCount-1).position, transform.GetChild(0).position);
+            return;
         }
+
+        Gizmos.color = Color.magenta;
+        Transform EndPoint = transform.GetChild(transform.childCount - 1);
+        Gizmos.DrawLine(EndPoint.position, new Vector3(EndPoint.position.x, EndPoint.position.y +1f, EndPoint.position.z ));
     }
 
+    /// <summary>
+    /// Sets the new waypoint transform to the next objects transform in line
+    /// </summary>
+    /// <param name="currentWaypoint"></param>
+    /// <returns>returns the new waypoint</returns>
     public Transform GetNextWaypoint(Transform currentWaypoint)
     {
         if (currentWaypoint == null)
@@ -43,8 +52,7 @@ public class Waypoint : MonoBehaviour
         
         if (currentWaypoint.GetSiblingIndex() >= transform.childCount - 1 && !IsPatroling)
         {
-            Debug.Log("End");
-            return null;
+            return transform.GetChild(transform.childCount - 1);
         }
 
         return transform.GetChild(0);

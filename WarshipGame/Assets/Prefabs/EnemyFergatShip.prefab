@@ -257,7 +257,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.15, z: 0.6}
-  m_Center: {x: 0, y: 0.05, z: 0}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!54 &4725573120478115680
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe1ecd2d2fed50419dd38a7e752b042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationTime: 0.3
-  movementTime: 1
+  RotationTime: 0.3
+  MovementTime: 1
   points: 1
   maxHealth: 0
   damage: 0
@@ -323,8 +323,6 @@ MonoBehaviour:
     m_Bits: 256
   Radius: 2
   WaypointsScript: {fileID: 0}
-  rotationTime: 0.3
-  movementTime: 1
   DistanceThreshold: 0.1
 --- !u!1 &4948895999211627441
 GameObject:

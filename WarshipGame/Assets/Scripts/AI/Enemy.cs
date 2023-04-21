@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using RSG;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public enum States {
     Move,
@@ -21,25 +17,23 @@ public class Enemy : MonoBehaviour
     //attack
     private Ship _shipScript;
     private Transform _targetShip;
-
-    //movement
+    
     [Header("Movement")]
     [SerializeField] private Waypoint WaypointsScript;
 
-    [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
-    [SerializeField] private float rotationTime = 0.3f;
-    
-    [Tooltip("The time it takes the ship to move from tile to tile")]
-    [SerializeField] private float movementTime = 1f;
-
-    [SerializeField] private float DistanceThreshold = 0.1f;
-
     private Transform _currentWaypoint;
+    private float _rotationTime;
+    private float _movementTime;
 
 
     private void Start()
     {
         _shipScript = gameObject.GetComponent<Ship>();
+
+        _movementTime = _shipScript.MovementTime;
+        _rotationTime = _shipScript.RotationTime;
+        
+        if (WaypointsScript == null) return;
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
         transform.position = _currentWaypoint.position;
         
@@ -50,19 +44,21 @@ public class Enemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            CheckTargetInRange();
+            StateCheck();
         }
     }
 
-    private void CheckTargetInRange()
+    /// <summary>
+    /// It checks the action the enemy ship is able to perform and switches to that state
+    /// </summary>
+    private void StateCheck()
     {
         //OverlapSphere returns an array of every Collider of collision layer 'PlayerShips'
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), PlayerShips);
         if (targetColliders.Length == 0)
         {
             _states = WaypointsScript == null ? States.Skip : States.Move;
-            Debug.Log(_states);
-            
+
             EnemyAction();
             return;
         }
@@ -73,12 +69,15 @@ public class Enemy : MonoBehaviour
         EnemyAction();
     }
 
+    /// <summary>
+    /// State handler inside of a switchcase
+    /// </summary>
     private void EnemyAction()
     {
         switch (_states)
         {
             case States.Move:
-                StartCoroutine(MoveState());
+                StartCoroutine(RotateTowards());
                 break;
             
             case States.Attack:
@@ -91,28 +90,66 @@ public class Enemy : MonoBehaviour
     }
     
     /// <summary>
+    /// Rotates towards the next waypoint
+    /// </summary>
+    private IEnumerator RotateTowards()
+    {
+        Vector3 endPosition = _currentWaypoint.position;
+        Vector3 currentTransform = transform.position;
+        Quaternion startRotation = transform.rotation;
+        
+        endPosition.y = currentTransform.y;
+        Vector3 direction = endPosition - currentTransform;
+        Quaternion endRotation = Quaternion.LookRotation(direction, Vector3.up);
+
+        if (!Mathf.Approximately(Mathf.Abs(Quaternion.Dot(startRotation, endRotation)),1.0f))
+        {
+            float timeElapsed = 0;
+            while (timeElapsed < _rotationTime)
+            {
+                timeElapsed += Time.deltaTime;
+                float lerpStep = timeElapsed / _rotationTime;
+                transform.rotation = Quaternion.Lerp(startRotation,endRotation, lerpStep);
+                yield return null;
+            }
+
+            transform.rotation = endRotation;
+        }
+        StartCoroutine(MoveTo());
+    }
+    
+    /// <summary>
     /// Stand alone movement system for now, can be made to work with grid system later but needs some figuring out
     /// on how to make the AI choose the correct path
     /// </summary>
-    private IEnumerator MoveState()
+    private IEnumerator MoveTo()
     {
-        Debug.Log("I am going to move to " + _currentWaypoint);
-        transform.LookAt(_currentWaypoint);
-        while (Vector3.Distance(transform.position, _currentWaypoint.position) > DistanceThreshold)
+        if (Vector3.Distance(transform.position, _currentWaypoint.position) < .2f) yield break;
+
+        Vector3 endPosition = _currentWaypoint.position;
+        Vector3 startPosition = transform.position;
+        endPosition.y = startPosition.y;
+        float timeElapsed = 0;
+        while(timeElapsed < _movementTime)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _currentWaypoint.position, movementTime * Time.deltaTime);
+            timeElapsed += Time.deltaTime;
+            float lerpStep = timeElapsed / _movementTime;
+            transform.position = Vector3.Lerp(startPosition,endPosition, lerpStep);
             yield return null;
         }
 
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
     }
     
+    /// <summary>
+    /// Deals damage to the closest player ship in range
+    /// </summary>
     private void AttackState()
     {
-        Debug.Log("I am Going to Attack " + _targetShip);
         _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
     }
 
+    //Draws the attackRange of the enemy ship
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, (Radius * 0.866f));
