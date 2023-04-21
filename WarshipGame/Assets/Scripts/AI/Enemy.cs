@@ -58,8 +58,7 @@ public class Enemy : MonoBehaviour
         if (targetColliders.Length == 0)
         {
             _states = WaypointsScript == null ? States.Skip : States.Move;
-            Debug.Log(_states);
-            
+
             EnemyAction();
             return;
         }

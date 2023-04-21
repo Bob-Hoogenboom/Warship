@@ -52,7 +52,6 @@ public class Waypoint : MonoBehaviour
         
         if (currentWaypoint.GetSiblingIndex() >= transform.childCount - 1 && !IsPatroling)
         {
-            Debug.Log("End");
             return transform.GetChild(transform.childCount - 1);
         }
 
