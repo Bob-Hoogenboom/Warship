@@ -58,7 +58,7 @@ QualitySettings:
     skinWeights: 4
     textureQuality: 0
     anisotropicTextures: 1
-    antiAliasing: 0
+    antiAliasing: 2
     softParticles: 0
     softVegetation: 0
     realtimeReflectionProbes: 0
@@ -81,7 +81,7 @@ QualitySettings:
       type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: High Fidelity
+    name: High
     pixelLightCount: 2
     shadows: 2
     shadowResolution: 1
@@ -95,7 +95,7 @@ QualitySettings:
     skinWeights: 255
     textureQuality: 0
     anisotropicTextures: 2
-    antiAliasing: 4
+    antiAliasing: 2
     softParticles: 0
     softVegetation: 1
     realtimeReflectionProbes: 1
