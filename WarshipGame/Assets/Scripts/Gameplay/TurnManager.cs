@@ -2,24 +2,28 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject playerInput;
     [SerializeField] private GameObject playerFleet;
-    [SerializeField] private bool playerTurn;
+    [SerializeField] private GameObject enemyFleet;
 
     public void EndTurn()
     {
-        if (!playerTurn)
-        {
-            playerTurn = true;
-            playerFleet.GetComponentInChildren<Ship>().shipMoved = false;
-
-            Debug.Log("Player turn");
-            return;
-        }
-        playerFleet.GetComponentInChildren<Ship>().shipMoved = true;
-        playerTurn = false;
-        // Call enemy ai script
-        
         Debug.Log("Enemy turn");
+            
+        for (int i = 0; i < playerFleet.transform.childCount; i++)
+        {
+            playerFleet.transform.GetChild(i).GetComponent<Ship>().shipMoved = true;
+        }
+
+        for (int i = 0; i < enemyFleet.transform.childCount; i++)
+        {
+            enemyFleet.transform.GetChild(i).GetComponent<Enemy>().StateCheck();
+        }
+        
+        Debug.Log("Player turn");
+        
+        for (int i = 0; i < playerFleet.transform.childCount; i++)
+        {
+            playerFleet.transform.GetChild(i).GetComponent<Ship>().shipMoved = false;
+        }
     }
 }
