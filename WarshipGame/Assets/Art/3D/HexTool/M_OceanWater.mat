@@ -142,7 +142,7 @@ Material:
     - _DistanceDepth: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fresnel_power: 0.57
+    - _Fresnel_power: 0.45
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
