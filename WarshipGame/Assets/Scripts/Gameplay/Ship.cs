@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Holds data specifically for the ship like movement speed and the range it can move
@@ -12,11 +13,19 @@ public class Ship : MonoBehaviour
 {
     [Header("Movement")]
     [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
-    [SerializeField] private float rotationTime = 0.3f;
+    public float RotationTime = 0.3f;
     [Tooltip("The time it takes the ship to move from tile to tile")]
-    [SerializeField] private float movementTime = 1f;
+    public float MovementTime = 1f;
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
     [SerializeField] private int points = 3;
+    
+    [Header("Health")]
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int damage;
+    [SerializeField] private Slider healthBar;
+    
+    public int Damage => damage;
+    public Slider HealthBar => healthBar;
     
     private Queue<Vector3> _pathPositions = new();
     private GlowManager _glowManager;
@@ -25,10 +34,24 @@ public class Ship : MonoBehaviour
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
 
+    /// <summary>
+    /// Gets glow manager to prevent Editor usage
+    /// </summary>
     private void Awake()
     {
         _glowManager = GetComponent<GlowManager>();
+        healthBar.maxValue = maxHealth;
+        healthBar.value = maxHealth;
     }
+
+    public void TakeDamage(int damageTaken)
+    {
+        healthBar.value -= damageTaken;
+        
+        if (healthBar.value > 0) return; 
+        gameObject.SetActive(false);
+    }
+    
 
     internal void Deselect()
     {
@@ -48,7 +71,7 @@ public class Ship : MonoBehaviour
     {
         _pathPositions = new Queue<Vector3>(currentPath);
         Vector3 firstTarget = _pathPositions.Dequeue();
-        StartCoroutine(RotationCoroutine(firstTarget, rotationTime));
+        StartCoroutine(RotationCoroutine(firstTarget, RotationTime));
     }
 
     /// <summary>
@@ -96,10 +119,10 @@ public class Ship : MonoBehaviour
         endPosition.y = startPosition.y;
         float timeElapsed = 0;
         
-        while(timeElapsed < movementTime)
+        while(timeElapsed < MovementTime)
         {
             timeElapsed += Time.deltaTime;
-            float lerpStep = timeElapsed / movementTime;
+            float lerpStep = timeElapsed / MovementTime;
             transform.position = Vector3.Lerp(startPosition,endPosition, lerpStep);
             yield return null;
         }
@@ -108,7 +131,7 @@ public class Ship : MonoBehaviour
 
         if (_pathPositions.Count > 0)
         {
-            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), rotationTime));
+            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), RotationTime));
         }
         else
         {
