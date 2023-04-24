@@ -29,11 +29,10 @@ public class Ship : MonoBehaviour
     
     private Queue<Vector3> _pathPositions = new();
     private GlowManager _glowManager;
-    public bool shipMoved;
     
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
-
+    public bool shipMoved;
     /// <summary>
     /// Gets glow manager to prevent Editor usage
     /// </summary>
