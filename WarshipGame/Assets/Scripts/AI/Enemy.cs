@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("Detection")]
     [SerializeField] private LayerMask PlayerShips;
     [SerializeField] private float Radius; //works best for 1,2,3 radial values >3 becomes inefficient
+    [SerializeField] private bool GizmosOn = true;
     private States _states;
 
     //attack
@@ -152,6 +153,7 @@ public class Enemy : MonoBehaviour
     //Draws the attackRange of the enemy ship
     private void OnDrawGizmos()
     {
+        if(!GizmosOn)return;
         Gizmos.DrawWireSphere(transform.position, (Radius * 0.866f));
     }
 }
