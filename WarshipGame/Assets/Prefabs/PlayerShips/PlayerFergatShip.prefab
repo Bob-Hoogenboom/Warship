@@ -385,12 +385,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe1ecd2d2fed50419dd38a7e752b042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationTime: 0.5
-  movementTime: 1
+  RotationTime: 0.3
+  MovementTime: 1
   points: 2
   maxHealth: 10
   damage: 5
   healthBar: {fileID: 8993620345565641887}
+  shipMoved: 0
+  profileTag: 0
 --- !u!114 &4640324429296480685
 MonoBehaviour:
   m_ObjectHideFlags: 0

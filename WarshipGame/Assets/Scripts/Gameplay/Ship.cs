@@ -33,6 +33,7 @@ public class Ship : MonoBehaviour
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
     public bool shipMoved;
+    public int profileTag;
     /// <summary>
     /// Gets glow manager to prevent Editor usage
     /// </summary>
