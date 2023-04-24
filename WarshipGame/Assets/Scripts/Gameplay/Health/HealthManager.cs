@@ -28,13 +28,13 @@ public class HealthManager : MonoBehaviour
     }
     
     // Here we check if a ship got hit and if that ship is a player or an enemy
-    private void Update()
+    public void Update()
     {
         if (!Input.GetMouseButtonDown(0)) return;
         
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
-
+        
         _hit = hit.transform;
         // Here we check if the target is an enemy ship and then change the health of one of the enemies ships if true
         if (_hit.IsChildOf(enemyFleet.transform))

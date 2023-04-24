@@ -67,6 +67,8 @@ public class ShipManager : MonoBehaviour
     /// <param name="shipReference"></param>
     private void PrepareShipForMovement(Ship shipReference)
     {
+        if (shipReference.shipMoved) return; 
+        
         if (selectedShip != null)
         {
             ClearOldSelection();
@@ -103,6 +105,7 @@ public class ShipManager : MonoBehaviour
             return;
         }
 
+        selectedShip.shipMoved = true;
         movementScript.MoveShip(selectedShip,hexGridScript); 
         PlayersTurn = false;
         selectedShip.MovementFinished += ResetTurn;
