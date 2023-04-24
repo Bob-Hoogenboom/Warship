@@ -289,10 +289,11 @@ MonoBehaviour:
   RotationTime: 0.3
   MovementTime: 1
   points: 1
-  maxHealth: 0
-  damage: 0
+  maxHealth: 9
+  damage: 3
   healthBar: {fileID: 5705903283408768659}
   shipMoved: 0
+  profileTag: 0
 --- !u!114 &4725573120478115682
 MonoBehaviour:
   m_ObjectHideFlags: 0
