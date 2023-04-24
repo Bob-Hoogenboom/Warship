@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AllyInformationUI : MonoBehaviour
+public class AllyInformationHandler : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image CurrentProfilePicture;
