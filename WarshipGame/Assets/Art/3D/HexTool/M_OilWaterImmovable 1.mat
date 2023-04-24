@@ -8,15 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_OilWaterImmovable 1
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 339e0b14aa9b75544b1ac448bf8210b3,
+    type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -53,12 +53,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal_Map_1:
+        m_Texture: {fileID: 2800000, guid: 0eb48a28cbed61b40a634e54213a5d54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal_Map_2:
+        m_Texture: {fileID: 2800000, guid: 0eb48a28cbed61b40a634e54213a5d54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_656ef60b1c2a4717956d1b99c6e32939_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 9ac311750eb9dd349a921593d2c63f85, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -90,26 +102,37 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Fresnel_power: 0.45
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Line_Distortion: 0.011
+    - _Line_Oppacity: -0.1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Reflectivity: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Transparency: 1
+    - _Wave_Intensity: 0.67
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.6415094, g: 0.48285848, b: 0.29896757, a: 1}
-    - _Color: {r: 0.6415094, g: 0.48285842, b: 0.29896754, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _UV1: {r: 2, g: 2, b: 1, a: 1}
+    - _UV2: {r: 1, g: 1, b: 1, a: 1}
+    - _Water_Movement_1: {r: 0.08, g: -0.02, b: 0, a: 0}
+    - _Water_Movement_2: {r: -0.04, g: 0.03, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2379379103427348141
 MonoBehaviour:
