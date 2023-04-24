@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexGridScript: {fileID: 681266366}
   movementScript: {fileID: 147960819}
-  selectedShip: {fileID: 0}
+  SelectedShip: {fileID: 0}
 --- !u!4 &344223588
 Transform:
   m_ObjectHideFlags: 0
@@ -2206,6 +2206,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &416833800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 978060360616518428, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1469223884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &441632660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,9 +4352,9 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1032823374}
-        m_TargetAssemblyTypeName: AttackInformation, Assembly-CSharp
-        m_MethodName: OnSelectedShip
-        m_Mode: 0
+        m_TargetAssemblyTypeName: AllyInformationUI, Assembly-CSharp
+        m_MethodName: GetSelectedShip
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4358,6 +4370,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ShipManager, Assembly-CSharp
         m_MethodName: HandleTerrainSelected
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1032823372}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11142,6 +11166,63 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446976397969703711, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446976397969703711, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446976397969703711, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407740095337000820, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: _shipManager
+      value: 
+      objectReference: {fileID: 344223587}
+    - target: {fileID: 8407740095337000820, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: BoatProfilePicture
+      value: 
+      objectReference: {fileID: 416833800}
+    - target: {fileID: 8407740095337000820, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: CurrentProfilePicture
+      value: 
+      objectReference: {fileID: 416833800}
+    - target: {fileID: 8407740095337000820, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: nextProfileImage.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407740095337000820, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: nextProfileImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6beaf0b1f2282fe45ac97bc17e2d67da,
+        type: 3}
+    - target: {fileID: 8407740095337000820, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: nextProfileImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7efd478921245a047bdc7ac688d3b67f,
+        type: 3}
     - target: {fileID: 8959515001878388314, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -13777,6 +13858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993620345565641887, guid: adeec9d2d093be842b617f3f8f6d051d,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}

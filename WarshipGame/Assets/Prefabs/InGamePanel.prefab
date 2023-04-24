@@ -1643,7 +1643,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 6415964828501037529}
-  BoatProfile: {fileID: 978060360616518428}
+  CurrentProfilePicture: {fileID: 978060360616518428}
+  nextProfileImage:
+  - {fileID: 21300000, guid: 6beaf0b1f2282fe45ac97bc17e2d67da, type: 3}
+  - {fileID: 21300000, guid: 7efd478921245a047bdc7ac688d3b67f, type: 3}
+  - {fileID: 21300000, guid: 24e8226015cf4b64a97855ba70291656, type: 3}
+  - {fileID: 0}
+  activeShip: {fileID: 0}
+  currentImage: 0
 --- !u!1 &5899668967221178162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +1926,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4862363989981035670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1721034520925985651}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: HandlePanels
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6944396407691516005
 GameObject:
   m_ObjectHideFlags: 0
