@@ -5,21 +5,22 @@ public class AllyInformationUI : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image BoatProfilePicture;
+    [SerializeField] private Ship activeShip;
+    [SerializeField] private Slider _selectedShipSlider;
+    
     private ShipManager _shipManager;
 
     void Awake()
     {
-        _shipManager = GetComponent<ShipManager>();
+        _shipManager = FindObjectOfType<ShipManager>();
+
     }
 
-    public void OnSelectedShip(GameObject ship)
+    public void GetSelectedShip()
     {
-        Ship shipReference = ship.GetComponent<Ship>();
-        healthSlider.value = shipReference.HealthBar.value;
-    }
-
-    private void ShipReference(Ship shipReference)
-    {
+        if (_shipManager.selectedShip == null) return;
         
-    }
+        activeShip = _shipManager.selectedShip;
+        healthSlider.value = _shipManager.selectedShip.HealthBar.value;
+    }  
 }
