@@ -23,8 +23,6 @@ public class TurnManager : MonoBehaviour
     private IEnumerator EndTurn()
     {
         // Activate the enemy turn
-        Debug.Log("Enemy turn");
-
         for (int i = 0; i < enemyFleet.transform.childCount; i++)
         {
             //How to invert if?
@@ -36,8 +34,6 @@ public class TurnManager : MonoBehaviour
         EnemiesLeftInScene();
 
         // Reset the player Actions
-        Debug.Log("Player turn");
-
         yield return new WaitForSeconds(1.5f);
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
