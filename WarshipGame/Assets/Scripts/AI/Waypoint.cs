@@ -4,18 +4,17 @@ public class Waypoint : MonoBehaviour
 {
     [SerializeField] private float GizmoRadius;
     [SerializeField] private bool IsPatroling;
-    
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.magenta;
+        
         foreach (Transform t in transform)
         {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(t.position, GizmoRadius * 0.866f /2);
+            Gizmos.DrawWireSphere(t.position, GizmoRadius * 0.866f / 2f);
         }
-
         
-        Gizmos.color = Color.red;
+        Gizmos.color = !IsPatroling ? Color.red : Color.yellow;
         
         for (int i = 0; i < transform.childCount - 1; i++)
         {
@@ -27,10 +26,9 @@ public class Waypoint : MonoBehaviour
             Gizmos.DrawLine(transform.GetChild(transform.childCount-1).position, transform.GetChild(0).position);
             return;
         }
-
-        Gizmos.color = Color.magenta;
-        Transform EndPoint = transform.GetChild(transform.childCount - 1);
-        Gizmos.DrawLine(EndPoint.position, new Vector3(EndPoint.position.x, EndPoint.position.y +1f, EndPoint.position.z ));
+        
+        Vector3 endPoint = transform.GetChild(transform.childCount - 1).position;
+        Gizmos.DrawLine(endPoint, new Vector3(endPoint.x, endPoint.y + 1f, endPoint.z ));
     }
 
     /// <summary>

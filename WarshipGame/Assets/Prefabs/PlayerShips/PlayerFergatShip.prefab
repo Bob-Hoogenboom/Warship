@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 4640324429296480687}
   - component: {fileID: 4640324429296480684}
   - component: {fileID: 4640324429296480685}
+  - component: {fileID: 1586577454}
   m_Layer: 8
   m_Name: PlayerFergatShip
   m_TagString: Untagged
@@ -407,6 +408,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectionMaterial: {fileID: 2100000, guid: 6946a71c24caa554c9560bb44e6243ad, type: 2}
   IsGlowing: 0
+--- !u!114 &1586577454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640324429296480683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d480583eef7bb1438da3185e510db9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyShips:
+    serializedVersion: 2
+    m_Bits: 128
+  Radius: 2
+  GizmosOn: 0
+  _attackButtton: {fileID: 0}
 --- !u!1 &5738822586765473145
 GameObject:
   m_ObjectHideFlags: 0

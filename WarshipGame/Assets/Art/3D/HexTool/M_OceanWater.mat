@@ -147,7 +147,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Hight: 1.06
-    - _Line_Distortion: 0.028
+    - _Line_Distortion: 0
     - _Line_Oppacity: 0.121
     - _Metallic: 0
     - _OcclusionStrength: 1
