@@ -45,7 +45,6 @@ public class TurnManager : MonoBehaviour
             if (!playerFleet.transform.GetChild(i).gameObject.activeSelf) continue;
             playerFleet.transform.GetChild(i).GetComponent<Ship>().shipMoved = false;
             playerFleet.transform.GetChild(i).GetComponent<Player>().FindTargetsInRange();
-            
         }
         
         PlayersLeftInScene();
@@ -58,15 +57,12 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< enemyFleet.transform.childCount; i++)
         {
-            if(enemyFleet.transform.GetChild(i).gameObject.activeInHierarchy)
-            {
-                Debug.Log("false");
-                _enemyDefeat = false;
-                return;
-            }
+            if (!enemyFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
+            _enemyDefeat = false;
+            return;
         }
         
-        Debug.Log("Game End, Player win");
+        //Game ends, Player wins
         _enemyDefeat = true;
     }
     
@@ -74,15 +70,12 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< playerFleet.transform.childCount; i++)
         {
-            if(playerFleet.transform.GetChild(i).gameObject.activeInHierarchy)
-            {
-                Debug.Log("false");
-                _playerDefeat = false;
-                return;
-            }
+            if (!playerFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
+            _playerDefeat = false;
+            return;
         }
         
-        Debug.Log("Game End, Enemy win");
+        //Game ends, Enemy wins
         _playerDefeat = true;
     }
 }

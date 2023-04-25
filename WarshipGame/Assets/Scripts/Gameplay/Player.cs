@@ -24,11 +24,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2) && _targetInRange && !_shipScript.shipMoved )
-        {
-            Debug.Log(_targetInRange + " " + _shipScript.shipMoved);
-            Attack();
-        }
+        if (!Input.GetKeyDown(KeyCode.Alpha2) || !_targetInRange || _shipScript.shipMoved) return;
+        Attack();
     }
 
     /// <summary>
