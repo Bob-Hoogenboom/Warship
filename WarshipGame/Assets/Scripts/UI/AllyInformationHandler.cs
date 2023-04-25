@@ -5,13 +5,12 @@ public class AllyInformationHandler : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image currentProfilePicture;
-    [SerializeField] private Sprite[] nextProfileImage;
     [SerializeField] private Ship activeShip;
     
     private Slider _selectedShipSlider;
     private ShipManager _shipManager;
     
-    public int currentImage;
+    public Sprite currentImage;
 
     void Awake()
     {
@@ -31,6 +30,6 @@ public class AllyInformationHandler : MonoBehaviour
     private void HandleProfileImage()
     {
         currentImage = activeShip.GetComponent<Ship>().profileTag;
-        currentProfilePicture.sprite = nextProfileImage[currentImage];
+        currentProfilePicture.sprite = currentImage;
     }
 }
