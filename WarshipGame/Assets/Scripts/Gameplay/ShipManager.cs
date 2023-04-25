@@ -43,7 +43,7 @@ public class ShipManager : MonoBehaviour
         ClearOldSelection();
         return true;
     }
-    
+
     /// <summary>
     /// Checks if a ship is selected and if its the players turn
     /// And fills in the reference of the selected Tile

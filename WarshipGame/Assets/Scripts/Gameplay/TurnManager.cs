@@ -26,6 +26,7 @@ public class TurnManager : MonoBehaviour
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
             playerFleet.transform.GetChild(i).GetComponent<Ship>().shipMoved = false;
+            playerFleet.transform.GetChild(i).GetComponent<Player>().FindTargetsInRange();
         }
     }
 }
