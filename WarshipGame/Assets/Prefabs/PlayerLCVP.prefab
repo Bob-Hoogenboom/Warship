@@ -448,7 +448,7 @@ MonoBehaviour:
   damage: 3
   healthBar: {fileID: 7204612916214857396}
   shipMoved: 0
-  profileTag: 1
+  profileTag: {fileID: 21300000, guid: 7efd478921245a047bdc7ac688d3b67f, type: 3}
 --- !u!114 &5279529396846165521
 MonoBehaviour:
   m_ObjectHideFlags: 0
