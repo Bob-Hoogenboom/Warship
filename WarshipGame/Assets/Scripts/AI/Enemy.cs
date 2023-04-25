@@ -41,19 +41,13 @@ public class Enemy : MonoBehaviour
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            StateCheck();
-        }
-    }
-
     /// <summary>
     /// It checks the action the enemy ship is able to perform and switches to that state
     /// </summary>
     public void StateCheck()
     {
+        if (!gameObject.activeSelf)return; //Not a great line but it prevents 
+        
         //OverlapSphere returns an array of every Collider of collision layer 'PlayerShips'
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), PlayerShips);
         if (targetColliders.Length == 0)
@@ -71,7 +65,7 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// State handler inside of a switchcase
+    /// State handler inside of a switch case
     /// </summary>
     private void EnemyAction()
     {

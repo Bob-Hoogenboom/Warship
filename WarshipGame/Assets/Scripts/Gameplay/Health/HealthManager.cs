@@ -58,3 +58,4 @@ public class HealthManager : MonoBehaviour
         _hit.gameObject.SetActive(false);
     }
 }
+ 

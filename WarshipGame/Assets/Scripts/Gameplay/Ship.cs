@@ -34,6 +34,8 @@ public class Ship : MonoBehaviour
     public event Action<Ship> MovementFinished;
     public bool shipMoved;
     public Sprite profileTag;
+    
+    
     /// <summary>
     /// Gets glow manager to prevent Editor usage
     /// </summary>

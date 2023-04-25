@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// this is just a dummy script to make the game function
+/// the player attack should be better implemented then this*
+/// </summary>
 public class Player : MonoBehaviour
 {
     [Header("Detection")]
@@ -9,14 +13,22 @@ public class Player : MonoBehaviour
     [SerializeField] private bool GizmosOn = true;
     
     //attack
-    [SerializeField] private Button _attackButtton;
+    private bool _targetInRange;
     private Ship _shipScript;
     private Transform _targetShip;
 
     private void Start()
     {
         _shipScript = gameObject.GetComponent<Ship>();
-        _attackButtton = FindObjectOfType<Button>(); //Awfull line but works for now
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2) && _targetInRange && !_shipScript.shipMoved )
+        {
+            Debug.Log(_targetInRange + " " + _shipScript.shipMoved);
+            Attack();
+        }
     }
 
     /// <summary>
@@ -27,17 +39,18 @@ public class Player : MonoBehaviour
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), EnemyShips);
         if (targetColliders.Length == 0)
         {
-            _attackButtton.enabled = false;
+            _targetInRange = false; 
             return;
         }
-        _attackButtton.enabled = true;
-        _targetShip = targetColliders[targetColliders.Length].GetComponentInParent<Transform>();
-        AttackState();
+
+        _targetInRange = true;
+        _targetShip = targetColliders[0].GetComponentInParent<Transform>();
     }
     
-    private void AttackState()
+    private void Attack()
     {
         _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
+        _shipScript.shipMoved = true;
     }
     
     private void OnDrawGizmos()
