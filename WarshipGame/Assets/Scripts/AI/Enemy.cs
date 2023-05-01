@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,8 +12,12 @@ public class Enemy : MonoBehaviour
 {
     [Header("Detection")]
     [SerializeField] private LayerMask PlayerShips;
-    [SerializeField] private float Radius; //works best for 1,2,3 radial values >3 becomes inefficient
-    [SerializeField] private bool GizmosOn = true;
+    
+    [Tooltip("works best for 1,2,3 radial values >3 becomes inaccurate")] 
+    [Range(1,3)] 
+    [SerializeField] private int Radius;
+    
+    [SerializeField] private bool GizmosOn;
     private States _states;
 
     //attack
@@ -46,8 +51,6 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public void StateCheck()
     {
-        if (!gameObject.activeSelf)return; //Not a great line but it prevents 
-        
         //OverlapSphere returns an array of every Collider of collision layer 'PlayerShips'
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), PlayerShips);
         if (targetColliders.Length == 0)
@@ -81,6 +84,9 @@ public class Enemy : MonoBehaviour
             
             case States.Skip:
                 break; //skip turn aka do nothing
+            
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
     
@@ -100,6 +106,7 @@ public class Enemy : MonoBehaviour
         if (!Mathf.Approximately(Mathf.Abs(Quaternion.Dot(startRotation, endRotation)),1.0f))
         {
             float timeElapsed = 0;
+            
             while (timeElapsed < _rotationTime)
             {
                 timeElapsed += Time.deltaTime;
@@ -125,6 +132,7 @@ public class Enemy : MonoBehaviour
         Vector3 startPosition = transform.position;
         endPosition.y = startPosition.y;
         float timeElapsed = 0;
+        
         while(timeElapsed < _movementTime)
         {
             timeElapsed += Time.deltaTime;

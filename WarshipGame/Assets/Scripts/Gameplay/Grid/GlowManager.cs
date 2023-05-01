@@ -14,11 +14,12 @@ public class GlowManager : MonoBehaviour
     
     public Material SelectionMaterial;
     public bool IsGlowing;
-    
+    private static readonly int GlowColor = Shader.PropertyToID("_GlowColor");
+
     private void Awake()
     {
         PrepareMaterialDictionaries();
-        _originalColor = SelectionMaterial.GetColor("_GlowColor");
+        _originalColor = SelectionMaterial.GetColor(GlowColor);
     }
 
     /// <summary>
@@ -26,27 +27,27 @@ public class GlowManager : MonoBehaviour
     /// </summary>
     private void PrepareMaterialDictionaries()
     {
-        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        foreach (Renderer materialRenderer in GetComponentsInChildren<Renderer>())
         {
-            Material[] originalMaterials = renderer.materials;
-            _originalMaterialDictionary.Add(renderer, originalMaterials);
-            Material[] newMaterials = new Material[renderer.materials.Length];
+            Material[] originalMaterials = materialRenderer.materials;
+            _originalMaterialDictionary.Add(materialRenderer, originalMaterials);
+            Material[] newMaterials = new Material[materialRenderer.materials.Length];
 
             for (int i = 0; i < originalMaterials.Length; i++)
             {
-                if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out var mat))
+                if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out Material material))
                 {
-                    mat = new Material(SelectionMaterial)
+                    material = new Material(SelectionMaterial)
                     {
                         color = originalMaterials[i].color
                     };
-                    _cachedSelectionMaterials.Add(originalMaterials[i].color, mat);
+                    _cachedSelectionMaterials.Add(originalMaterials[i].color, material);
                 }
 
-                newMaterials[i] = mat;
+                newMaterials[i] = material;
             }
 
-            _selectionMaterialDictionary.Add(renderer, newMaterials);
+            _selectionMaterialDictionary.Add(materialRenderer, newMaterials);
         }
     }
 
@@ -57,17 +58,17 @@ public class GlowManager : MonoBehaviour
     {
         if (!IsGlowing)
         {
-            foreach (Renderer renderer in _originalMaterialDictionary.Keys)
+            foreach (Renderer materialRenderer in _originalMaterialDictionary.Keys)
             {
-                renderer.materials = _selectionMaterialDictionary[renderer];
+                materialRenderer.materials = _selectionMaterialDictionary[materialRenderer];
             }
             IsGlowing = true;
             return;
         }
 
-        foreach (Renderer renderer in _originalMaterialDictionary.Keys)
+        foreach (Renderer materialRenderer in _originalMaterialDictionary.Keys)
         {
-            renderer.materials = _originalMaterialDictionary[renderer];
+            materialRenderer.materials = _originalMaterialDictionary[materialRenderer];
         }
 
         IsGlowing = false;
@@ -90,13 +91,13 @@ public class GlowManager : MonoBehaviour
     internal void ResetSelectedHighlight()
     {
         if (!IsGlowing) return;
-        foreach (Renderer renderer in _selectionMaterialDictionary.Keys)
+        foreach (Renderer materialRenderer in _selectionMaterialDictionary.Keys)
         {
-            foreach (Material item in _selectionMaterialDictionary[renderer])
+            foreach (Material item in _selectionMaterialDictionary[materialRenderer])
             { 
-                item.SetColor("_GlowColor", _originalColor);
+                item.SetColor(GlowColor, _originalColor);
             }
-            renderer.materials = _selectionMaterialDictionary[renderer];
+            materialRenderer.materials = _selectionMaterialDictionary[materialRenderer];
         }
     }
 
@@ -106,11 +107,11 @@ public class GlowManager : MonoBehaviour
     internal void HighlightValidPath()
     {
         if (!IsGlowing) return;
-        foreach (Renderer renderer in _selectionMaterialDictionary.Keys)
+        foreach (Renderer materialRenderer in _selectionMaterialDictionary.Keys)
         {
-            foreach (Material item in _selectionMaterialDictionary[renderer])
+            foreach (Material item in _selectionMaterialDictionary[materialRenderer])
             { 
-                item.SetColor("_GlowColor", _validHexColor);
+                item.SetColor(GlowColor, _validHexColor);
             }
         }
     }
