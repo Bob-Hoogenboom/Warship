@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private Waypoint WaypointsScript;
 
+    private int _waterLayer = 4;
+    private HexType _lastDetectedHexType;
     private Transform _currentWaypoint;
     private float _rotationTime;
     private float _movementTime;
@@ -141,6 +143,12 @@ public class Enemy : MonoBehaviour
             yield return null;
         }
 
+        MovementFinished();
+    }
+
+    private void MovementFinished()
+    {
+        
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
     }
     
@@ -157,5 +165,24 @@ public class Enemy : MonoBehaviour
     {
         if(!GizmosOn)return;
         Gizmos.DrawWireSphere(transform.position, (Radius * 0.866f));
+    }
+    
+    private void OnCollisionEnter(Collision hexTileCollision)
+    {
+        if (hexTileCollision.gameObject.layer != _waterLayer) return;
+
+        HexData currentHex = hexTileCollision.gameObject.GetComponent<HexData>();
+
+        _lastDetectedHexType = currentHex.HexType;
+        currentHex.HexType = HexType.Occupied;
+    }
+    
+    private void OnCollisionExit(Collision hexTileCollision)
+    {
+        if (hexTileCollision.gameObject.layer != _waterLayer) return;
+
+        HexData currentHex = hexTileCollision.gameObject.GetComponent<HexData>();
+
+        currentHex.HexType = _lastDetectedHexType;
     }
 }

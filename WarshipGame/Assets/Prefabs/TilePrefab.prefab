@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78038a3693fe74696a4afafc0d29c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _highlight: {fileID: 821190975059637167}
+  highlight: {fileID: 0}
   hexType: 0
   Grid: {x: 0, y: 0}
 --- !u!1 &4250047340244201784

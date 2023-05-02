@@ -30,6 +30,8 @@ public class Ship : MonoBehaviour
     private Queue<Vector3> _pathPositions = new();
     private GlowManager _glowManager;
     
+    private int _waterLayer = 4;
+    private HexType _lastDetectedHexType;
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
     public bool shipMoved;
@@ -138,6 +140,26 @@ public class Ship : MonoBehaviour
         else
         {
             MovementFinished?.Invoke(this);
+            
         }
+    }
+
+    private void OnCollisionEnter(Collision hexTileCollision)
+    {
+        if (hexTileCollision.gameObject.layer != _waterLayer) return;
+
+        HexData currentHex = hexTileCollision.gameObject.GetComponent<HexData>();
+
+        _lastDetectedHexType = currentHex.HexType;
+        currentHex.HexType = HexType.Occupied;
+    }
+    
+    private void OnCollisionExit(Collision hexTileCollision)
+    {
+        if (hexTileCollision.gameObject.layer != _waterLayer) return;
+
+        HexData currentHex = hexTileCollision.gameObject.GetComponent<HexData>();
+
+        currentHex.HexType = _lastDetectedHexType;
     }
 }
