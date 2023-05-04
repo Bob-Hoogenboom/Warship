@@ -5,14 +5,11 @@ public class AllyInformationHandler : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image currentProfilePicture;
-    [SerializeField] private Ship activeShip;
-    
+
     private Slider _selectedShipSlider;
     private ShipManager _shipManager;
-    
-    public Sprite currentImage;
 
-    void Awake()
+    private void Awake()
     {
         _shipManager = FindObjectOfType<ShipManager>();
     }
@@ -21,15 +18,13 @@ public class AllyInformationHandler : MonoBehaviour
     {
         if (_shipManager.SelectedShip == null) return;
         
-        activeShip = _shipManager.SelectedShip;
-        healthSlider.maxValue = activeShip.GetComponent<Ship>().HealthBar.maxValue;
-        healthSlider.value = activeShip.GetComponent<Ship>().HealthBar.value;
-        HandleProfileImage();
+        Ship activeShipScript = _shipManager.SelectedShip.GetComponent<Ship>();
+        
+        healthSlider.maxValue = activeShipScript.HealthBar.maxValue;
+        healthSlider.value = activeShipScript.HealthBar.value;
+        
+        currentProfilePicture.sprite = activeShipScript.profileTag;
     }
 
-    private void HandleProfileImage()
-    {
-        currentImage = activeShip.GetComponent<Ship>().profileTag;
-        currentProfilePicture.sprite = currentImage;
-    }
+
 }

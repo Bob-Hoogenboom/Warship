@@ -4762,7 +4762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909017204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.775, y: 0, z: -2.17}
+  m_LocalPosition: {x: 0.767, y: 0, z: -2.159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7149,6 +7149,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2020416627}
     m_Modifications:
     - target: {fileID: 618366510, guid: 78fc2d20f41a4754a9fa92bd128f78c5, type: 3}
+      propertyPath: Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 618366510, guid: 78fc2d20f41a4754a9fa92bd128f78c5, type: 3}
       propertyPath: GizmosOn
       value: 0
       objectReference: {fileID: 0}
@@ -7723,6 +7727,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2020416627}
     m_Modifications:
+    - target: {fileID: 618366510, guid: 78fc2d20f41a4754a9fa92bd128f78c5, type: 3}
+      propertyPath: Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 618366510, guid: 78fc2d20f41a4754a9fa92bd128f78c5, type: 3}
       propertyPath: WaypointsScript
       value: 

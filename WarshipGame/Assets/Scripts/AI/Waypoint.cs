@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Make it loop or turn back*
 public class Waypoint : MonoBehaviour
 {
     [SerializeField] private float GizmoRadius;

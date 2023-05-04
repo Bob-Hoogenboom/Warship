@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
 
-public enum HexType
+
+//combine with the enum from Enemy.cs on one Enum script*
+public enum HexType 
 {
-    Default,
-    Occupied
+    FreeSpace,
+    Occupied,
+    OilWater
 }
 
 /// <summary>
@@ -31,7 +34,7 @@ public class HexData : MonoBehaviour
     {
         switch (hexType)
         {
-            case HexType.Default:
+            case HexType.FreeSpace:
                 return 1;
             default:
                 throw new Exception($"Hex of type{hexType} not supported");

@@ -60,8 +60,7 @@ public class GraphSearch
     /// <returns></returns>
     public static List<Vector2Int> GeneratePathBFS(Vector2Int current, Dictionary<Vector2Int, Vector2Int?> visitedHexesDict)
     {
-        List<Vector2Int> path = new();
-        path.Add(current);
+        List<Vector2Int> path = new() {current};
         while (visitedHexesDict[current] != null)
         {
             path.Add(visitedHexesDict[current].Value);

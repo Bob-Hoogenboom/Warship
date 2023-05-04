@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class SelectionManager : MonoBehaviour
 {
     private Camera _mainCamera;
-    private RaycastHit _hit;
     private readonly float _rayDistance = 200;
     
     public LayerMask SelectionMask;
@@ -30,11 +29,10 @@ public class SelectionManager : MonoBehaviour
         if (ShipSelected(result))
         {
             OnShipSelected?.Invoke(result);
+            return;
         }
-        else
-        {
-            OnTerrainSelected.Invoke(result);
-        }
+
+        OnTerrainSelected.Invoke(result);
     }
 
     /// <summary>
@@ -56,9 +54,9 @@ public class SelectionManager : MonoBehaviour
     private bool FindTarget(Vector3 mousePosition, out GameObject result)
     {
         Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
-        if (Physics.Raycast(ray, out _hit, _rayDistance,SelectionMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, _rayDistance,SelectionMask))
         {
-            result = _hit.collider.gameObject;
+            result = hit.collider.gameObject;
             return true;
         }
 

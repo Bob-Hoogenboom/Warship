@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] nextPanel;
-    [SerializeField] private GameObject currentPanel;
+    [SerializeField] private GameObject[] NextPanel;
+    [SerializeField] private GameObject CurrentPanel;
 
     /// <summary>
     /// Activates the panel that is requested from a list. The panel that is no longer used will be inactivated while the new panel becomes the new current panel.
@@ -15,10 +15,11 @@ public class MenuManager : MonoBehaviour
     /// <param name="i"></param>
     public void HandlePanels(int i)
     {
-        nextPanel[i].SetActive(true);
-        currentPanel.SetActive(false);
-        if (currentPanel == null) return;
-            currentPanel = nextPanel[i];
+        NextPanel[i].SetActive(true);
+        CurrentPanel.SetActive(false);
+        
+        if (CurrentPanel == null) return;
+        CurrentPanel = NextPanel[i];
     }
     
     public void LoadScene(string loadNextScene)

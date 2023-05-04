@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using HexTiles;
@@ -27,7 +28,9 @@ public class HexCoordinates : MonoBehaviour
 
         if (gridPrefab == null)
         {
-            print("Missing prefab, please assign");
+            Debug.LogException(new Exception("testObj was null"));
+            //find out how logger works, https://docs.unity3d.com/ScriptReference/Logger.LogError.html
+            //Logger.LogError("kTAG", "memberVariable must be set to point to a Transform.");
             return;
         }
 
@@ -44,9 +47,11 @@ public class HexCoordinates : MonoBehaviour
 
         for(int i = 0; i < _hexTileData.Length; i++)
         {
-            float x = _hexTileData[i].Position.GetPositionVector(_hexTileData[i].Diameter).x;
-            float y = _hexTileData[i].Position.Elevation;
-            float z = _hexTileData[i].Position.GetPositionVector(_hexTileData[i].Diameter).z;
+            HexPosition hexTilePosition = _hexTileData[i].Position;
+            
+            float x = hexTilePosition.GetPositionVector(_hexTileData[i].Diameter).x;
+            float y = hexTilePosition.Elevation;
+            float z = hexTilePosition.GetPositionVector(_hexTileData[i].Diameter).z;
 
             _instantiateObject = Instantiate(gridPrefab, new Vector3(x, y, z), Quaternion.Euler(0,90,0));
             _instantiateObject.transform.SetParent(gameObject.transform);

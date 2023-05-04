@@ -14,8 +14,10 @@ public class Ship : MonoBehaviour
     [Header("Movement")]
     [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
     public float RotationTime = 0.3f;
+    
     [Tooltip("The time it takes the ship to move from tile to tile")]
     public float MovementTime = 1f;
+    
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
     [SerializeField] private int points = 3;
     
@@ -53,7 +55,6 @@ public class Ship : MonoBehaviour
         if (healthBar.value > 0) return; 
         gameObject.SetActive(false);
     }
-    
 
     internal void Deselect()
     {
