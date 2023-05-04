@@ -14,17 +14,18 @@ public class Settings
 {
     public static Profiles profile;
 }
+
 /// <summary>
 /// Create a scriptable object to store the adjusted audio data in-game.
 /// </summary>
 [CreateAssetMenu(menuName = "Data/Create Profile")]
 public class Profiles : ScriptableObject
 {
-    [SerializeField] public AudioMixer audioMixer;
-    [SerializeField] private Volume[] volumeControl;
-
-    public bool SaveInPlayerPref = true;
-    public string PrefPrefix = "Settings_";
+    [SerializeField] private Volume[] VolumeControl;
+    private bool _saveInPlayerPref = true;
+    private string _prefPrefix = "Settings_";
+    
+    public AudioMixer Mixer;
     
     public void SetProfile(Profiles profile)
     {
@@ -40,33 +41,32 @@ public class Profiles : ScriptableObject
     {
         float volume = 1f;
 
-        if (!audioMixer)
+        if (!Mixer)
         {
             return volume;
         }
         
-        for (int i = 0; i < volumeControl.Length; i++)
+        foreach (Volume volumeControl in VolumeControl)
         {
-            if (volumeControl[i].AudioName == name)
+            if (volumeControl.AudioName != name) continue;
+            
+            if (_saveInPlayerPref)
             {
-                if (SaveInPlayerPref)
+                if (PlayerPrefs.HasKey(_prefPrefix + volumeControl.AudioName))
                 {
-                    if (PlayerPrefs.HasKey(PrefPrefix + volumeControl[i].AudioName))
-                    {
-                        volumeControl[i].AudioVolume = PlayerPrefs.GetFloat(PrefPrefix + volumeControl[i].AudioName);
-                    }
+                    volumeControl.AudioVolume = PlayerPrefs.GetFloat(_prefPrefix + volumeControl.AudioName);
                 }
-                //resets the audio volume
-                volumeControl[i].TempVolume = volumeControl[i].AudioVolume;
-
-                //sets the mixer to match the volume
-                if (audioMixer)
-                {
-                    audioMixer.SetFloat(volumeControl[i].AudioName, Mathf.Log(volumeControl[i].AudioVolume) * 20f);
-                }
-                volume = volumeControl[i].AudioVolume;
-                break;
             }
+            //resets the audio volume
+            volumeControl.TempVolume = volumeControl.AudioVolume;
+
+            //sets the mixer to match the volume
+            if (Mixer)
+            {
+                Mixer.SetFloat(volumeControl.AudioName, Mathf.Log(volumeControl.AudioVolume) * 20f);
+            }
+            volume = volumeControl.AudioVolume;
+            break;
         }
         return volume;
     }
@@ -76,23 +76,22 @@ public class Profiles : ScriptableObject
     /// </summary>
     public void GetAudioLevels()
     {
-        if (audioMixer)
-        {
-            for (int i = 0; i < volumeControl.Length; i++)
-            {
-                if (SaveInPlayerPref)
-                {
-                    if (PlayerPrefs.HasKey(PrefPrefix + volumeControl[i].AudioName))
-                    {
-                        volumeControl[i].AudioVolume = PlayerPrefs.GetFloat(PrefPrefix + volumeControl[i].AudioName);
-                    }
-                }
-                //resets the audio volume
-                volumeControl[i].TempVolume = volumeControl[i].AudioVolume;
+        if (!Mixer) return;
 
-                //sets the mixer to match the volume
-                audioMixer.SetFloat(volumeControl[i].AudioName, Mathf.Log(volumeControl[i].AudioVolume) * 20f);
+        foreach (Volume volumeControl in VolumeControl)
+        {
+            if (_saveInPlayerPref)
+            {
+                if (PlayerPrefs.HasKey(_prefPrefix + volumeControl.AudioName))
+                {
+                    volumeControl.AudioVolume = PlayerPrefs.GetFloat(_prefPrefix + volumeControl.AudioName);
+                }
             }
+            //resets the audio volume
+            volumeControl.TempVolume = volumeControl.AudioVolume;
+
+            //sets the mixer to match the volume
+            Mixer.SetFloat(volumeControl.AudioName, Mathf.Log(volumeControl.AudioVolume) * 20f);
         }
     }
 
@@ -103,17 +102,14 @@ public class Profiles : ScriptableObject
     /// <param name="volume"></param>
     public void SetAudioLevels(string name, float volume)
     {
-        if (audioMixer)
+        if (!Mixer) return;
+        foreach (Volume volumeControl in VolumeControl)
         {
-            for (int i = 0; i < volumeControl.Length; i++)
-            {
-                if (volumeControl[i].AudioName == name)
-                {
-                    audioMixer.SetFloat(volumeControl[i].AudioName, Mathf.Log(volume) * 20f);
-                    volumeControl[i].TempVolume = volume;
-                    break;
-                }
-            }
+            if (volumeControl.AudioName != name) continue;
+            
+            Mixer.SetFloat(volumeControl.AudioName, Mathf.Log(volume) * 20f);
+            volumeControl.TempVolume = volume;
+            break;
         }
     }
 
@@ -122,19 +118,17 @@ public class Profiles : ScriptableObject
     /// </summary>
     public void SaveAudioLevels()
     {
-        if (audioMixer)
+        if (!Mixer) return;
+
+        foreach (Volume volumeControl in VolumeControl)
         {
-            float volume = 0f;
-            for (int i = 0; i < volumeControl.Length; i++)
+            float volume = volumeControl.TempVolume;
+            if (_saveInPlayerPref)
             {
-                volume = volumeControl[i].TempVolume;
-                if (SaveInPlayerPref)
-                {
-                    PlayerPrefs.SetFloat(PrefPrefix + volumeControl[i].AudioName, volume);
-                }
-                audioMixer.SetFloat(volumeControl[i].AudioName, Mathf.Log(volume) * 20f);
-                volumeControl[i].AudioVolume = volume;
+                PlayerPrefs.SetFloat(_prefPrefix + volumeControl.AudioName, volume);
             }
+            Mixer.SetFloat(volumeControl.AudioName, Mathf.Log(volume) * 20f);
+            volumeControl.AudioVolume = volume;
         }
     }
 }

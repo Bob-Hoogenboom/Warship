@@ -25,26 +25,22 @@ public class Movement : MonoBehaviour
     }
 
     /// <summary>
-    /// Draws the Range of the currently selected Ship
+    /// Calculates and draws the range of the currently selected Ship
     /// </summary>
     /// <param name="selectedShip"></param>
     /// <param name="hexGrid"></param>
     public void ShowRange(Ship selectedShip, HexGrid hexGrid)
     {
-        CalculateRange(selectedShip, hexGrid);
+        Vector3 shipPosition = selectedShip.transform.position;
+        _movementRange = GraphSearch.BFSGetRange(hexGrid, hexGrid.GetClosestHex(shipPosition), selectedShip.MovementPoints);
 
-        Vector2Int shipPos = hexGrid.GetClosestHex(selectedShip.transform.position);
+        Vector2Int shipPos = hexGrid.GetClosestHex(shipPosition);
         
         foreach (Vector2Int hexPosition in _movementRange.GetRangePositions())
         {
             if (shipPos == hexPosition) continue;
             hexGrid.GetTileAt(hexPosition).EnableHighlight();
         }
-    }
-    
-    private void CalculateRange(Ship selectedShip, HexGrid hexGrid)
-    {
-        _movementRange = GraphSearch.BFSGetRange(hexGrid, hexGrid.GetClosestHex(selectedShip.transform.position), selectedShip.MovementPoints);
     }
 
     /// <summary>
@@ -67,11 +63,21 @@ public class Movement : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Makes the ship cycle trough the tile Queue
+    /// </summary>
+    /// <param name="selectedShip"></param>
+    /// <param name="hexGrid"></param>
     public void MoveShip(Ship selectedShip, HexGrid hexGrid)
     {
         selectedShip.MoveTroughPath(_currentPath.Select(pos=> hexGrid.GetTileAt(pos).transform.position).ToList());
     }
 
+    /// <summary>
+    /// Checks if the 2nd selected HexTile is in range of the selected ship
+    /// </summary>
+    /// <param name="hexPosition"></param>
+    /// <returns></returns>
     public bool IsHexInRange(Vector2Int hexPosition)
     {
         return _movementRange.IsHexPositionInRange(hexPosition);
