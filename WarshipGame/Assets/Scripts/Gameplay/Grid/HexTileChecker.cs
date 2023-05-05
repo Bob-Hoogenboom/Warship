@@ -3,6 +3,7 @@ using UnityEngine;
 public class HexTileChecker : MonoBehaviour
 {
     private HexType _lastDetectedHexType;
+    
     private void OnCollisionEnter(Collision hexTileCollision)
     {
         if (hexTileCollision.gameObject.layer != 4) return;

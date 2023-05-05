@@ -36,7 +36,7 @@ public class HexData : MonoBehaviour
         {
             case HexType.FreeSpace:
                 return 1;
-            case HexType.OilWater :
+            case HexType.OilWater:
                 return 2;
             default:
                 throw new Exception($"Hex of type{HexType} not supported");

@@ -141,14 +141,10 @@ public class Enemy : MonoBehaviour
             yield return null;
         }
 
-        MovementFinished();
+        _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
+
     }
 
-    private void MovementFinished()
-    {
-        _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
-    }
-    
     /// <summary>
     /// Deals damage to the closest player ship in range
     /// </summary>
