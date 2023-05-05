@@ -142,7 +142,6 @@ public class Enemy : MonoBehaviour
         }
 
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
-
     }
 
     /// <summary>
