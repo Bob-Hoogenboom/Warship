@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     
     [Header("Movement")]
     [SerializeField] private Waypoint WaypointsScript;
-
+    
     private Transform _currentWaypoint;
     private float _rotationTime;
     private float _movementTime;
@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
 
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
     }
-    
+
     /// <summary>
     /// Deals damage to the closest player ship in range
     /// </summary>
