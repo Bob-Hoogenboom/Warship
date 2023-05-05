@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -69,10 +68,7 @@ public class ShipManager : MonoBehaviour
     {
         if (shipReference.shipMoved) return; 
         
-        if (SelectedShip != null)
-        {
-            ClearOldSelection();
-        }
+        if (SelectedShip != null) ClearOldSelection();
 
         SelectedShip = shipReference;
         SelectedShip.Select();

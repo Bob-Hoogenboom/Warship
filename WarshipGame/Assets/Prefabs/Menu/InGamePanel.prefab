@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf909acb56edcf54980b7c52391e7164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPanel:
+  NextPanel:
   - {fileID: 3722155606369993939}
   - {fileID: 3722155606035230780}
   - {fileID: 5352946197472169957}
@@ -747,7 +747,7 @@ MonoBehaviour:
   - {fileID: 7188182780065202566}
   - {fileID: 3361972612631620980}
   - {fileID: 5796824867471282116}
-  currentPanel: {fileID: 3722155606369993939}
+  CurrentPanel: {fileID: 3722155606369993939}
 --- !u!114 &8857401646191589002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,8 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cf5c06ac70fd94a820b068640eea45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profiles: {fileID: 0}
-  audioSliders: []
+  profiles: {fileID: 11400000, guid: 875913b82e856aa458af421af6840ca8, type: 2}
 --- !u!114 &8649298020990431617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,8 +1535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 6415964828501037529}
   currentProfilePicture: {fileID: 978060360616518428}
-  activeShip: {fileID: 0}
-  currentImage: {fileID: 0}
 --- !u!1 &6872643151814825652
 GameObject:
   m_ObjectHideFlags: 0

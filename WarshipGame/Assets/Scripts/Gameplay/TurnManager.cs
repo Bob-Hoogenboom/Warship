@@ -25,10 +25,11 @@ public class TurnManager : MonoBehaviour
         // Activate the enemy turn
         for (int i = 0; i < enemyFleet.transform.childCount; i++)
         {
-            //How to invert if?
-            if (!enemyFleet.transform.GetChild(i).gameObject.activeSelf) continue;
+            Transform enemyChild = enemyFleet.transform.GetChild(i);
             
-            enemyFleet.transform.GetChild(i).GetComponent<Enemy>().StateCheck();
+            if (!enemyChild.gameObject.activeSelf) continue;
+            
+            enemyChild.GetComponent<Enemy>().StateCheck();
         }
 
         EnemiesLeftInScene();
@@ -37,16 +38,17 @@ public class TurnManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
-            //How to invert if?
-            if (!playerFleet.transform.GetChild(i).gameObject.activeSelf) continue;
-            playerFleet.transform.GetChild(i).GetComponent<Ship>().shipMoved = false;
-            playerFleet.transform.GetChild(i).GetComponent<Player>().FindTargetsInRange();
+            Transform playerChild = playerFleet.transform.GetChild(i);
+            
+            if (!playerChild.gameObject.activeSelf) continue;
+
+            playerChild.GetComponent<Ship>().shipMoved = false;
+            playerChild.GetComponent<Player>().FindTargetsInRange();
         }
         
         PlayersLeftInScene();
 
         if (_enemyDefeat || _playerDefeat) SceneManager.LoadScene(0);
-        yield return null;
     }
     
     private void EnemiesLeftInScene()
@@ -58,7 +60,6 @@ public class TurnManager : MonoBehaviour
             return;
         }
         
-        //Game ends, Player wins
         _enemyDefeat = true;
     }
     
@@ -71,7 +72,6 @@ public class TurnManager : MonoBehaviour
             return;
         }
         
-        //Game ends, Enemy wins
         _playerDefeat = true;
     }
 }
