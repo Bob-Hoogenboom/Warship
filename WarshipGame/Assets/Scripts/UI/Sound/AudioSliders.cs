@@ -5,10 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class AudioSliders : MonoBehaviour
 {
-    private Slider slider
-    {
-        get { return GetComponent<Slider>(); }
-    }
+    private Slider _slider => GetComponent<Slider>();
 
     [Tooltip("This is the name of the exposed parameter")] 
     [SerializeField] private string volumeName;
@@ -18,26 +15,29 @@ public class AudioSliders : MonoBehaviour
     private void Start()
     {
         ResetSliderValue();
-        slider.onValueChanged.AddListener(delegate
+        _slider.onValueChanged.AddListener(delegate
         {
-            UpdateValueOnChange(slider.value);
+            UpdateValueOnChange(_slider.value);
         });
     }
 
-    public void UpdateValueOnChange(float value)
+    private void UpdateValueOnChange(float value)
     {
         if (volumeLabel == null) return;
-            volumeLabel.text = Mathf.Round(value * 100.0f) + "%";
+        volumeLabel.text = Mathf.Round(value * 100.0f) + "%";
 
         if (!Settings.profile) return;
-            Settings.profile.SetAudioLevels(volumeName, value);
+        Settings.profile.SetAudioLevels(volumeName, value);
     }
 
+    /// <summary>
+    /// Function can be assigned to a button to reset all slider to its original value
+    /// </summary>
     public void ResetSliderValue()
     {
         if (!Settings.profile) return;
-            float volume = Settings.profile.GetAudioLevels(volumeName);
-            UpdateValueOnChange(volume);
-            slider.value = volume;
+        float volume = Settings.profile.GetAudioLevels(volumeName);
+        UpdateValueOnChange(volume);
+        _slider.value = volume;
     }
 }

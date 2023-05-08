@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// this is just a dummy script to make the game function
@@ -12,7 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float Radius;
     [SerializeField] private bool GizmosOn = true;
     
-    //attack
     private bool _targetInRange;
     private Ship _shipScript;
     private Transform _targetShip;
@@ -28,9 +26,6 @@ public class Player : MonoBehaviour
         Attack();
     }
 
-    /// <summary>
-    /// !needs to be merged into ship.CS because Enemy.cs uses the same code
-    /// </summary>
     public void FindTargetsInRange()
     {
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), EnemyShips);
