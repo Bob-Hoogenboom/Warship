@@ -2233,6 +2233,8 @@ MonoBehaviour:
   hexGridScript: {fileID: 238572301}
   movementScript: {fileID: 935572536}
   SelectedShip: {fileID: 0}
+  test: {fileID: 832225369}
+  test2: {fileID: 535270995}
 --- !u!4 &165193454
 Transform:
   m_ObjectHideFlags: 0
