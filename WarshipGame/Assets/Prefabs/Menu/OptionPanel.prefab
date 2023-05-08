@@ -2654,7 +2654,7 @@ GameObject:
   - component: {fileID: 686222039453262546}
   - component: {fileID: 1327179805576013429}
   m_Layer: 5
-  m_Name: PercentageBMG
+  m_Name: PercentageBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3521,7 +3521,7 @@ GameObject:
   - component: {fileID: 3983364609850450779}
   - component: {fileID: 8541662578155768487}
   m_Layer: 5
-  m_Name: BMGButton
+  m_Name: BGMButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7005,7 +7005,7 @@ PrefabInstance:
     - target: {fileID: 5022136667288452218, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
         type: 3}
       propertyPath: volumeName
-      value: BMG
+      value: BGM
       objectReference: {fileID: 0}
     - target: {fileID: 5022136667288452218, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
         type: 3}
