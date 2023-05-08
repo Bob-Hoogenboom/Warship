@@ -55,7 +55,7 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: c7bf67a8109d6ab42887a788051745dd
-    name: BMG
+    name: BGM
   - guid: 24a1673306e9bd847b68de7adf19cdab
     name: Master
   - guid: 5949b547a6c532a41a2b6ae67db57ea3
