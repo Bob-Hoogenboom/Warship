@@ -8,12 +8,13 @@ public class ShipManager : MonoBehaviour
 {
     [SerializeField] private HexGrid hexGridScript;
     [SerializeField] private Movement movementScript;
+    [SerializeField] private Transform playerFleet;
+    [SerializeField] private TurnManager turnManager;
     public Ship SelectedShip;
 
     private HexData _previouslySelectedHex;
 
     private bool PlayersTurn { get; set; } = true;
-    
 
     /// <summary>
     /// Checks if its the players turn
@@ -106,6 +107,12 @@ public class ShipManager : MonoBehaviour
         PlayersTurn = false;
         SelectedShip.MovementFinished += ResetTurn;
         ClearOldSelection();
+
+        for (int i = 0; i < playerFleet.childCount; i++)
+        {
+            if (playerFleet.GetChild(i).GetComponent<Ship>().shipMoved == false) return;
+        }
+        turnManager.InvokeEndTurn();
     }
     
     /// <summary>
