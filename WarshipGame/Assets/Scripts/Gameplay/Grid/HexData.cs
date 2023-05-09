@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
 
-public enum HexType
+
+//combine with the enum from Enemy.cs on one Enum script*
+public enum HexType 
 {
-    Default,
-    Occupied
+    FreeSpace,
+    Occupied,
+    OilWater
 }
 
 /// <summary>
@@ -14,7 +17,7 @@ public enum HexType
 public class HexData : MonoBehaviour
 {
     [SerializeField] private GlowManager highlight;
-    [SerializeField] private HexType hexType;
+    public HexType HexType;
     public Vector2Int Grid;
 
     private void Awake()
@@ -29,18 +32,20 @@ public class HexData : MonoBehaviour
     /// <exception cref="Exception"></exception>
     public new int GetType()
     {
-        switch (hexType)
+        switch (HexType)
         {
-            case HexType.Default:
+            case HexType.FreeSpace:
                 return 1;
+            case HexType.OilWater:
+                return 2;
             default:
-                throw new Exception($"Hex of type{hexType} not supported");
+                throw new Exception($"Hex of type{HexType} not supported");
         }   
     }
 
     public bool IsObstacle()
     {
-        return hexType == HexType.Occupied;
+        return HexType == HexType.Occupied;
     }
 
     public void EnableHighlight()

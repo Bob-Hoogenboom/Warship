@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,7 +12,12 @@ public class Enemy : MonoBehaviour
 {
     [Header("Detection")]
     [SerializeField] private LayerMask PlayerShips;
-    [SerializeField] private float Radius; //works best for 1,2,3 radial values >3 becomes inefficient
+    
+    [Tooltip("works best for 1,2,3 radial values >3 becomes inaccurate")] 
+    [Range(1,3)] 
+    [SerializeField] private int Radius;
+    
+    [SerializeField] private bool GizmosOn;
     private States _states;
 
     //attack
@@ -20,7 +26,7 @@ public class Enemy : MonoBehaviour
     
     [Header("Movement")]
     [SerializeField] private Waypoint WaypointsScript;
-
+    
     private Transform _currentWaypoint;
     private float _rotationTime;
     private float _movementTime;
@@ -38,14 +44,6 @@ public class Enemy : MonoBehaviour
         transform.position = _currentWaypoint.position;
         
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            StateCheck();
-        }
     }
 
     /// <summary>
@@ -70,7 +68,7 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// State handler inside of a switchcase
+    /// State handler inside of a switch case
     /// </summary>
     private void EnemyAction()
     {
@@ -86,6 +84,9 @@ public class Enemy : MonoBehaviour
             
             case States.Skip:
                 break; //skip turn aka do nothing
+            
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
     
@@ -105,6 +106,7 @@ public class Enemy : MonoBehaviour
         if (!Mathf.Approximately(Mathf.Abs(Quaternion.Dot(startRotation, endRotation)),1.0f))
         {
             float timeElapsed = 0;
+            
             while (timeElapsed < _rotationTime)
             {
                 timeElapsed += Time.deltaTime;
@@ -130,6 +132,7 @@ public class Enemy : MonoBehaviour
         Vector3 startPosition = transform.position;
         endPosition.y = startPosition.y;
         float timeElapsed = 0;
+        
         while(timeElapsed < _movementTime)
         {
             timeElapsed += Time.deltaTime;
@@ -140,7 +143,7 @@ public class Enemy : MonoBehaviour
 
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
     }
-    
+
     /// <summary>
     /// Deals damage to the closest player ship in range
     /// </summary>
@@ -152,6 +155,7 @@ public class Enemy : MonoBehaviour
     //Draws the attackRange of the enemy ship
     private void OnDrawGizmos()
     {
+        if(!GizmosOn)return;
         Gizmos.DrawWireSphere(transform.position, (Radius * 0.866f));
     }
 }

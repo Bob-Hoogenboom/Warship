@@ -7,7 +7,7 @@ using UnityEngine;
 public class HexGrid : MonoBehaviour
 {
     private readonly Dictionary<Vector2Int, HexData> _hexTileDict = new();
-    public readonly Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new();
+    private readonly Dictionary<Vector2Int, List<Vector2Int>> _hexTileNeighboursDict = new();
 
     private HexCoordinates _hexCoords;
     
@@ -30,7 +30,7 @@ public class HexGrid : MonoBehaviour
     /// <returns></returns>
     public HexData GetTileAt(Vector2Int hexCoordinates)
     {
-        _hexTileDict.TryGetValue(hexCoordinates, out var result);
+        _hexTileDict.TryGetValue(hexCoordinates, out HexData result);
         return result;
     }
 
@@ -49,8 +49,8 @@ public class HexGrid : MonoBehaviour
    
         //If both do not work it will return a new value and an empty list
         _hexTileNeighboursDict.Add(hexCoordinates, new List<Vector2Int>());
-
-        foreach (Vector2Int direction in Directions.directions)
+        
+        foreach (Vector2Int direction in Directions.CardinalDirections)
         {
             if (_hexTileDict.ContainsKey(hexCoordinates +direction))
             {
@@ -77,7 +77,7 @@ public class HexGrid : MonoBehaviour
     /// </summary>
     private static class Directions
     {
-        public static readonly List<Vector2Int> directions = new()
+        public static readonly List<Vector2Int> CardinalDirections = new()
         {
             new Vector2Int(0, 1), //N
             new Vector2Int(1, 0), //NO
