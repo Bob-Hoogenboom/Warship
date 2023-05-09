@@ -1866,7 +1866,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 50
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1998,9 +1998,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CMVirtualCamera: {fileID: 571532067}
   Cam: {fileID: 433532663}
+  _dollyTransform: {fileID: 0}
   MapSize: {x: 0, y: 0}
-  FocusValue: 30
-  ZoomValue: 40
+  panningSpeed: 0.5
+  FocusValue: 40
+  ZoomValue: 50
   ZoomSpeed: 1
 --- !u!114 &571532067
 MonoBehaviour:
@@ -2023,7 +2025,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -2054,8 +2056,8 @@ Transform:
   m_Children:
   - {fileID: 245627589}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 45, y: -135, z: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1 &679595188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,18 +2416,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 571532066}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-        m_MethodName: Focus
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4275,7 +4265,7 @@ PrefabInstance:
     - target: {fileID: 4640324429296480680, guid: adeec9d2d093be842b617f3f8f6d051d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4640324429296480680, guid: adeec9d2d093be842b617f3f8f6d051d,
         type: 3}
