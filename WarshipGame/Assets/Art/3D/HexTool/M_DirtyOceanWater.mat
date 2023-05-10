@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_DirtyOceanWater
-  m_Shader: {fileID: -6465566751694194690, guid: 99562f6d83758d548a46c914f6868580,
+  m_Shader: {fileID: -6465566751694194690, guid: 339e0b14aa9b75544b1ac448bf8210b3,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map_1:
-        m_Texture: {fileID: 2800000, guid: 0eb48a28cbed61b40a634e54213a5d54, type: 3}
+        m_Texture: {fileID: 2800000, guid: b854ecf30df7b084cad8a3e4bd56eefe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map_2:
@@ -142,12 +142,15 @@ Material:
     - _DistanceDepth: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fresnel_power: 0.524
+    - _FOAM_Depth: 1
+    - _FOAM_Strength: 0.5
+    - _Fresnel_power: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Hight: 1.06
-    - _Line_Oppacity: -0.03
+    - _Line_Distortion: 0.014
+    - _Line_Oppacity: -0.02
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -165,13 +168,15 @@ Material:
     - _Tile_Exposure: 0.01
     - _Tile_oppacity: 0.75
     - _Transparency: 1
+    - _Wave_Intensity: 0.41
+    - _Wave_intensity: 0.292
     - _Wavescale: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _contrast: 0.48
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.5157974, g: 0.5574913, b: 0.6320754, a: 1}
+    - _Color: {r: 0.13407795, g: 0.16383807, b: 0.21698111, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Hightscrollspeed: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
@@ -179,8 +184,8 @@ Material:
     - _UV2: {r: 1, g: 1, b: 1, a: 1}
     - _UV3: {r: 1, g: 1, b: 1, a: 1}
     - _Water_Movement: {r: 0.33, g: 0, b: 0, a: 0}
-    - _Water_Movement_1: {r: 0.02, g: -0.01, b: 0, a: 0}
-    - _Water_Movement_2: {r: -0.01, g: 0.02, b: 0, a: 0}
+    - _Water_Movement_1: {r: -0.05, g: -0.03, b: 0, a: 0}
+    - _Water_Movement_2: {r: 0.03, g: 0.04, b: 0, a: 0}
     - _Water_Movement_3: {r: -0.04, g: -0.06, b: 0, a: 0}
     - _Water_Movement_4: {r: -0.04, g: 0.04, b: 0, a: 0}
     - _WaveScrollspeed: {r: 0, g: 0, b: 0, a: 0}
