@@ -35,7 +35,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 16
   dirtTexture:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {fileID: 2800000, guid: 00e4d1d65c8ef084eb23c9ee060470f0, type: 3}
     dimension: 1
   dirtIntensity:
