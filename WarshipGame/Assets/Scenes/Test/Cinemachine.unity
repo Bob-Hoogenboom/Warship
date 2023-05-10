@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 1
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -2000,10 +2000,10 @@ MonoBehaviour:
   Cam: {fileID: 433532663}
   _dollyTransform: {fileID: 0}
   MapSize: {x: 0, y: 0}
-  panningSpeed: 0.5
+  panningSpeed: 5
   FocusValue: 40
   ZoomValue: 50
-  ZoomSpeed: 1
+  ZoomSpeed: 2
 --- !u!114 &571532067
 MonoBehaviour:
   m_ObjectHideFlags: 0

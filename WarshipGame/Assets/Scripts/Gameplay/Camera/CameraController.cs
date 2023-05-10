@@ -52,9 +52,9 @@ public class CameraController : MonoBehaviour
         Vector2 screenSize = ScaleScreenToWorldSize(Cam.aspect, Cam.orthographicSize, Cam.scaledPixelWidth, Cam.scaledPixelHeight, screenDelta.x, screenDelta.y);
         
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
-        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x, _cameraOrigin.y, _cameraOrigin.z - move.z);
+        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x * Time.deltaTime * panningSpeed, _cameraOrigin.y, _cameraOrigin.z - move.z * Time.deltaTime * panningSpeed);
         
-        CMVirtualCamera.transform.position =  camPosMove ;
+        CMVirtualCamera.transform.position =  camPosMove;
     }
 
     private Vector2 ScaleScreenToWorldSize(float camAspect, float camFOV, float camScreenPixelWidth,
