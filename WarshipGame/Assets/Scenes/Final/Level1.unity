@@ -4318,6 +4318,7 @@ MonoBehaviour:
   movementScript: {fileID: 935572536}
   playerFleet: {fileID: 832225370}
   turnManager: {fileID: 535270996}
+  allyTurnFeedback: {fileID: 592385598}
   SelectedShip: {fileID: 0}
 --- !u!4 &165193454
 Transform:
@@ -7960,18 +7961,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 366334407}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &366794912 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1721034520925985651, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5365591068080861053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf909acb56edcf54980b7c52391e7164, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &369712826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10031,6 +10020,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFleet: {fileID: 832225369}
   enemyFleet: {fileID: 210117438}
+  allyTurnPanel: {fileID: 592385598}
+  enemyTurnPanel: {fileID: 688114386}
 --- !u!4 &535270997
 Transform:
   m_ObjectHideFlags: 0
@@ -10844,6 +10835,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6190927801885693543, guid: f9c60063d197e054a8ad2952a496cce2,
     type: 3}
   m_PrefabInstance: {fileID: 591783027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &592385598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 391020881836173863, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &600529978
 PrefabInstance:
@@ -12767,6 +12764,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4640324429296480680, guid: adeec9d2d093be842b617f3f8f6d051d,
     type: 3}
   m_PrefabInstance: {fileID: 222660252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &688114386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1019591340473781124, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &699445430
 PrefabInstance:
@@ -37434,7 +37437,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 366794912}
+      objectReference: {fileID: 0}
     - target: {fileID: 3722155607142053149, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState

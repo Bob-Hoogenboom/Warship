@@ -12,6 +12,11 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject playerFleet;
     [SerializeField] private GameObject enemyFleet;
 
+    [SerializeField] private GameObject allyTurnPanel;
+    [SerializeField] private GameObject enemyTurnPanel;
+    
+    private IEnumerator coroutine;
+
     private bool _enemyDefeat;
     private bool _playerDefeat;
 
@@ -22,9 +27,12 @@ public class TurnManager : MonoBehaviour
     
     private IEnumerator EndTurn()
     {
+        StartCoroutine(TurnCoroutine(enemyTurnPanel));
         // Activate the enemy turn
+        yield return new WaitForSeconds(5);
         for (int i = 0; i < enemyFleet.transform.childCount; i++)
         {
+
             Transform enemyChild = enemyFleet.transform.GetChild(i);
             
             if (!enemyChild.gameObject.activeSelf) continue;
@@ -33,9 +41,10 @@ public class TurnManager : MonoBehaviour
         }
 
         EnemiesLeftInScene();
-
+        
         // Reset the player Actions
         yield return new WaitForSeconds(1.5f);
+        StartCoroutine(TurnCoroutine(allyTurnPanel));
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
             Transform playerChild = playerFleet.transform.GetChild(i);
@@ -74,4 +83,12 @@ public class TurnManager : MonoBehaviour
         
         _playerDefeat = true;
     }
+
+    IEnumerator TurnCoroutine(GameObject fleetTurn)
+    {
+        fleetTurn.SetActive(true);
+        yield return new WaitForSeconds(5);
+        fleetTurn.SetActive(false);
+    }
+    
 }
