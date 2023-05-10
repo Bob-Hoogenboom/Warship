@@ -8481,6 +8481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexGridScript: {fileID: 1889443976}
   movementScript: {fileID: 1368682093}
+  playerFleet: {fileID: 131417242}
+  turnManager: {fileID: 504707598}
   SelectedShip: {fileID: 0}
 --- !u!4 &1666928783
 Transform:
