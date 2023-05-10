@@ -106,16 +106,28 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void Focus(GameObject result)
     {
-        Ray ray = Cam.ScreenPointToRay(Vector3.forward);
-        Physics.Raycast(ray, out RaycastHit hit);
-        
-        var difference = hit.point - result.transform.position;
-        transform.position += difference;
-        var currentPosition = transform.position;
+        //get the hit.point
+        //Ray ray = transform.position.Vector3.forward);
+        Physics.Raycast(transform.position,transform.forward,  out RaycastHit hit);
 
-        while (transform.position != currentPosition *1 )
+        //get the camera position
+        var vCamPosition = transform.position;
+
+        Vector2 resultV2 = new Vector2(result.transform.position.x, result.transform.position.z);
+        Vector2 hitV2 = new Vector2(hit.point.x, hit.point.z);
+        
+        Vector2 difference = hitV2 - resultV2;
+        
+        print(hitV2 + " - " + resultV2 + " = " + difference);
+        
+        var newPosition = new Vector3(vCamPosition.x - difference.x, vCamPosition.y, vCamPosition.z - difference.y);
+            
+        transform.position = newPosition;
+        
+        while (transform.position == newPosition)
         {
             CMVirtualCamera.m_Lens.FieldOfView = FocusValue;
+
         }
         
         CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
