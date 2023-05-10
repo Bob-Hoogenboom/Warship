@@ -123,16 +123,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &943210681
+--- !u!1001 &847347633
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1925588250133226508, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    - target: {fileID: 2083640828727958009, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
-      propertyPath: m_SizeDelta.x
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083640828727958009, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083640828727958009, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834761669266642865, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834761669266642865, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834761669266642865, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2987536425912241688, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
@@ -150,14 +175,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2987536425912241688, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    - target: {fileID: 3309749675425221466, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
-      propertyPath: m_SizeDelta.y
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3044313914689510322, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    - target: {fileID: 3309749675425221466, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
-      propertyPath: m_SizeDelta.x
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3722155606781851307, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
@@ -270,14 +295,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 3900150347532842894, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    - target: {fileID: 3748206575422139550, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3900150347532842894, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    - target: {fileID: 3748206575422139550, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748206575422139550, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3900150347532842894, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
@@ -285,9 +315,69 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5352946197472169957, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+    - target: {fileID: 5776042125086199565, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776042125086199565, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315922288777897987, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002143275483094446, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002143275483094446, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002143275483094446, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430986613940262845, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752123527190806853, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752123527190806853, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189844702648534298, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702720274454411882, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702720274454411882, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716393754949184963, guid: 4b1181f63bd96f0438d0053b4e7d03ea,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
