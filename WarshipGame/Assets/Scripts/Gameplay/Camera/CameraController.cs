@@ -20,11 +20,20 @@ public class CameraController : MonoBehaviour
     [Header("Zooming")]
     [Tooltip("The FOV of the camera will change to this value once a focus point is selected.")]
     [SerializeField] private float FocusValue;
-    [SerializeField] private float ZoomValue;
+    
+    [SerializeField] private Vector2 maxZoom;
     [SerializeField] private float ZoomSpeed;
+    [SerializeField] private float DefaultFOVValue = 40;
+    private float _currentFOVValue;
 
     private GameObject _focusGameObject;
     private float _focusBoundaries;
+
+    private void Awake()
+    {
+        _currentFOVValue = DefaultFOVValue;
+        CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
+    }
 
     private void FixedUpdate()
     {
@@ -70,10 +79,26 @@ public class CameraController : MonoBehaviour
 
     private void ZoomCamera()
     {
-        if (Input.mouseScrollDelta.y == 0) return;
+        if (Input.GetAxis("Mouse ScrollWheel") == 0) return;
+        var scrollValue = Input.GetAxis("Mouse ScrollWheel");
+        var newZoomValue = _currentFOVValue -= scrollValue * ZoomSpeed;
+
+        if (newZoomValue <= maxZoom.x)
+        {
+            _currentFOVValue = maxZoom.x;
+            CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
+            return;
+        }
         
-        ZoomValue -= Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed;
-        CMVirtualCamera.m_Lens.FieldOfView = ZoomValue;
+        if (newZoomValue >= maxZoom.y)
+        {
+            _currentFOVValue = maxZoom.y;
+            CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
+            return;
+        }
+        
+        _currentFOVValue = newZoomValue;
+        CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
     }
 
     /// <summary>
@@ -82,8 +107,7 @@ public class CameraController : MonoBehaviour
     public void Focus(GameObject result)
     {
         Ray ray = Cam.ScreenPointToRay(Vector3.forward);
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out RaycastHit hit);
         
         var difference = hit.point - result.transform.position;
         transform.position += difference;
@@ -94,6 +118,6 @@ public class CameraController : MonoBehaviour
             CMVirtualCamera.m_Lens.FieldOfView = FocusValue;
         }
         
-        CMVirtualCamera.m_Lens.FieldOfView = ZoomValue;
+        CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
     }
 }

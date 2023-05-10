@@ -2001,9 +2001,10 @@ MonoBehaviour:
   _dollyTransform: {fileID: 0}
   MapSize: {x: 0, y: 0}
   panningSpeed: 5
-  FocusValue: 40
-  ZoomValue: 50
-  ZoomSpeed: 2
+  FocusValue: 30
+  maxZoom: {x: 35, y: 60}
+  ZoomSpeed: 9
+  DefaultFOVValue: 40
 --- !u!114 &571532067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3491,6 +3492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexGridScript: {fileID: 1487410927}
   movementScript: {fileID: 1188627138}
+  playerFleet: {fileID: 0}
+  turnManager: {fileID: 0}
   SelectedShip: {fileID: 0}
 --- !u!4 &1189436634
 Transform:
