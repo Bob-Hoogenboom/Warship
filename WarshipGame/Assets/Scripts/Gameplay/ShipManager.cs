@@ -156,5 +156,4 @@ public class ShipManager : MonoBehaviour
         selectedShip.MovementFinished -= ResetTurn;
         PlayersTurn = true;
     }
-    
 }
