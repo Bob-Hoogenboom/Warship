@@ -98,16 +98,20 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Depth_Length: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fresnel_power: 0.45
+    - _Foam_Amount: 0.2
+    - _Foam_Cutoff: 1
+    - _Foam_Size: 49
+    - _Fresnel_power: 5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Line_Distortion: 0.011
-    - _Line_Oppacity: -0.1
+    - _Line_Oppacity: 0.01
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -121,20 +125,25 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _Transparency: 1
-    - _Wave_Intensity: 0.67
+    - _Water_Glow: 0
+    - _Wave_Intensity: 0.95
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.6415094, g: 0.48285848, b: 0.29896757, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _DepthColor: {r: 0.10132608, g: 0.138251, b: 0.21698111, a: 0}
+    - _DepthColor_2: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Foam_Color: {r: 0.18867922, g: 0.17746192, b: 0.12726948, a: 0}
+    - _Foam_Speed: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _ShallowColor: {r: 0.47641504, g: 0.91191983, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _UV1: {r: 2, g: 2, b: 1, a: 1}
-    - _UV2: {r: 1, g: 1, b: 1, a: 1}
-    - _Water_Color: {r: 0.17101273, g: 0.34288493, b: 0.5943396, a: 1}
-    - _Water_Movement_1: {r: 0.08, g: -0.02, b: 0, a: 0}
-    - _Water_Movement_2: {r: -0.04, g: 0.03, b: 0, a: 0}
+    - _UV1: {r: 2, g: 2, b: 0, a: 0}
+    - _UV2: {r: 1, g: 1, b: 0, a: 0}
+    - _Water_Color: {r: 0.08090067, g: 0.115477026, b: 0.16981131, a: 1}
+    - _Water_Movement_1: {r: 0.01, g: -0.01, b: 0, a: 0}
+    - _Water_Movement_2: {r: -0.01, g: 0.01, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2379379103427348141
 MonoBehaviour:
