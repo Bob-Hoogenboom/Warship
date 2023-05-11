@@ -7,8 +7,7 @@ using Unity.VisualScripting;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera CMVirtualCamera;
-    [SerializeField] private Camera Cam;     
-    [SerializeField]private Transform _dollyTransform;
+    [SerializeField] private Camera Cam;
 
     [Header("Panning")]
     [SerializeField] private Vector2 MapSize;
@@ -17,18 +16,19 @@ public class CameraController : MonoBehaviour
     private Vector3 _dragOrigin;
     private Vector3 _dragDirection;
     
-    
     [Header("Zooming")]
     [Tooltip("The FOV of the camera will change to this value once a focus point is selected.")]
     [SerializeField] private float FocusValue;
+    private GameObject _focusGameObject;
+    private float _focusBoundaries;
+    private bool _isFocussing;
     
+    [Space]
     [SerializeField] private Vector2 maxZoom;
     [SerializeField] private float ZoomSpeed;
     [SerializeField] private float DefaultFOVValue = 40;
     private float _currentFOVValue;
-
-    private GameObject _focusGameObject;
-    private float _focusBoundaries;
+    
 
     private void Awake()
     {
@@ -44,8 +44,6 @@ public class CameraController : MonoBehaviour
 
     private void PanCamera()
     {
-        //also add WASD movement in the future*
-
         if (Input.GetMouseButtonDown(0))
         {
             _dragOrigin = Input.mousePosition;
@@ -58,7 +56,6 @@ public class CameraController : MonoBehaviour
         _dragDirection = Input.mousePosition;
         Vector3 screenDelta = _dragOrigin - _dragDirection;
         
-        //change Cam for cinemachine variables?
         Vector2 screenSize = ScaleScreenToWorldSize(Cam.aspect, Cam.orthographicSize, Cam.scaledPixelWidth, Cam.scaledPixelHeight, screenDelta.x, screenDelta.y);
         
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
@@ -80,9 +77,9 @@ public class CameraController : MonoBehaviour
 
     private void ZoomCamera()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") == 0) return;
-        var scrollValue = Input.GetAxis("Mouse ScrollWheel");
-        var newZoomValue = _currentFOVValue -= scrollValue * ZoomSpeed;
+        if (Input.GetAxis("Mouse ScrollWheel") == 0 && _isFocussing) return;
+        float scrollValue = Input.GetAxis("Mouse ScrollWheel");
+        float newZoomValue = _currentFOVValue -= scrollValue * ZoomSpeed;
 
         if (newZoomValue <= maxZoom.x)
         {
@@ -107,23 +104,17 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void Focus(GameObject result)
     {
-        var vCamPosition = transform.position;
+        _isFocussing = true;
+        Vector3 vCamPosition = transform.position;
         
-        //get the hit.point
-        //Ray ray = transform.position.Vector3.forward);
         Physics.Raycast(vCamPosition,transform.forward,  out RaycastHit hit);
-
-        //get the camera position
 
         Vector2 resultV2 = new Vector2(result.transform.position.x, result.transform.position.z);
         Vector2 hitV2 = new Vector2(hit.point.x, hit.point.z);
         
         Vector2 difference = hitV2 - resultV2;
-        
-        print(hitV2 + " - " + resultV2 + " = " + difference);
-        
-        var newPosition = new Vector3(vCamPosition.x - difference.x, vCamPosition.y, vCamPosition.z - difference.y);
-            
+
+        Vector3 newPosition = new Vector3(vCamPosition.x - difference.x, vCamPosition.y, vCamPosition.z - difference.y);
         transform.position = newPosition;
         
         StartCoroutine(IsInFocus(newPosition));
@@ -138,5 +129,6 @@ public class CameraController : MonoBehaviour
         }
     
         CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
+        _isFocussing = false;
     }
 }
