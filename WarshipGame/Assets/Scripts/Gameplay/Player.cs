@@ -20,29 +20,24 @@ public class Player : MonoBehaviour
         _shipScript = gameObject.GetComponent<Ship>();
     }
 
-    private void Update()
-    {
-        if (!Input.GetKeyDown(KeyCode.Alpha2) || !_targetInRange || _shipScript.shipMoved) return;
-        Attack();
-    }
-
-    public void FindTargetsInRange()
+    public Transform FindTargetsInRange()
     {
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), EnemyShips);
         if (targetColliders.Length == 0)
         {
             _targetInRange = false; 
-            return;
+            return null;
         }
 
         _targetInRange = true;
-        _targetShip = targetColliders[0].GetComponentInParent<Transform>();
+        return _targetShip = targetColliders[0].GetComponentInParent<Transform>();
     }
-    
-    private void Attack()
+
+    public void Attack(Transform targetShip)
     {
-        _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
+        targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
         _shipScript.shipMoved = true;
+        Debug.Log("Attack");
     }
     
     private void OnDrawGizmos()
