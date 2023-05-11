@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Cinemachine;
 using Unity.VisualScripting;
@@ -106,12 +107,13 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void Focus(GameObject result)
     {
+        var vCamPosition = transform.position;
+        
         //get the hit.point
         //Ray ray = transform.position.Vector3.forward);
-        Physics.Raycast(transform.position,transform.forward,  out RaycastHit hit);
+        Physics.Raycast(vCamPosition,transform.forward,  out RaycastHit hit);
 
         //get the camera position
-        var vCamPosition = transform.position;
 
         Vector2 resultV2 = new Vector2(result.transform.position.x, result.transform.position.z);
         Vector2 hitV2 = new Vector2(hit.point.x, hit.point.z);
@@ -124,12 +126,17 @@ public class CameraController : MonoBehaviour
             
         transform.position = newPosition;
         
-        while (transform.position == newPosition)
+        StartCoroutine(IsInFocus(newPosition));
+    }
+
+    IEnumerator IsInFocus(Vector3 focusPosition)
+    {
+        while (Vector3.Distance(transform.position, focusPosition) <= 1f) 
         {
             CMVirtualCamera.m_Lens.FieldOfView = FocusValue;
-
+            yield return null;
         }
-        
+    
         CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
     }
 }
