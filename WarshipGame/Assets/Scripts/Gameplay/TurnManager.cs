@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Security;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,17 +21,17 @@ public class TurnManager : MonoBehaviour
     private bool _enemyDefeat;
     private bool _playerDefeat;
     
-    private GameObject currentTurn;
+    private GameObject _currentTurn;
 
     private void Awake()
     {
         if (!beginEnemyTurn)
         {
-            currentTurn = playerTurnNotification;
+            _currentTurn = playerTurnNotification;
             return;
         }
 
-        currentTurn = enemyTurnNotification;
+        _currentTurn = enemyTurnNotification;
     }
 
     public void InvokeEndTurn()
@@ -43,15 +41,13 @@ public class TurnManager : MonoBehaviour
     
     private IEnumerator EndTurn()
     {
-        currentTurn = enemyTurnNotification;
-        StartCoroutine(TurnCoroutine(currentTurn));
+        _currentTurn = enemyTurnNotification;
+        StartCoroutine(TurnCoroutine(_currentTurn));
         // Activate the enemy turn
         yield return new WaitForSeconds(turnTimer);
         for (int i = 0; i < enemyFleet.transform.childCount; i++)
         {
-
             Transform enemyChild = enemyFleet.transform.GetChild(i);
-            
             if (!enemyChild.gameObject.activeSelf) continue;
             
             enemyChild.GetComponent<Enemy>().StateCheck();
@@ -60,9 +56,9 @@ public class TurnManager : MonoBehaviour
         EnemiesLeftInScene();
         
         // Reset the player Actions
-        currentTurn = playerTurnNotification;
+        _currentTurn = playerTurnNotification;
         yield return new WaitForSeconds(1.5f);
-        StartCoroutine(TurnCoroutine(currentTurn));
+        StartCoroutine(TurnCoroutine(_currentTurn));
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
             Transform playerChild = playerFleet.transform.GetChild(i);
@@ -104,13 +100,13 @@ public class TurnManager : MonoBehaviour
 
     public void TurnNotification()
     {
-        if (!currentTurn.activeSelf)
+        if (!_currentTurn.activeSelf)
         {
-            StartCoroutine(TurnCoroutine(currentTurn));
+            StartCoroutine(TurnCoroutine(_currentTurn));
         }
     }
 
-    IEnumerator TurnCoroutine(GameObject fleetTurn)
+    private IEnumerator TurnCoroutine(GameObject fleetTurn)
     {
         fleetTurn.SetActive(true);
         yield return new WaitForSeconds(turnTimer);

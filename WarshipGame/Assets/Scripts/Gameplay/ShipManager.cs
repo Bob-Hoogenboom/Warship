@@ -11,7 +11,6 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private Movement movementScript;
     [SerializeField] private Transform playerFleet;
     [SerializeField] private TurnManager turnManager;
-    [SerializeField] private GameObject allyTurnFeedback;
     public Ship SelectedShip;
 
     private HexData _previouslySelectedHex;
