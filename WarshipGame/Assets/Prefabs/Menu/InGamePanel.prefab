@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Its your turn!
+  m_text: Het is jouw beurt
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b93e9ea689339574d9ca02f068e78e38, type: 2}
   m_sharedMaterial: {fileID: 7815274705923960594, guid: b93e9ea689339574d9ca02f068e78e38,
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 24.386635, y: 8.01515, z: -124.96563, w: -2.277148}
+  m_margin: {x: -114.08921, y: 8.01515, z: -207.62682, w: -2.277148}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -239,15 +239,15 @@ RectTransform:
   m_GameObject: {fileID: 391020881836173863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.57574, y: 0.57574, z: 0.57574}
+  m_LocalScale: {x: 0.35283923, y: 0.35283923, z: 0.35283923}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8095596730962761445}
   m_Father: {fileID: 3946583770636794751}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 992, y: 147}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -458,7 +458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17, y: 141}
+  m_AnchoredPosition: {x: 0, y: 141}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &770417977766424633
@@ -624,16 +624,16 @@ RectTransform:
   m_GameObject: {fileID: 1019591340473781124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.57574, y: 0.57574, z: 0.57574}
+  m_LocalScale: {x: 0.35283923, y: 0.35283923, z: 0.35283923}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1192562062406903236}
   m_Father: {fileID: 3946583770636794751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 25.000046}
   m_SizeDelta: {x: 992, y: 147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7406156257771620759
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24b7a9c7e217d3749bd437f24727e7d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57e762a1165be7d44af78f8c128e813f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2171,7 +2171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Its the enemies' turn!
+  m_text: Het is de tegenstander's beurt
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b93e9ea689339574d9ca02f068e78e38, type: 2}
   m_sharedMaterial: {fileID: 7815274705923960594, guid: b93e9ea689339574d9ca02f068e78e38,
@@ -2235,7 +2235,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -103.17612, y: -14.06805, z: -70.30078, w: 11.670882}
+  m_margin: {x: -194.70111, y: -14.06805, z: -174.57799, w: 11.670882}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3163,13 +3163,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 7086732266932009732}
     - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: HandlePanels
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973440675754551985, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
@@ -3178,13 +3233,38 @@ PrefabInstance:
       objectReference: {fileID: 7086732266932009732}
     - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HandlePanels
       objectReference: {fileID: 0}
     - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 946e6bc5f9bd78e4b940577640f000d7, type: 3}

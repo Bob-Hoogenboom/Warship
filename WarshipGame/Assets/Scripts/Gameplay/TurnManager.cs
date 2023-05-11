@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Security;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,13 +14,27 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject playerFleet;
     [SerializeField] private GameObject enemyFleet;
 
-    [SerializeField] private GameObject allyTurnPanel;
-    [SerializeField] private GameObject enemyTurnPanel;
+    [SerializeField] private GameObject playerTurnNotification;
+    [SerializeField] private GameObject enemyTurnNotification; 
     
-    private IEnumerator coroutine;
+    [SerializeField] private float turnTimer = 3f;
+    [SerializeField] private bool beginEnemyTurn;
 
     private bool _enemyDefeat;
     private bool _playerDefeat;
+    
+    private GameObject currentTurn;
+
+    private void Awake()
+    {
+        if (!beginEnemyTurn)
+        {
+            currentTurn = playerTurnNotification;
+            return;
+        }
+
+        currentTurn = enemyTurnNotification;
+    }
 
     public void InvokeEndTurn()
     {
@@ -27,9 +43,10 @@ public class TurnManager : MonoBehaviour
     
     private IEnumerator EndTurn()
     {
-        StartCoroutine(TurnCoroutine(enemyTurnPanel));
+        currentTurn = enemyTurnNotification;
+        StartCoroutine(TurnCoroutine(currentTurn));
         // Activate the enemy turn
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(turnTimer);
         for (int i = 0; i < enemyFleet.transform.childCount; i++)
         {
 
@@ -43,8 +60,9 @@ public class TurnManager : MonoBehaviour
         EnemiesLeftInScene();
         
         // Reset the player Actions
+        currentTurn = playerTurnNotification;
         yield return new WaitForSeconds(1.5f);
-        StartCoroutine(TurnCoroutine(allyTurnPanel));
+        StartCoroutine(TurnCoroutine(currentTurn));
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
             Transform playerChild = playerFleet.transform.GetChild(i);
@@ -84,11 +102,18 @@ public class TurnManager : MonoBehaviour
         _playerDefeat = true;
     }
 
+    public void TurnNotification()
+    {
+        if (!currentTurn.activeSelf)
+        {
+            StartCoroutine(TurnCoroutine(currentTurn));
+        }
+    }
+
     IEnumerator TurnCoroutine(GameObject fleetTurn)
     {
         fleetTurn.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(turnTimer);
         fleetTurn.SetActive(false);
     }
-    
 }

@@ -8321,6 +8321,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407489260}
   m_Mesh: {fileID: 393783898192992624, guid: 946a69efa2614a6448af3af0bcc54633, type: 3}
+--- !u!114 &419497179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7086732266932009732, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf909acb56edcf54980b7c52391e7164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &430964621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10020,8 +10032,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFleet: {fileID: 832225369}
   enemyFleet: {fileID: 210117438}
-  allyTurnPanel: {fileID: 592385598}
-  enemyTurnPanel: {fileID: 688114386}
+  playerTurnNotification: {fileID: 592385598}
+  enemyTurnNotification: {fileID: 688114386}
+  turnTimer: 3
+  beginEnemyTurn: 0
 --- !u!4 &535270997
 Transform:
   m_ObjectHideFlags: 0
@@ -37270,6 +37284,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 593306425351096722, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 593306425351096722, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 535270996}
@@ -37478,10 +37497,105 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 535270996}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 419497179}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TurnNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: HandlePanels
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126435295240274407, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5352946197472169957, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 535270996}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TurnNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5796824867471282116, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
