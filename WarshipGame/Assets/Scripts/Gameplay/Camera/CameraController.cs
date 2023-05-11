@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Cinemachine;
-using Unity.VisualScripting;
 
 public class CameraController : MonoBehaviour
 {
@@ -10,13 +8,19 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Camera Cam;
 
     [Header("Panning")]
-    [SerializeField] private Vector2 MapSize;
-    [SerializeField] private float panningSpeed;
+    
+    [Tooltip("The speed in which the player can drag the camera across the game scene.")]
+    [SerializeField] private float PanningSpeed;
+    [Tooltip("The amount of Hexes in the X-axis on the map.")]
+    [SerializeField] private float MapSizeX;
+    [Tooltip("The amount of Hexes in the Z-axis on the map.")]
+    [SerializeField] private float MapSizeZ;
     private Vector3 _cameraOrigin;
     private Vector3 _dragOrigin;
     private Vector3 _dragDirection;
     
     [Header("Zooming")]
+    
     [Tooltip("The FOV of the camera will change to this value once a focus point is selected.")]
     [SerializeField] private float FocusValue;
     private GameObject _focusGameObject;
@@ -24,14 +28,19 @@ public class CameraController : MonoBehaviour
     private bool _isFocussing;
     
     [Space]
-    [SerializeField] private Vector2 maxZoom;
+    [Tooltip("The Cameras FOV will always be in between these 2 values.")]
+    [SerializeField] private Vector2 MaxZoom;
+    [Tooltip("The Speed in which the player can zoom the camera FOV.")]
     [SerializeField] private float ZoomSpeed;
-    [SerializeField] private float DefaultFOVValue = 40;
+    [Tooltip("The standard zoomFOV for this camera controller.")]
+    [SerializeField] private float DefaultFOVValue = 45;
     private float _currentFOVValue;
     
-
     private void Awake()
     {
+        MapSizeX *= 0.866f;
+        MapSizeZ = MapSizeZ * 0.866f - (0.866f / 2);
+        
         _currentFOVValue = DefaultFOVValue;
         CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
     }
@@ -59,7 +68,19 @@ public class CameraController : MonoBehaviour
         Vector2 screenSize = ScaleScreenToWorldSize(Cam.aspect, Cam.orthographicSize, Cam.scaledPixelWidth, Cam.scaledPixelHeight, screenDelta.x, screenDelta.y);
         
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
-        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x * Time.deltaTime * panningSpeed, _cameraOrigin.y, _cameraOrigin.z - move.z * Time.deltaTime * panningSpeed);
+        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x * Time.deltaTime * PanningSpeed, _cameraOrigin.y, _cameraOrigin.z - move.z * Time.deltaTime * PanningSpeed);
+        
+        
+        if (camPosMove.x <= -MapSizeX || camPosMove.x >= MapSizeX)
+        {
+            return;
+        }
+        
+        if (camPosMove.z <= -MapSizeZ || camPosMove.z >= MapSizeZ)
+        {
+            
+            return;
+        }
         
         CMVirtualCamera.transform.position =  camPosMove;
     }
@@ -81,16 +102,16 @@ public class CameraController : MonoBehaviour
         float scrollValue = Input.GetAxis("Mouse ScrollWheel");
         float newZoomValue = _currentFOVValue -= scrollValue * ZoomSpeed;
 
-        if (newZoomValue <= maxZoom.x)
+        if (newZoomValue <= MaxZoom.x)
         {
-            _currentFOVValue = maxZoom.x;
+            _currentFOVValue = MaxZoom.x;
             CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
             return;
         }
         
-        if (newZoomValue >= maxZoom.y)
+        if (newZoomValue >= MaxZoom.y)
         {
-            _currentFOVValue = maxZoom.y;
+            _currentFOVValue = MaxZoom.y;
             CMVirtualCamera.m_Lens.FieldOfView = _currentFOVValue;
             return;
         }
