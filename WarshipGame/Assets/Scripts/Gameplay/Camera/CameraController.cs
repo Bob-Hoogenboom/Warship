@@ -10,11 +10,11 @@ public class CameraController : MonoBehaviour
     [Header("Panning")]
     
     [Tooltip("The speed in which the player can drag the camera across the game scene.")]
-    [SerializeField] private float PanningSpeed;
+    [SerializeField] private float PanningSpeed = 5f;
     [Tooltip("The amount of Hexes in the X-axis on the map.")]
-    [SerializeField] private float MapSizeX;
+    [SerializeField] private float MapSizeX = 10f;
     [Tooltip("The amount of Hexes in the Z-axis on the map.")]
-    [SerializeField] private float MapSizeZ;
+    [SerializeField] private float MapSizeZ = 10f;
     private Vector3 _cameraOrigin;
     private Vector3 _dragOrigin;
     private Vector3 _dragDirection;
@@ -22,17 +22,17 @@ public class CameraController : MonoBehaviour
     [Header("Zooming")]
     
     [Tooltip("The FOV of the camera will change to this value once a focus point is selected.")]
-    [SerializeField] private float FocusValue;
+    [SerializeField] private float FocusValue = 30f;
     private GameObject _focusGameObject;
     private float _focusBoundaries;
     private bool _isFocussing;
     
     [Space]
     [Tooltip("The Cameras FOV will always be in between these 2 values.")]
-    [SerializeField] private Vector2 MaxZoom;
+    [SerializeField] private Vector2 MaxZoom = new(35f,60f);
     [Tooltip("The Speed in which the player can zoom the camera FOV.")]
-    [SerializeField] private float ZoomSpeed;
-    [Tooltip("The standard zoomFOV for this camera controller.")]
+    [SerializeField] private float ZoomSpeed = 9;
+    [Tooltip("The standard zoomFOV for this camera controller.")] 
     [SerializeField] private float DefaultFOVValue = 45;
     private float _currentFOVValue;
     
@@ -63,22 +63,18 @@ public class CameraController : MonoBehaviour
         if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0) return;
         
         _dragDirection = Input.mousePosition;
+        print("_dragDirection " + _dragDirection);
         Vector3 screenDelta = _dragOrigin - _dragDirection;
+        print("ScreenDelta: " + screenDelta);
         
         Vector2 screenSize = ScaleScreenToWorldSize(Cam.aspect, Cam.orthographicSize, Cam.scaledPixelWidth, Cam.scaledPixelHeight, screenDelta.x, screenDelta.y);
-        
+
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
-        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x * Time.deltaTime * PanningSpeed, _cameraOrigin.y, _cameraOrigin.z - move.z * Time.deltaTime * PanningSpeed);
+        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x * Time.deltaTime * PanningSpeed, _cameraOrigin.y, _cameraOrigin.z + move.z * Time.deltaTime * PanningSpeed);
         
         
-        if (camPosMove.x <= -MapSizeX || camPosMove.x >= MapSizeX)
-        {
-            return;
-        }
-        
-        if (camPosMove.z <= -MapSizeZ || camPosMove.z >= MapSizeZ)
-        {
-            
+        if (camPosMove.z <= -MapSizeZ || camPosMove.z >= MapSizeZ || camPosMove.x <= -MapSizeX || camPosMove.x >= MapSizeX)
+        {  
             return;
         }
         
