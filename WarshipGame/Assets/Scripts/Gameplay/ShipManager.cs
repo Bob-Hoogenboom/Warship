@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -29,7 +28,7 @@ public class ShipManager : MonoBehaviour
 
         if (ship.layer == 7)
         {
-            SelectedEnemyShip = ship.GetComponent<Player>().FindTargetsInRange();
+            SelectedEnemyShip = ship.transform;
             return;
         }
         
@@ -75,7 +74,7 @@ public class ShipManager : MonoBehaviour
     /// <param name="shipReference"></param>
     private void PrepareShipForMovement(Ship shipReference)
     {
-        if (shipReference.shipMoved) return; 
+        if (shipReference.shipTurn) return; 
         
         if (SelectedPlayerShip != null) ClearOldSelection();
 
@@ -110,7 +109,7 @@ public class ShipManager : MonoBehaviour
             return;
         }
 
-        SelectedPlayerShip.shipMoved = true;
+        SelectedPlayerShip.shipTurn = true;
         movementScript.MoveShip(SelectedPlayerShip,hexGridScript); 
         PlayersTurn = false;
         SelectedPlayerShip.MovementFinished += ResetTurn;
@@ -118,7 +117,7 @@ public class ShipManager : MonoBehaviour
 
         for (int i = 0; i < playerFleet.childCount; i++)
         {
-            if (playerFleet.GetChild(i).GetComponent<Ship>().shipMoved == false) return;
+            if (playerFleet.GetChild(i).GetComponent<Ship>().shipTurn == false) return;
         }
         turnManager.InvokeEndTurn();
     }
@@ -164,9 +163,14 @@ public class ShipManager : MonoBehaviour
         PlayersTurn = true;
     }
     
+    /// <summary>
+    /// AttackEnemy is called when we select an enemy ship first we check if we have a player ship has already been
+    /// selected otherwise the code would not need to be run
+    /// </summary>
     public void AttackEnemy()
     {
-        Debug.Log("???");
+        if (SelectedPlayerShip == null) return;
         SelectedPlayerShip.GetComponent<Player>().Attack(SelectedEnemyShip);
+        ClearOldSelection();
     }
 }

@@ -65,8 +65,7 @@ public class TurnManager : MonoBehaviour
             
             if (!playerChild.gameObject.activeSelf) continue;
 
-            playerChild.GetComponent<Ship>().shipMoved = false;
-            playerChild.GetComponent<Player>().FindTargetsInRange();
+            playerChild.GetComponent<Ship>().shipTurn = false;
         }
         
         PlayersLeftInScene();
