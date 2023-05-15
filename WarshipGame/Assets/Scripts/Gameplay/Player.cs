@@ -7,11 +7,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Detection")]
-    [SerializeField] private LayerMask EnemyShips;
-    [SerializeField] private float Radius;
-    [SerializeField] private bool GizmosOn = true;
+    [SerializeField] private LayerMask enemyShips;
+    [SerializeField] private float radius;
+    [SerializeField] private bool gizmosOn = true;
     
-    private bool _targetInRange;
     private Ship _shipScript;
     private Transform _targetShip;
 
@@ -20,34 +19,28 @@ public class Player : MonoBehaviour
         _shipScript = gameObject.GetComponent<Ship>();
     }
 
-    private void Update()
+    /// <summary>
+    /// Here we check is a enemy is in range for us to hit it and then we end the ship turn
+    /// </summary>
+    /// <param name="targetShip"></param>
+    public void Attack(Transform targetShip)
     {
-        if (!Input.GetKeyDown(KeyCode.Alpha2) || !_targetInRange || _shipScript.shipMoved) return;
-        Attack();
-    }
+        Collider[] targetColliders = Physics.OverlapSphere(transform.position, (radius * 0.866f), enemyShips);
 
-    public void FindTargetsInRange()
-    {
-        Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), EnemyShips);
-        if (targetColliders.Length == 0)
+        foreach (Collider targetCollider in targetColliders)
         {
-            _targetInRange = false; 
+            if (targetCollider.transform != targetShip) continue;
+        
+            targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
+            GetComponent<Ship>().shipTurn = true;
+            
             return;
         }
-
-        _targetInRange = true;
-        _targetShip = targetColliders[0].GetComponentInParent<Transform>();
-    }
-    
-    private void Attack()
-    {
-        _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
-        _shipScript.shipMoved = true;
     }
     
     private void OnDrawGizmos()
     {
-        if(!GizmosOn)return;
-        Gizmos.DrawWireSphere(transform.position, (Radius * 0.866f));
+        if(!gizmosOn)return;
+        Gizmos.DrawWireSphere(transform.position, (radius * 0.866f));
     }
 }

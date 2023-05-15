@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -11,7 +10,8 @@ public class ShipManager : MonoBehaviour
     [SerializeField] private Movement movementScript;
     [SerializeField] private Transform playerFleet;
     [SerializeField] private TurnManager turnManager;
-    public Ship SelectedShip;
+    public Ship SelectedPlayerShip;
+    public Transform SelectedEnemyShip;
 
     private HexData _previouslySelectedHex;
 
@@ -26,6 +26,12 @@ public class ShipManager : MonoBehaviour
     {
         if (!PlayersTurn) return;
 
+        if (ship.layer == 7)
+        {
+            SelectedEnemyShip = ship.transform;
+            return;
+        }
+        
         Ship shipReference = ship.GetComponent<Ship>();
 
         if (CheckIfTheSameShipIsSelected(shipReference)) return;
@@ -40,7 +46,7 @@ public class ShipManager : MonoBehaviour
     /// <returns></returns>
     private bool CheckIfTheSameShipIsSelected(Ship shipReference)
     {
-        if (SelectedShip != shipReference) return false;
+        if (SelectedPlayerShip != shipReference) return false;
         ClearOldSelection();
         return true;
     }
@@ -52,7 +58,7 @@ public class ShipManager : MonoBehaviour
     /// <param name="hexGameObject"></param>
     public void HandleTerrainSelected(GameObject hexGameObject)
     {
-        if (SelectedShip == null || !PlayersTurn) return;
+        if (SelectedPlayerShip == null || !PlayersTurn) return;
 
         HexData selectedHex = hexGameObject.GetComponent<HexData>();
 
@@ -68,13 +74,13 @@ public class ShipManager : MonoBehaviour
     /// <param name="shipReference"></param>
     private void PrepareShipForMovement(Ship shipReference)
     {
-        if (shipReference.shipMoved) return; 
+        if (shipReference.shipTurn) return; 
         
-        if (SelectedShip != null) ClearOldSelection();
+        if (SelectedPlayerShip != null) ClearOldSelection();
 
-        SelectedShip = shipReference;
-        SelectedShip.Select();
-        movementScript.ShowRange(SelectedShip, hexGridScript);
+        SelectedPlayerShip = shipReference;
+        SelectedPlayerShip.Select();
+        movementScript.ShowRange(SelectedPlayerShip, hexGridScript);
     }
 
     /// <summary>
@@ -84,9 +90,9 @@ public class ShipManager : MonoBehaviour
     private void ClearOldSelection()
     {
         _previouslySelectedHex = null;
-        SelectedShip.Deselect();
+        SelectedPlayerShip.Deselect();
         movementScript.HideRange(hexGridScript);
-        SelectedShip = null;
+        SelectedPlayerShip = null;
     }
 
     /// <summary>
@@ -103,15 +109,15 @@ public class ShipManager : MonoBehaviour
             return;
         }
 
-        SelectedShip.shipMoved = true;
-        movementScript.MoveShip(SelectedShip,hexGridScript); 
+        SelectedPlayerShip.shipTurn = true;
+        movementScript.MoveShip(SelectedPlayerShip,hexGridScript); 
         PlayersTurn = false;
-        SelectedShip.MovementFinished += ResetTurn;
+        SelectedPlayerShip.MovementFinished += ResetTurn;
         ClearOldSelection();
 
         for (int i = 0; i < playerFleet.childCount; i++)
         {
-            if (playerFleet.GetChild(i).GetComponent<Ship>().shipMoved == false) return;
+            if (playerFleet.GetChild(i).GetComponent<Ship>().shipTurn == false) return;
         }
         turnManager.InvokeEndTurn();
     }
@@ -124,7 +130,7 @@ public class ShipManager : MonoBehaviour
     /// <returns></returns>
     private bool HandleSelectedHexIsShipHex(Vector2Int hexPosition)
     {
-        if (hexPosition != hexGridScript.GetClosestHex(SelectedShip.transform.position)) return false;
+        if (hexPosition != hexGridScript.GetClosestHex(SelectedPlayerShip.transform.position)) return false;
         
         ClearOldSelection();
             
@@ -141,7 +147,7 @@ public class ShipManager : MonoBehaviour
     {
         if (movementScript.IsHexInRange(hexPosition)) return false;
 
-        SelectedShip.Deselect();
+        SelectedPlayerShip.Deselect();
         ClearOldSelection();
         return true;
     }
@@ -155,5 +161,17 @@ public class ShipManager : MonoBehaviour
     {
         selectedShip.MovementFinished -= ResetTurn;
         PlayersTurn = true;
+    }
+    
+    /// <summary>
+    /// AttackEnemy is called when we select an enemy ship first we check if we have a player ship has already been
+    /// selected otherwise the code would not need to be run
+    /// </summary>
+    public void AttackEnemy()
+    {
+        if (SelectedPlayerShip == null) return;
+        SelectedPlayerShip.GetComponent<Player>().Attack(SelectedEnemyShip);
+        ClearOldSelection();
+        turnManager.EnemiesLeftInScene();
     }
 }

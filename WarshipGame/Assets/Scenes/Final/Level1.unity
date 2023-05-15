@@ -2678,20 +2678,20 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 948084793}
-  - {fileID: 1799963794}
-  - {fileID: 1739333546}
-  - {fileID: 1390512856}
-  - {fileID: 1548871970}
-  - {fileID: 2036246260}
-  - {fileID: 587390806}
-  - {fileID: 1980696107}
   - {fileID: 1388245652}
-  - {fileID: 647988014}
+  - {fileID: 1390512856}
   - {fileID: 1507956514}
+  - {fileID: 1548871970}
+  - {fileID: 1739333546}
   - {fileID: 1779028886}
   - {fileID: 1788070094}
-  - {fileID: 2087743023}
+  - {fileID: 1799963794}
+  - {fileID: 1980696107}
   - {fileID: 1988668008}
+  - {fileID: 2036246260}
+  - {fileID: 2087743023}
+  - {fileID: 587390806}
+  - {fileID: 647988014}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4503,7 +4503,8 @@ MonoBehaviour:
   movementScript: {fileID: 935572536}
   playerFleet: {fileID: 832225370}
   turnManager: {fileID: 535270996}
-  SelectedShip: {fileID: 0}
+  SelectedPlayerShip: {fileID: 0}
+  SelectedEnemyShip: {fileID: 0}
 --- !u!4 &165193454
 Transform:
   m_ObjectHideFlags: 0
@@ -5508,8 +5509,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 832225370}
     m_Modifications:
     - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
+      propertyPath: gizmosOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
       propertyPath: _attackButtton
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
+      propertyPath: enemyShips.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 433321831570016767, guid: adeec9d2d093be842b617f3f8f6d051d,
         type: 3}
@@ -18696,7 +18709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectionMask:
     serializedVersion: 2
-    m_Bits: 272
+    m_Bits: 400
   OnShipSelected:
     m_PersistentCalls:
       m_Calls:
@@ -18755,6 +18768,33 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEnemySelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 165193453}
+        m_TargetAssemblyTypeName: ShipManager, Assembly-CSharp
+        m_MethodName: HandleShipSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 165193453}
+        m_TargetAssemblyTypeName: ShipManager, Assembly-CSharp
+        m_MethodName: AttackEnemy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -29653,8 +29693,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 832225370}
     m_Modifications:
     - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
+      propertyPath: gizmosOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
       propertyPath: _attackButtton
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586577454, guid: adeec9d2d093be842b617f3f8f6d051d, type: 3}
+      propertyPath: enemyShips.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4640324429296480680, guid: adeec9d2d093be842b617f3f8f6d051d,
         type: 3}
@@ -32987,7 +33039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1758666122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40366,12 +40418,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 832225370}
     m_Modifications:
     - target: {fileID: 2145521819, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145521819, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0, type: 3}
       propertyPath: GizmosOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145521819, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0, type: 3}
+      propertyPath: gizmosOn
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2145521819, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0, type: 3}
       propertyPath: _attackButtton
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145521819, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0, type: 3}
+      propertyPath: enemyShips.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 5279529396846165524, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
         type: 3}
