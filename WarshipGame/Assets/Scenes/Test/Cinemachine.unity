@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileDiameter: 1
-  drawHexPositionGizmos: 1
+  drawHexPositionGizmos: 0
   chunkSize: 10
   drawWireframeWhenSelected: 1
   currentMaterial: {fileID: 2100000, guid: ab60c287809b8fc4fa80915664652680, type: 2}

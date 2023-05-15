@@ -70,7 +70,8 @@ public class CameraController : MonoBehaviour
         Vector2 screenSize = ScaleScreenToWorldSize(Cam.aspect, Cam.orthographicSize, Cam.scaledPixelWidth, Cam.scaledPixelHeight, screenDelta.x, screenDelta.y);
 
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
-        Vector3 camPosMove = new Vector3(_cameraOrigin.x - move.x * Time.deltaTime * PanningSpeed, _cameraOrigin.y, _cameraOrigin.z + move.z * Time.deltaTime * PanningSpeed);
+        move = Quaternion.Euler(0,-90,0) * move;
+        Vector3 camPosMove = new Vector3(_cameraOrigin.x + move.x * Time.deltaTime * PanningSpeed, _cameraOrigin.y, _cameraOrigin.z + move.z * Time.deltaTime * PanningSpeed);
         
         
         if (camPosMove.z <= -MapSizeZ || camPosMove.z >= MapSizeZ || camPosMove.x <= -MapSizeX || camPosMove.x >= MapSizeX)
