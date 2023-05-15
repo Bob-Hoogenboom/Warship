@@ -10,11 +10,11 @@ public class CameraController : MonoBehaviour
     [Header("Panning")]
     
     [Tooltip("The speed in which the player can drag the camera across the game scene.")]
-    [SerializeField] private float PanningSpeed = 5f;
+    [SerializeField] private float PanningSpeed = 10f;
     [Tooltip("The amount of Hexes in the X-axis on the map.")]
-    [SerializeField] private float MapSizeX = 10f;
+    [SerializeField] private float MapSizeX = 8f;
     [Tooltip("The amount of Hexes in the Z-axis on the map.")]
-    [SerializeField] private float MapSizeZ = 10f;
+    [SerializeField] private float MapSizeZ = 8f;
     private Vector3 _cameraOrigin;
     private Vector3 _dragOrigin;
     private Vector3 _dragDirection;
@@ -48,9 +48,17 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         PanCamera();
-        ZoomCamera();
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0 && !_isFocussing)
+        {
+            ZoomCamera();
+        }
     }
 
+    /// <summary>
+    /// This function makes it possible to drag the camera across the
+    /// play field between a certain boundary
+    /// </summary>
     private void PanCamera()
     {
         if (Input.GetMouseButtonDown(0))
@@ -70,8 +78,7 @@ public class CameraController : MonoBehaviour
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
         move = Quaternion.Euler(0,-90,0) * move;
         Vector3 camPosMove = new Vector3(_cameraOrigin.x + move.x * Time.deltaTime * PanningSpeed, _cameraOrigin.y, _cameraOrigin.z + move.z * Time.deltaTime * PanningSpeed);
-        
-        
+
         if (camPosMove.z <= -MapSizeZ || camPosMove.z >= MapSizeZ || camPosMove.x <= -MapSizeX || camPosMove.x >= MapSizeX)
         {  
             return;
@@ -80,6 +87,11 @@ public class CameraController : MonoBehaviour
         CMVirtualCamera.transform.position =  camPosMove;
     }
 
+    /// <summary>
+    /// Corrects the screen panning by correcting the screen size and FOV distance
+    /// relative to the camera width and height
+    /// </summary>
+    /// <returns></returns>
     private Vector2 ScaleScreenToWorldSize(float camAspect, float camFOV, float camScreenPixelWidth,
         float camScreenPixelHeight, float screenW, float screenH)
     {
@@ -91,9 +103,11 @@ public class CameraController : MonoBehaviour
         return new Vector2(screenWorldW, screenWorldH);
     }
 
+    /// <summary>
+    /// Zooms the camera when the scrolling axis is changed
+    /// </summary>
     private void ZoomCamera()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") == 0 && _isFocussing) return;
         float scrollValue = Input.GetAxis("Mouse ScrollWheel");
         float newZoomValue = _currentFOVValue -= scrollValue * ZoomSpeed;
 
@@ -116,7 +130,8 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// This 
+    /// A function that should be added on the OnShipSelected Unity Event to invoke a focus
+    /// This Function moves to a selected ship and changes to a close-up FOV
     /// </summary>
     public void Focus(GameObject result)
     {
@@ -124,11 +139,15 @@ public class CameraController : MonoBehaviour
         Vector3 vCamPosition = transform.position;
         
         Physics.Raycast(vCamPosition,transform.forward,  out RaycastHit hit);
-
-        Vector2 resultV2 = new Vector2(result.transform.position.x, result.transform.position.z);
-        Vector2 hitV2 = new Vector2(hit.point.x, hit.point.z);
         
-        Vector2 difference = hitV2 - resultV2;
+        Vector3 resultPosition = result.transform.position;
+        Vector3 rayHitPosition = hit.point;
+        
+        
+        Vector2 selectedShipPosition = new Vector2(resultPosition.x, resultPosition.z);
+        Vector2 hitPosition = new Vector2(rayHitPosition.x, rayHitPosition.z);
+        
+        Vector2 difference = hitPosition - selectedShipPosition;
 
         Vector3 newPosition = new Vector3(vCamPosition.x - difference.x, vCamPosition.y, vCamPosition.z - difference.y);
         transform.position = newPosition;
@@ -136,6 +155,12 @@ public class CameraController : MonoBehaviour
         StartCoroutine(IsInFocus(newPosition));
     }
 
+    /// <summary>
+    /// This Coroutine makes sure that the player remains in a close-up perspective while the camera is still
+    /// close to the selected ship.
+    /// </summary>
+    /// <param name="focusPosition"></param>
+    /// <returns></returns>
     IEnumerator IsInFocus(Vector3 focusPosition)
     {
         while (Vector3.Distance(transform.position, focusPosition) <= 1f) 
