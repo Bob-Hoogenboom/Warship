@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b7547dcc-fa89-4ed2-ad44-22d00d3fef12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/InGamePanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/InGamePanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final/Level2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/ShipManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/ShipManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/TurnManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +145,7 @@
       <workItem from="1683874956378" duration="11242000" />
       <workItem from="1683914810442" duration="739000" />
       <workItem from="1684134175379" duration="793000" />
+      <workItem from="1684144518863" duration="3692000" />
     </task>
     <servers />
   </component>

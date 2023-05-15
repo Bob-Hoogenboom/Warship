@@ -13,7 +13,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject enemyFleet;
 
     [SerializeField] private GameObject playerTurnNotification;
-    [SerializeField] private GameObject enemyTurnNotification; 
+    [SerializeField] private GameObject enemyTurnNotification;
+    
+    [SerializeField] private GameObject playerVictoryNotification;
+    [SerializeField] private GameObject enemyVictoryNotification; 
     
     [SerializeField] private float turnTimer = 3f;
     [SerializeField] private bool beginEnemyTurn;
@@ -74,7 +77,8 @@ public class TurnManager : MonoBehaviour
             return;
         }
         
-        SceneManager.LoadScene(0);
+        playerVictoryNotification.SetActive(true);
+        StartCoroutine(EndGame());
     }
     
     private void PlayersLeftInScene()
@@ -84,8 +88,9 @@ public class TurnManager : MonoBehaviour
             if (!playerFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
             return;
         }
-        
-        SceneManager.LoadScene(0);
+
+        enemyVictoryNotification.SetActive(true);
+        StartCoroutine(EndGame());
     }
 
     public void TurnNotification()
@@ -101,5 +106,11 @@ public class TurnManager : MonoBehaviour
         fleetTurn.SetActive(true);
         yield return new WaitForSeconds(turnTimer);
         fleetTurn.SetActive(false);
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(15);
+        SceneManager.LoadScene(0);
     }
 }
