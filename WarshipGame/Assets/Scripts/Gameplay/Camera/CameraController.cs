@@ -63,10 +63,8 @@ public class CameraController : MonoBehaviour
         if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0) return;
         
         _dragDirection = Input.mousePosition;
-        print("_dragDirection " + _dragDirection);
         Vector3 screenDelta = _dragOrigin - _dragDirection;
-        print("ScreenDelta: " + screenDelta);
-        
+
         Vector2 screenSize = ScaleScreenToWorldSize(Cam.aspect, Cam.orthographicSize, Cam.scaledPixelWidth, Cam.scaledPixelHeight, screenDelta.x, screenDelta.y);
 
         Vector3 move = new Vector3(screenSize.x + screenSize.y, 0f, screenSize.y - screenSize.x);
