@@ -17,9 +17,6 @@ public class TurnManager : MonoBehaviour
     
     [SerializeField] private float turnTimer = 3f;
     [SerializeField] private bool beginEnemyTurn;
-
-    private bool _enemyDefeat;
-    private bool _playerDefeat;
     
     private GameObject _currentTurn;
 
@@ -52,8 +49,6 @@ public class TurnManager : MonoBehaviour
             
             enemyChild.GetComponent<Enemy>().StateCheck();
         }
-
-        EnemiesLeftInScene();
         
         // Reset the player Actions
         _currentTurn = playerTurnNotification;
@@ -69,20 +64,17 @@ public class TurnManager : MonoBehaviour
         }
         
         PlayersLeftInScene();
-
-        if (_enemyDefeat || _playerDefeat) SceneManager.LoadScene(0);
     }
     
-    private void EnemiesLeftInScene()
+    public void EnemiesLeftInScene()
     {
         for (int i = 0; i< enemyFleet.transform.childCount; i++)
         {
             if (!enemyFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
-            _enemyDefeat = false;
             return;
         }
         
-        _enemyDefeat = true;
+        SceneManager.LoadScene(0);
     }
     
     private void PlayersLeftInScene()
@@ -90,11 +82,10 @@ public class TurnManager : MonoBehaviour
         for (int i = 0; i< playerFleet.transform.childCount; i++)
         {
             if (!playerFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
-            _playerDefeat = false;
             return;
         }
         
-        _playerDefeat = true;
+        SceneManager.LoadScene(0);
     }
 
     public void TurnNotification()

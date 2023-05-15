@@ -172,5 +172,6 @@ public class ShipManager : MonoBehaviour
         if (SelectedPlayerShip == null) return;
         SelectedPlayerShip.GetComponent<Player>().Attack(SelectedEnemyShip);
         ClearOldSelection();
+        turnManager.EnemiesLeftInScene();
     }
 }
