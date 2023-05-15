@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -34,7 +35,7 @@ public class Ship : MonoBehaviour
     
     public int MovementPoints => points;
     public event Action<Ship> MovementFinished;
-    public bool shipMoved;
+    public bool shipTurn;
     public Sprite profileTag;
     
     

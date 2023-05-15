@@ -13,6 +13,7 @@ public class SelectionManager : MonoBehaviour
 
     public UnityEvent<GameObject> OnShipSelected;
     public UnityEvent<GameObject> OnTerrainSelected;
+    public UnityEvent<GameObject> OnEnemySelected;
 
     private void Awake()
     {
@@ -28,6 +29,11 @@ public class SelectionManager : MonoBehaviour
         if (!FindTarget(mousePosition, out GameObject result)) return;
         if (ShipSelected(result))
         {
+            if (result.layer == 7)
+            {
+                OnEnemySelected.Invoke(result);
+                return;
+            }
             OnShipSelected?.Invoke(result);
             return;
         }
