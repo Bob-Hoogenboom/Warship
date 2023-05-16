@@ -9,7 +9,8 @@ For this project we will be making a turn based strategy game. The goal of this 
 # Created Game Parts
 
 Student Bob Hoogenboom:
-  * [Boat behaviour](https://github.com/Bob-Hoogenboom/Warship/wiki)
+  * [Movement System](https://github.com/Bob-Hoogenboom/Warship/wiki)
+  * [Camera controller]
 
 Student Diego Ramon:
   * [UI](https://github.com/Bob-Hoogenboom/Warship/wiki)
@@ -18,7 +19,7 @@ Student Robin Knol:
   * [Nothing yet](https://github.com/Bob-Hoogenboom/Warship/wiki)
 
 
-## Boat behaviour by Bob Hoogenboom
+## Movement System by Bob Hoogenboom
 
 
 ## UI by Diego Ramon
