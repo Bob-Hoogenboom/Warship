@@ -18759,15 +18759,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc51a016430a64f4e996fff7795deaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CMVirtualCamera: {fileID: 892465885}
-  Cam: {fileID: 199580686}
-  PanningSpeed: 5
-  MapSizeX: 7.5
-  MapSizeZ: 7.5
-  FocusValue: 30
-  MaxZoom: {x: 35, y: 60}
-  ZoomSpeed: 9
-  DefaultFOVValue: 45
+  cmVirtualCamera: {fileID: 892465885}
+  cam: {fileID: 199580686}
+  panningSpeed: 10
+  mapSizeX: 8
+  mapSizeZ: 8
+  focusValue: 30
+  maxZoom: {x: 35, y: 60}
+  zoomSpeed: 9
+  defaultFOVValue: 45
 --- !u!114 &892465885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44283,7 +44283,7 @@ PrefabInstance:
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
@@ -44299,7 +44299,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 535270996}
+      objectReference: {fileID: 419497179}
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -44328,7 +44328,7 @@ PrefabInstance:
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: TurnNotification
+      value: HandlePanels
       objectReference: {fileID: 0}
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
@@ -44343,7 +44343,7 @@ PrefabInstance:
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: TurnManager, Assembly-CSharp
+      value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
@@ -44354,6 +44354,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
