@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectionMaterial: {fileID: 2100000, guid: 3657ba4c389e9f0429166ae10a34124f, type: 2}
+  RouteMaterial: {fileID: 2100000, guid: c0021182e91d6b64c8839a5d27fab33e, type: 2}
   IsGlowing: 0
 --- !u!114 &5876271150163288081
 MonoBehaviour:
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: {fileID: 0}
-  hexType: 0
+  HexType: 0
   Grid: {x: 0, y: 0}
 --- !u!1 &4250047340244201784
 GameObject:
