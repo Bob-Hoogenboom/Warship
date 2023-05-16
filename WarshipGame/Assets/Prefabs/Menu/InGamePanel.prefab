@@ -636,7 +636,7 @@ RectTransform:
   m_GameObject: {fileID: 1019591340473781124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35283923, y: 0.35283923, z: 0.35283923}
+  m_LocalScale: {x: 0.17489545, y: 0.17489545, z: 0.17489545}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1192562062406903236}
@@ -646,7 +646,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 25.000046}
-  m_SizeDelta: {x: 992, y: 147}
+  m_SizeDelta: {x: 2048, y: 1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7406156257771620759
 CanvasRenderer:
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 57e762a1165be7d44af78f8c128e813f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae09de4fc35ce164694dac66db9e1529, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2509,7 +2509,7 @@ RectTransform:
   m_GameObject: {fileID: 5820717209395980553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7368952, y: 1.7368952, z: 1.7368952}
+  m_LocalScale: {x: 3.5040634, y: 3.5040634, z: 3.5040634}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5713534599554558327}
@@ -2517,7 +2517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48.633095, y: -43.42238}
+  m_AnchoredPosition: {x: 143, y: -87.60166}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8991556084045940399
@@ -2576,8 +2576,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2612,7 +2612,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -194.70111, y: -14.06805, z: -174.57799, w: 11.670882}
+  m_margin: {x: -194.70111, y: -14.06805, z: -115.28343, w: 11.670882}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3775,12 +3775,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7086732266932009732}
+      objectReference: {fileID: 1085820963546933738}
     - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1085820963546933738}
+      objectReference: {fileID: 7086732266932009732}
     - target: {fileID: 6591874663390025767, guid: 946e6bc5f9bd78e4b940577640f000d7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
