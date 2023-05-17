@@ -43,6 +43,8 @@ public class TurnManager : MonoBehaviour
     {
         _currentTurn = enemyTurnNotification;
         StartCoroutine(TurnCoroutine(_currentTurn));
+        beginEnemyTurn = true;
+        EndMovement();
         // Activate the enemy turn
         yield return new WaitForSeconds(turnTimer);
         for (int i = 0; i < enemyFleet.transform.childCount; i++)
@@ -57,18 +59,30 @@ public class TurnManager : MonoBehaviour
         _currentTurn = playerTurnNotification;
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(TurnCoroutine(_currentTurn));
+        beginEnemyTurn = false;
+
+        EndMovement();
+        
+        PlayersLeftInScene();
+    }
+
+    private void EndMovement()
+    {
         for (int i = 0; i < playerFleet.transform.childCount; i++)
         {
             Transform playerChild = playerFleet.transform.GetChild(i);
             
             if (!playerChild.gameObject.activeSelf) continue;
 
+            if (beginEnemyTurn)
+            {
+                playerChild.GetComponent<Ship>().shipTurn = true;
+                continue;
+            }
             playerChild.GetComponent<Ship>().shipTurn = false;
         }
-        
-        PlayersLeftInScene();
     }
-    
+
     public void EnemiesLeftInScene()
     {
         for (int i = 0; i< enemyFleet.transform.childCount; i++)
@@ -78,6 +92,8 @@ public class TurnManager : MonoBehaviour
         }
         
         playerVictoryNotification.SetActive(true);
+        beginEnemyTurn = true;
+        EndMovement();
         StartCoroutine(EndGame());
     }
     
@@ -110,7 +126,7 @@ public class TurnManager : MonoBehaviour
 
     private IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(6);
         SceneManager.LoadScene(0);
     }
 }

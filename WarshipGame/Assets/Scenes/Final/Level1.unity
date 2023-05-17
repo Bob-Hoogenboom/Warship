@@ -12743,6 +12743,8 @@ MonoBehaviour:
   enemyFleet: {fileID: 210117438}
   playerTurnNotification: {fileID: 592385598}
   enemyTurnNotification: {fileID: 688114386}
+  playerVictoryNotification: {fileID: 1715956934}
+  enemyVictoryNotification: {fileID: 937123808}
   turnTimer: 3
   beginEnemyTurn: 0
 --- !u!4 &535270997
@@ -19257,6 +19259,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1572152539996877150, guid: 06c01e4dd7b8d9949bf4caef374cf5bd,
     type: 3}
   m_PrefabInstance: {fileID: 935931979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &937123808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2065619866233875440, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &939371579
 PrefabInstance:
@@ -34848,6 +34856,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1715956934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3593136112325895936, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1717779499
 PrefabInstance:
   m_ObjectHideFlags: 0
