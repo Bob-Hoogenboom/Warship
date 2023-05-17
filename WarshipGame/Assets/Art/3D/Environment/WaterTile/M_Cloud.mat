@@ -84,7 +84,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Contrast: 0.88
+    - _Contrast: 1.1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -97,7 +97,7 @@ Material:
     - _Float: -0.15
     - _Fresnel_Power: 0.5
     - _Fresnel_Power_2: 1
-    - _Fresnel_contrast: 2
+    - _Fresnel_contrast: 1.1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -113,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Texture_Scale: 0.578
+    - _Texture_Scale: 0.84
     - _Texture_Speed: 0.0204
     - _WorkflowMode: 1
     - _ZWrite: 1
