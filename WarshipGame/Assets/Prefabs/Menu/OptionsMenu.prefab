@@ -7084,6 +7084,12 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6094731506313355050, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6416461195200653267, guid: 94cc914e06ba53b4e9bdb0d4cc3c77e1,
+        type: 2}
     - target: {fileID: 7576951743599796696, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7359,6 +7365,12 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6094731506313355050, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 9075515589814527664, guid: 94cc914e06ba53b4e9bdb0d4cc3c77e1,
+        type: 2}
     - target: {fileID: 7576951743599796696, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7748,6 +7760,12 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6094731506313355050, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 94cc914e06ba53b4e9bdb0d4cc3c77e1,
+        type: 2}
     - target: {fileID: 7576951743599796696, guid: 3eff3106bf4f7ee4ebb34ccbf474d8ce,
         type: 3}
       propertyPath: m_AnchorMax.x
