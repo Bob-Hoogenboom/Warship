@@ -63,7 +63,9 @@ public class Profiles : ScriptableObject
             //sets the mixer to match the volume
             if (Mixer)
             {
+ 
                 Mixer.SetFloat(volumeControl.AudioName, Mathf.Log(volumeControl.AudioVolume) * 20f);
+
             }
             volume = volumeControl.AudioVolume;
             break;
@@ -87,6 +89,7 @@ public class Profiles : ScriptableObject
                     volumeControl.AudioVolume = PlayerPrefs.GetFloat(_prefPrefix + volumeControl.AudioName);
                 }
             }
+            
             //resets the audio volume
             volumeControl.TempVolume = volumeControl.AudioVolume;
 
@@ -107,6 +110,7 @@ public class Profiles : ScriptableObject
         {
             if (volumeControl.AudioName != name) continue;
             
+            if (volume == 0) volume = 0.1f;
             Mixer.SetFloat(volumeControl.AudioName, Mathf.Log(volume) * 20f);
             volumeControl.TempVolume = volume;
             break;
