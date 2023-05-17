@@ -8,18 +8,14 @@ public class GlowManager : MonoBehaviour
 {
     private readonly Dictionary<Renderer, Material[]> _selectionMaterialDictionary = new();
     private readonly Dictionary<Renderer, Material[]> _originalMaterialDictionary = new();
-    private readonly Dictionary<Color, Material> _cachedSelectionMaterials = new();
-    private readonly Color _validHexColor = Color.green;
-    private Color _originalColor;
-    
+
     public Material SelectionMaterial;
+    public Material RouteMaterial;
     public bool IsGlowing;
-    private static readonly int GlowColor = Shader.PropertyToID("_GlowColor");
 
     private void Awake()
     {
         PrepareMaterialDictionaries();
-        _originalColor = SelectionMaterial.GetColor(GlowColor);
     }
 
     /// <summary>
@@ -32,20 +28,6 @@ public class GlowManager : MonoBehaviour
             Material[] originalMaterials = materialRenderer.materials;
             _originalMaterialDictionary.Add(materialRenderer, originalMaterials);
             Material[] newMaterials = new Material[materialRenderer.materials.Length];
-
-            for (int i = 0; i < originalMaterials.Length; i++)
-            {
-                if (!_cachedSelectionMaterials.TryGetValue(originalMaterials[i].color, out Material material))
-                {
-                    material = new Material(SelectionMaterial)
-                    {
-                        color = originalMaterials[i].color
-                    };
-                    _cachedSelectionMaterials.Add(originalMaterials[i].color, material);
-                }
-
-                newMaterials[i] = material;
-            }
 
             _selectionMaterialDictionary.Add(materialRenderer, newMaterials);
         }
@@ -60,7 +42,7 @@ public class GlowManager : MonoBehaviour
         {
             foreach (Renderer materialRenderer in _originalMaterialDictionary.Keys)
             {
-                materialRenderer.materials = _selectionMaterialDictionary[materialRenderer];
+                materialRenderer.material = SelectionMaterial;
             }
             IsGlowing = true;
             return;
@@ -93,11 +75,7 @@ public class GlowManager : MonoBehaviour
         if (!IsGlowing) return;
         foreach (Renderer materialRenderer in _selectionMaterialDictionary.Keys)
         {
-            foreach (Material item in _selectionMaterialDictionary[materialRenderer])
-            { 
-                item.SetColor(GlowColor, _originalColor);
-            }
-            materialRenderer.materials = _selectionMaterialDictionary[materialRenderer];
+            materialRenderer.material = SelectionMaterial;
         }
     }
 
@@ -109,10 +87,7 @@ public class GlowManager : MonoBehaviour
         if (!IsGlowing) return;
         foreach (Renderer materialRenderer in _selectionMaterialDictionary.Keys)
         {
-            foreach (Material item in _selectionMaterialDictionary[materialRenderer])
-            { 
-                item.SetColor(GlowColor, _validHexColor);
-            }
+            materialRenderer.material = RouteMaterial;
         }
     }
 }

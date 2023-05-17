@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_ShipSelectionGlow
-  m_Shader: {fileID: -6465566751694194690, guid: f844fec27024e0243ae413dce238ec7c,
+  m_Shader: {fileID: -6465566751694194690, guid: b94e882a9d19298419168279078403f2,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
