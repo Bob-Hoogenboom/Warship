@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AC_SealionIdle2
+  m_Name: AC_SealionIdle
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -53,7 +53,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: Seal Skelleton|Seal Idle
   m_Speed: 1
-  m_CycleOffset: 1
+  m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
