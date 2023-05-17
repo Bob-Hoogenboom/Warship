@@ -16,9 +16,9 @@ public class AllyInformationHandler : MonoBehaviour
 
     public void GetSelectedShip()
     {
-        if (_shipManager.SelectedShip == null) return;
+        if (_shipManager.SelectedPlayerShip == null) return;
         
-        Ship activeShipScript = _shipManager.SelectedShip.GetComponent<Ship>();
+        Ship activeShipScript = _shipManager.SelectedPlayerShip.GetComponent<Ship>();
         
         healthSlider.maxValue = activeShipScript.HealthBar.maxValue;
         healthSlider.value = activeShipScript.HealthBar.value;
