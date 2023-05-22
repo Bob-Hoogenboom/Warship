@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3543746133184575488}
   m_Layer: 0
-  m_Name: SmokeBoat
+  m_Name: PS_SmokeBoat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
