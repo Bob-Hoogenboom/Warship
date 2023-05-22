@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -37,6 +36,8 @@ public class Ship : MonoBehaviour
     public event Action<Ship> MovementFinished;
     public bool shipTurn;
     public Sprite profileTag;
+
+    public bool shipDead;
     
     
     /// <summary>
@@ -53,8 +54,20 @@ public class Ship : MonoBehaviour
     {
         healthBar.value -= damageTaken;
         
-        if (healthBar.value > 0) return; 
-        gameObject.SetActive(false);
+        if (healthBar.value > 0) return;
+        GameObject o = gameObject;
+        o.GetComponent<BoxCollider>().enabled = false;
+        Vector3 position = o.transform.position;
+        Quaternion rotation = o.transform.rotation;
+        
+        position.y = (float)-0.2;
+        rotation = Quaternion.Euler(-50, rotation.eulerAngles.y, rotation.eulerAngles.z);
+
+        o.transform.position = position;
+        o.transform.rotation = rotation;
+        
+        o.GetComponent<Ship>().healthBar.enabled = false;
+        o.GetComponent<Ship>().shipDead = true;
     }
 
     internal void Deselect()

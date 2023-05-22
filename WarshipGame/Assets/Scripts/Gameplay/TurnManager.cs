@@ -87,7 +87,7 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< enemyFleet.transform.childCount; i++)
         {
-            if (!enemyFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
+            if (!enemyFleet.transform.GetChild(i).gameObject.GetComponent<Enemy>().enabled) continue;
             return;
         }
         

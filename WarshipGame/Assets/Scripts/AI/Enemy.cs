@@ -52,6 +52,8 @@ public class Enemy : MonoBehaviour
     public void StateCheck()
     {
         //OverlapSphere returns an array of every Collider of collision layer 'PlayerShips'
+        if (_shipScript.shipDead) return;
+        
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), PlayerShips);
         if (targetColliders.Length == 0)
         {
