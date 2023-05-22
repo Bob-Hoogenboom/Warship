@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127558675404390458}
-  - component: {fileID: 1876912711358187843}
+  - component: {fileID: 7111889168674888571}
   m_Layer: 0
   m_Name: Sealion
   m_TagString: Untagged
@@ -128,7 +128,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1876912711358187843
+--- !u!95 &7111889168674888571
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 545c503a430523c449dc4015836df302, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -318,7 +318,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7803893768078130759}
   - component: {fileID: 3943049544993525692}
-  - component: {fileID: 1876912711459858383}
   m_Layer: 0
   m_Name: SeaLion
   m_TagString: Untagged
@@ -404,26 +403,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000022321008, y: 0.020291228, z: 0.001353858}
     m_Extent: {x: 0.026536245, y: 0.034051154, z: 0.026414962}
   m_DirtyAABB: 0
---- !u!95 &1876912711459858383
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8157948236373461406}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 545c503a430523c449dc4015836df302, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8608238119404915458
 GameObject:
   m_ObjectHideFlags: 0
