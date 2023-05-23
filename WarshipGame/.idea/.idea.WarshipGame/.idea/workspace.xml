@@ -6,17 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b7547dcc-fa89-4ed2-ad44-22d00d3fef12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_AttackTutorialScreen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_AttackTutorialScreen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MovementTutorialSchetsSketch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MovementTutorialSchetsSketch.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/ProfilePictures/T_PlayerFergatShipProfilePicture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/ProfilePictures/T_PlayerFergatShipProfilePicture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/ProfilePictures/T_PlayerLCVPProfilePicture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/ProfilePictures/T_PlayerLCVPProfilePicture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/ProfilePictures/T_PlayerSubmarineProfilePicture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/ProfilePictures/T_PlayerSubmarineProfilePicture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/T_AllyInformationPanel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/T_AllyInformationPanel.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/InGamePanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/InGamePanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/MainMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/OptionsMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/OptionsMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/TutorialPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/TutorialPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final/BasicUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final/BasicUI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final/Level1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/EnemyInformation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Editor/Actions/ActionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Editor/TimelineHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -144,6 +144,8 @@
       <workItem from="1684134175379" duration="793000" />
       <workItem from="1684322835108" duration="664000" />
       <workItem from="1684324610674" duration="1441000" />
+      <workItem from="1684832829825" duration="2371000" />
+      <workItem from="1684843174478" duration="3464000" />
     </task>
     <servers />
   </component>

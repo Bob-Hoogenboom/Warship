@@ -7578,6 +7578,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4640324429296480684, guid: adeec9d2d093be842b617f3f8f6d051d,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: e2e79afe39c35ad44b84bfebcee6d4ea,
+        type: 3}
     - target: {fileID: 7846964497765601523, guid: adeec9d2d093be842b617f3f8f6d051d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -12914,6 +12920,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 430964621}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &432154626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1085820963546933738, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf909acb56edcf54980b7c52391e7164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &437813266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26186,6 +26204,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1262520554}
+        m_TargetAssemblyTypeName: EnemyInformation, Assembly-CSharp
+        m_MethodName: GetActiveEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 892465884}
         m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: Focus
@@ -33459,6 +33489,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1256036636}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1262520554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b28a4eacf5e8d459c33af9df3f5007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1263107783
 GameObject:
   m_ObjectHideFlags: 0
@@ -36499,6 +36541,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2567108755078230252, guid: a3d4bf4ad1cc3d948a879dc7899054e5,
     type: 3}
   m_PrefabInstance: {fileID: 1390512855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1391190936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1580338341}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1393598181
 PrefabInstance:
@@ -41696,6 +41744,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFergatShip
       objectReference: {fileID: 0}
+    - target: {fileID: 4640324429296480684, guid: adeec9d2d093be842b617f3f8f6d051d,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: e2e79afe39c35ad44b84bfebcee6d4ea,
+        type: 3}
     - target: {fileID: 7846964497765601523, guid: adeec9d2d093be842b617f3f8f6d051d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -45788,6 +45842,12 @@ Transform:
   m_Father: {fileID: 1226850401}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1754807545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2095334022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1758666121
 GameObject:
   m_ObjectHideFlags: 0
@@ -53332,6 +53392,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2050229558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2051128458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024017758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2052430802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55976,6 +56042,12 @@ PrefabInstance:
       propertyPath: enemyShips.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 5279529396846165520, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: b0d90aa15359afb45ab8c6de2dd2f1e6,
+        type: 3}
     - target: {fileID: 5279529396846165524, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -56673,6 +56745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672888517612073841, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
@@ -56783,9 +56860,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1758666121}
+    - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 432154626}
     - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -56793,9 +56880,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: HandlePanels
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829613305129303071, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: activeEnemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: activeEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 2051128458}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: activeEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1754807545}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: activeEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1391190936}
     - target: {fileID: 8959515001878388314, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_AnchorMax.x
