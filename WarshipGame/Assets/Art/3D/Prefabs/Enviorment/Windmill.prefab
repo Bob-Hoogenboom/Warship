@@ -212,4 +212,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ad9432ebf7a764292f1a3a6c8a79f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationStep: {x: 2, y: 0, z: 0}
+  rotationStep: {x: 60, y: 0, z: 0}

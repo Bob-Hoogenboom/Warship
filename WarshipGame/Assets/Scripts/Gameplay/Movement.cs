@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class Movement : MonoBehaviour
 {
     private BFSResult _movementRange;
     private List<Vector2Int> _currentPath = new();
+    private AudioSource MovementAudio;
+
+    private void Awake()
+    {
+        MovementAudio = GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// Hides the Range of the currently selected Ships
@@ -71,6 +78,7 @@ public class Movement : MonoBehaviour
     public void MoveShip(Ship selectedShip, HexGrid hexGrid)
     {
         selectedShip.MoveTroughPath(_currentPath.Select(pos=> hexGrid.GetTileAt(pos).transform.position).ToList());
+        MovementAudio.Play();
     }
 
     /// <summary>
