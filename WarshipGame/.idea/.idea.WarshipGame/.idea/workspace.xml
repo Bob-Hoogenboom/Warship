@@ -6,17 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b7547dcc-fa89-4ed2-ad44-22d00d3fef12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WarshipGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_AttackTutorialScreen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_AttackTutorialScreen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MoveTutorialScreen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MovementTutorialSchetsSketch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/2D/UI/InGameUI/TutorialScreen/T_MovementTutorialSchetsSketch.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/InGamePanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/InGamePanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/MainMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/OptionsMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/OptionsMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Menu/TutorialPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Menu/TutorialPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final/BasicUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final/BasicUI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/TurnManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,15 +40,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Firestorm\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Firestorm\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Firestorm\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../builds/WarshipGame.exe" />
@@ -144,6 +143,7 @@
       <workItem from="1684134175379" duration="793000" />
       <workItem from="1684322835108" duration="664000" />
       <workItem from="1684324610674" duration="1441000" />
+      <workItem from="1684847334126" duration="1129000" />
     </task>
     <servers />
   </component>
@@ -163,7 +163,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

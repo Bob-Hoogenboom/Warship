@@ -15376,6 +15376,7 @@ MonoBehaviour:
   enemyTurnNotification: {fileID: 688114386}
   playerVictoryNotification: {fileID: 1715956934}
   enemyVictoryNotification: {fileID: 937123808}
+  endTurnButton: {fileID: 1959236744}
   turnTimer: 3
   beginEnemyTurn: 0
 --- !u!4 &535270997
@@ -51002,6 +51003,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1954226726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1959236744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 593306425351096722, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1964187332
 GameObject:
   m_ObjectHideFlags: 0
