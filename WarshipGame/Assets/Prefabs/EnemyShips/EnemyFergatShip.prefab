@@ -323,8 +323,10 @@ MonoBehaviour:
   maxHealth: 9
   damage: 3
   healthBar: {fileID: 5705903283408768659}
-  shipMoved: 0
+  DestroyedParticle: {fileID: 0}
+  shipTurn: 0
   profileTag: {fileID: 0}
+  shipDead: 0
 --- !u!114 &4725573120478115682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectionMaterial: {fileID: 2100000, guid: 6946a71c24caa554c9560bb44e6243ad, type: 2}
+  RouteMaterial: {fileID: 0}
   IsGlowing: 0
 --- !u!114 &618366510
 MonoBehaviour:
@@ -353,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerShips:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   Radius: 2
   GizmosOn: 0
   WaypointsScript: {fileID: 0}
