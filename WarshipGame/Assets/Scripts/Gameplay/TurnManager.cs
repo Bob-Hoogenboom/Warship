@@ -87,7 +87,7 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< enemyFleet.transform.childCount; i++)
         {
-            if (!enemyFleet.transform.GetChild(i).gameObject.GetComponent<Enemy>().enabled) continue;
+            if (enemyFleet.transform.GetChild(i).GetComponent<Ship>().shipDead) continue;
             return;
         }
         
@@ -101,7 +101,7 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< playerFleet.transform.childCount; i++)
         {
-            if (!playerFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
+            if (playerFleet.transform.GetChild(i).GetComponent<Ship>().shipDead) continue;
             return;
         }
 

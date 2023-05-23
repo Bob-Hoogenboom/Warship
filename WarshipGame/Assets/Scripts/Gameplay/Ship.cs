@@ -26,6 +26,8 @@ public class Ship : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private Slider healthBar;
     
+    [SerializeField] private GameObject DestroyedParticle;
+    
     public int Damage => damage;
     public Slider HealthBar => healthBar;
     
@@ -38,8 +40,7 @@ public class Ship : MonoBehaviour
     public Sprite profileTag;
 
     public bool shipDead;
-    
-    
+
     /// <summary>
     /// Gets glow manager to prevent Editor usage
     /// </summary>
@@ -55,21 +56,23 @@ public class Ship : MonoBehaviour
         healthBar.value -= damageTaken;
         
         if (healthBar.value > 0) return;
-        GameObject o = gameObject;
-        o.GetComponent<BoxCollider>().enabled = false;
-        Vector3 position = o.transform.position;
-        Quaternion rotation = o.transform.rotation;
+        
+        GameObject destroyedShip = gameObject;
+        
+        Vector3 position = destroyedShip.transform.position;
+        Quaternion rotation = destroyedShip.transform.rotation;
         
         position.y = (float)-0.2;
         rotation = Quaternion.Euler(-50, rotation.eulerAngles.y, rotation.eulerAngles.z);
 
-        o.transform.position = position;
-        o.transform.rotation = rotation;
+        destroyedShip.transform.position = position;
+        destroyedShip.transform.rotation = rotation;
         
-        o.GetComponent<Ship>().healthBar.enabled = false;
-        o.GetComponent<Ship>().shipDead = true;
+        healthBar.gameObject.SetActive(false);
+        destroyedShip.layer = 9;
+        destroyedShip.GetComponent<Ship>().shipDead = true;
     }
-
+    
     internal void Deselect()
     {
         _glowManager.ToggleGlow(false);

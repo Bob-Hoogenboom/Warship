@@ -51,22 +51,31 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public void StateCheck()
     {
-        //OverlapSphere returns an array of every Collider of collision layer 'PlayerShips'
         if (_shipScript.shipDead) return;
         
+        //OverlapSphere returns an array of every Collider of collision layer 'PlayerShips'
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (Radius * 0.866f), PlayerShips);
+        
         if (targetColliders.Length == 0)
         {
             _states = WaypointsScript == null ? States.Skip : States.Move;
-
+            
             EnemyAction();
             return;
         }
+        
+        foreach (Collider targetCollider in targetColliders)
+        {
+            _targetShip = targetCollider.GetComponentInParent<Transform>(); //gets first in the Collider[] to attack it
 
-        _targetShip = targetColliders[0].GetComponentInParent<Transform>(); //gets first in the Collider[] to attack it
-
-        _states = States.Attack;
-        EnemyAction();
+            _states = States.Skip;
+            
+            if (_targetShip.gameObject.GetComponent<Ship>().shipDead) continue;
+            
+            _states = States.Attack;
+            EnemyAction();
+            return;
+        }
     }
 
     /// <summary>
