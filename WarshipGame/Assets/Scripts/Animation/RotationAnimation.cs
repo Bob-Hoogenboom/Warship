@@ -7,6 +7,6 @@ public class RotationAnimation : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(rotationStep, Space.World);
+        transform.Rotate(rotationStep * Time.deltaTime , Space.World);
     }
 }
