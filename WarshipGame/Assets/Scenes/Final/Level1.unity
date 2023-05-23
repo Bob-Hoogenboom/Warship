@@ -20170,7 +20170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ad9432ebf7a764292f1a3a6c8a79f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationStep: {x: 0, y: 3, z: 0}
+  rotationStep: {x: 0, y: 90, z: 0}
 --- !u!1001 &742639848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30066,17 +30066,17 @@ PrefabInstance:
     - target: {fileID: 4291201098535752060, guid: cbc847a9f39d99f4192b78f7c46b2529,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.403
+      value: 21.887
       objectReference: {fileID: 0}
     - target: {fileID: 4291201098535752060, guid: cbc847a9f39d99f4192b78f7c46b2529,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.22
+      value: 37.04112
       objectReference: {fileID: 0}
     - target: {fileID: 4291201098535752060, guid: cbc847a9f39d99f4192b78f7c46b2529,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.294
+      value: -20.616
       objectReference: {fileID: 0}
     - target: {fileID: 4291201098535752060, guid: cbc847a9f39d99f4192b78f7c46b2529,
         type: 3}
@@ -30121,7 +30121,17 @@ PrefabInstance:
     - target: {fileID: 4291201098535752061, guid: cbc847a9f39d99f4192b78f7c46b2529,
         type: 3}
       propertyPath: m_Volume
-      value: 0.281
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291201098535752061, guid: cbc847a9f39d99f4192b78f7c46b2529,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291201098535752061, guid: cbc847a9f39d99f4192b78f7c46b2529,
+        type: 3}
+      propertyPath: MinDistance
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4291201098535752061, guid: cbc847a9f39d99f4192b78f7c46b2529,
         type: 3}
