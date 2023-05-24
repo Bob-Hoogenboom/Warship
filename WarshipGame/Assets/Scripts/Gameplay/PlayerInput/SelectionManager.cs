@@ -11,9 +11,9 @@ public class SelectionManager : MonoBehaviour
     
     public LayerMask SelectionMask;
 
-    public UnityEvent<GameObject> OnShipSelected;
-    public UnityEvent<GameObject> OnTerrainSelected;
-    public UnityEvent<GameObject> OnEnemySelected;
+    public UnityEvent<GameObject> onShipSelected;
+    public UnityEvent<GameObject> onTerrainSelected;
+    public UnityEvent<GameObject> onEnemySelected;
 
     private void Awake()
     {
@@ -31,14 +31,14 @@ public class SelectionManager : MonoBehaviour
         {
             if (result.layer == 7)
             {
-                OnEnemySelected.Invoke(result);
+                onEnemySelected.Invoke(result);
                 return;
             }
-            OnShipSelected?.Invoke(result);
+            onShipSelected?.Invoke(result);
             return;
         }
 
-        OnTerrainSelected.Invoke(result);
+        onTerrainSelected.Invoke(result);
     }
 
     /// <summary>
