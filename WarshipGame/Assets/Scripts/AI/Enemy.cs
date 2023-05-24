@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum States {
     Move,
@@ -27,6 +28,8 @@ public class Enemy : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private Waypoint WaypointsScript;
     
+    [SerializeField] private UnityEvent onEnemyAttack;
+    
     private Transform _currentWaypoint;
     private float _rotationTime;
     private float _movementTime;
@@ -36,8 +39,8 @@ public class Enemy : MonoBehaviour
     {
         _shipScript = gameObject.GetComponent<Ship>();
 
-        _movementTime = _shipScript.MovementTime;
-        _rotationTime = _shipScript.RotationTime;
+        _movementTime = _shipScript.movementTime;
+        _rotationTime = _shipScript.rotationTime;
         
         if (WaypointsScript == null) return;
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
@@ -160,6 +163,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void AttackState()
     {
+        onEnemyAttack.Invoke();
         _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
     }
 

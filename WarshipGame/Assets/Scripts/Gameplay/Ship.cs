@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// Holds data specifically for the ship like movement speed and the range it can move
@@ -13,20 +14,22 @@ public class Ship : MonoBehaviour
 {
     [Header("Movement")]
     [Tooltip("The time it takes to rotate the ship when it needs tot turn to a different tile")]
-    public float RotationTime = 0.3f;
+    public float rotationTime = 0.3f;
     
     [Tooltip("The time it takes the ship to move from tile to tile")]
-    public float MovementTime = 1f;
+    public float movementTime = 1f;
     
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
-    [SerializeField] private int points = 3;
+    [SerializeField] private int points = 2;
     
     [Header("Health")]
     [SerializeField] private int maxHealth;
     [SerializeField] private int damage;
     [SerializeField] private Slider healthBar;
     
-    [SerializeField] private GameObject DestroyedParticle;
+    [SerializeField] private GameObject destroyedParticle;
+    
+    [SerializeField] private UnityEvent onDamageTaken;
     
     public int Damage => damage;
     public Slider HealthBar => healthBar;
@@ -53,6 +56,7 @@ public class Ship : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
+        onDamageTaken.Invoke();
         healthBar.value -= damageTaken;
         
         if (healthBar.value > 0) return;
@@ -91,7 +95,7 @@ public class Ship : MonoBehaviour
     {
         _pathPositions = new Queue<Vector3>(currentPath);
         Vector3 firstTarget = _pathPositions.Dequeue();
-        StartCoroutine(RotationCoroutine(firstTarget, RotationTime));
+        StartCoroutine(RotationCoroutine(firstTarget, rotationTime));
     }
 
     /// <summary>
@@ -139,10 +143,10 @@ public class Ship : MonoBehaviour
         endPosition.y = startPosition.y;
         float timeElapsed = 0;
         
-        while(timeElapsed < MovementTime)
+        while(timeElapsed < movementTime)
         {
             timeElapsed += Time.deltaTime;
-            float lerpStep = timeElapsed / MovementTime;
+            float lerpStep = timeElapsed / movementTime;
             transform.position = Vector3.Lerp(startPosition,endPosition, lerpStep);
             yield return null;
         }
@@ -151,7 +155,7 @@ public class Ship : MonoBehaviour
 
         if (_pathPositions.Count > 0)
         {
-            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), RotationTime));
+            StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), rotationTime));
             yield break;
         }
         MovementFinished?.Invoke(this);
