@@ -9,11 +9,11 @@ public class SelectionManager : MonoBehaviour
     private Camera _mainCamera;
     private readonly float _rayDistance = 200;
     
-    public LayerMask SelectionMask;
+    public LayerMask selectionMask;
 
-    public UnityEvent<GameObject> OnShipSelected;
-    public UnityEvent<GameObject> OnTerrainSelected;
-    public UnityEvent<GameObject> OnEnemySelected;
+    public UnityEvent<GameObject> onShipSelected;
+    public UnityEvent<GameObject> onTerrainSelected;
+    public UnityEvent<GameObject> onEnemySelected;
 
     private void Awake()
     {
@@ -31,14 +31,14 @@ public class SelectionManager : MonoBehaviour
         {
             if (result.layer == 7)
             {
-                OnEnemySelected.Invoke(result);
+                onEnemySelected.Invoke(result);
                 return;
             }
-            OnShipSelected?.Invoke(result);
+            onShipSelected?.Invoke(result);
             return;
         }
 
-        OnTerrainSelected.Invoke(result);
+        onTerrainSelected.Invoke(result);
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public class SelectionManager : MonoBehaviour
     private bool FindTarget(Vector3 mousePosition, out GameObject result)
     {
         Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, _rayDistance,SelectionMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, _rayDistance,selectionMask))
         {
             result = hit.collider.gameObject;
             return true;
