@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// this is just a dummy script to make the game function
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask enemyShips;
     [SerializeField] private float radius;
     [SerializeField] private bool gizmosOn = true;
+    
+    [SerializeField] private UnityEvent onPlayerAttack;
     
     private Ship _shipScript;
     private Transform _targetShip;
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
     /// <param name="targetShip"></param>
     public void Attack(Transform targetShip)
     {
+        onPlayerAttack.Invoke();
         Collider[] targetColliders = Physics.OverlapSphere(transform.position, (radius * 0.866f), enemyShips);
 
         foreach (Collider targetCollider in targetColliders)

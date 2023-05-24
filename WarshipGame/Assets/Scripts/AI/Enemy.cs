@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum States {
     Move,
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour
     
     [Header("Movement")]
     [SerializeField] private Waypoint WaypointsScript;
+    
+    [SerializeField] private UnityEvent onEnemyAttack;
     
     private Transform _currentWaypoint;
     private float _rotationTime;
@@ -160,6 +163,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void AttackState()
     {
+        onEnemyAttack.Invoke();
         _targetShip.GetComponent<Ship>().TakeDamage(_shipScript.Damage);
     }
 

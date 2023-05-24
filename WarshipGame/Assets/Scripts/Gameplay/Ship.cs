@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// Holds data specifically for the ship like movement speed and the range it can move
@@ -19,14 +20,16 @@ public class Ship : MonoBehaviour
     public float MovementTime = 1f;
     
     [Tooltip("The points are the cost of the range. For example if 3 points are set then the ship can move 3 tiles in range")]
-    [SerializeField] private int points = 3;
+    [SerializeField] private int points = 2;
     
     [Header("Health")]
     [SerializeField] private int maxHealth;
     [SerializeField] private int damage;
     [SerializeField] private Slider healthBar;
     
-    [SerializeField] private GameObject DestroyedParticle;
+    [SerializeField] private GameObject destroyedParticle;
+    
+    [SerializeField] private UnityEvent onDamageTaken;
     
     public int Damage => damage;
     public Slider HealthBar => healthBar;
@@ -53,6 +56,7 @@ public class Ship : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
+        onDamageTaken.Invoke();
         healthBar.value -= damageTaken;
         
         if (healthBar.value > 0) return;
