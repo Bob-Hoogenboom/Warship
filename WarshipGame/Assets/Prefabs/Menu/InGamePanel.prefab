@@ -226,8 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b28a4eacf5e8d459c33af9df3f5007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPictures: {fileID: 4621638698664914810}
   _enemyShip: {fileID: 0}
+  enemyBorder: {fileID: 0}
+  deadShipBorder: {fileID: 0}
 --- !u!1 &391020881836173863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2104,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7086732266932009732}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7086732266932009732}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -2329,8 +2342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b28a4eacf5e8d459c33af9df3f5007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPictures: {fileID: 0}
   _enemyShip: {fileID: 0}
+  enemyBorder: {fileID: 0}
+  deadShipBorder: {fileID: 0}
 --- !u!1 &5796824867471282116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,8 +3097,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b28a4eacf5e8d459c33af9df3f5007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPictures: {fileID: 3294578981789639591}
   _enemyShip: {fileID: 0}
+  enemyBorder: {fileID: 0}
+  deadShipBorder: {fileID: 0}
 --- !u!1 &7151150951396387609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,8 +3280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b28a4eacf5e8d459c33af9df3f5007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPictures: {fileID: 8396232784554834275}
   _enemyShip: {fileID: 0}
+  enemyBorder: {fileID: 0}
+  deadShipBorder: {fileID: 0}
 --- !u!1 &7789145737638607667
 GameObject:
   m_ObjectHideFlags: 0
