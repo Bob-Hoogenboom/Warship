@@ -152,10 +152,8 @@ public class Ship : MonoBehaviour
         if (_pathPositions.Count > 0)
         {
             StartCoroutine(RotationCoroutine(_pathPositions.Dequeue(), RotationTime));
+            yield break;
         }
-        else
-        {
-            MovementFinished?.Invoke(this);
-        }
+        MovementFinished?.Invoke(this);
     }
 }
