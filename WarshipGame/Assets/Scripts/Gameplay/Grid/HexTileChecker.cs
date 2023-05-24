@@ -16,7 +16,7 @@ public class HexTileChecker : MonoBehaviour
     
     private void OnCollisionExit(Collision hexTileCollision)
     {
-        if (hexTileCollision.gameObject.layer != 4) return;
+        if (hexTileCollision.gameObject.layer != 4 || GetComponent<Ship>().shipDead) return;
 
         HexData currentHex = hexTileCollision.gameObject.GetComponent<HexData>();
 

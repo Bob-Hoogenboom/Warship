@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// The main function of this script is to allow the button to call EndTurn() which will activate the enemy AI and afterwards reset the PlayerFleet actions
@@ -18,8 +19,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject playerVictoryNotification;
     [SerializeField] private GameObject enemyVictoryNotification; 
     
+    [SerializeField] private Button endTurnButton;
     [SerializeField] private float turnTimer = 3f;
     [SerializeField] private bool beginEnemyTurn;
+
     
     private GameObject _currentTurn;
 
@@ -36,6 +39,7 @@ public class TurnManager : MonoBehaviour
 
     public void InvokeEndTurn()
     {
+        endTurnButton.enabled = false;
         StartCoroutine(EndTurn());
     }
     
@@ -59,6 +63,7 @@ public class TurnManager : MonoBehaviour
         _currentTurn = playerTurnNotification;
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(TurnCoroutine(_currentTurn));
+        endTurnButton.enabled = true;
         beginEnemyTurn = false;
 
         EndMovement();
@@ -87,7 +92,7 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< enemyFleet.transform.childCount; i++)
         {
-            if (!enemyFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
+            if (enemyFleet.transform.GetChild(i).GetComponent<Ship>().shipDead) continue;
             return;
         }
         
@@ -101,7 +106,7 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i< playerFleet.transform.childCount; i++)
         {
-            if (!playerFleet.transform.GetChild(i).gameObject.activeInHierarchy) continue;
+            if (playerFleet.transform.GetChild(i).GetComponent<Ship>().shipDead) continue;
             return;
         }
 
