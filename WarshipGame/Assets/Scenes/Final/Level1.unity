@@ -25460,7 +25460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2f03b7018d6da41b585d4cc25ced1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionMask:
+  SelectionMask:
     serializedVersion: 2
     m_Bits: 400
   onShipSelected:

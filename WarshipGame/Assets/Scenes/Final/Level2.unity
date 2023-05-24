@@ -1788,7 +1788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2f03b7018d6da41b585d4cc25ced1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionMask:
+  SelectionMask:
     serializedVersion: 2
     m_Bits: 400
   onShipSelected:
@@ -3607,6 +3607,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2133
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203194384902031878, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203194384902031878, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.700012
       objectReference: {fileID: 0}
     - target: {fileID: 5796824867471282116, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
