@@ -26204,9 +26204,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1262520554}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EnemyInformation, Assembly-CSharp
-        m_MethodName: GetActiveEnemies
+        m_MethodName: GetAllEnemyShips
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26598,6 +26598,12 @@ PrefabInstance:
       propertyPath: WaypointsScript
       value: 
       objectReference: {fileID: 2067175875}
+    - target: {fileID: 4725573120478115683, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fe418a44cf29f44b88b303221af4240,
+        type: 3}
     - target: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
         type: 3}
       propertyPath: m_Name
@@ -29523,6 +29529,18 @@ Transform:
   m_Father: {fileID: 1226850401}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 55, z: 0}
+--- !u!114 &1108599767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8396232784554834275, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1109515638
 GameObject:
   m_ObjectHideFlags: 0
@@ -33489,18 +33507,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1256036636}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1262520554 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5365591068080861053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b28a4eacf5e8d459c33af9df3f5007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1263107783
 GameObject:
   m_ObjectHideFlags: 0
@@ -35412,6 +35418,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1347075192}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1348920822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3294578981789639591, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1349616106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41258,6 +41276,12 @@ PrefabInstance:
       propertyPath: WaypointsScript
       value: 
       objectReference: {fileID: 1908598548}
+    - target: {fileID: 4725573120478115683, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fe418a44cf29f44b88b303221af4240,
+        type: 3}
     - target: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
         type: 3}
       propertyPath: m_Name
@@ -54593,6 +54617,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2087743022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2091658242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621638698664914810, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5365591068080861053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2094653937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54679,6 +54715,12 @@ PrefabInstance:
       propertyPath: WaypointsScript
       value: 
       objectReference: {fileID: 386820252}
+    - target: {fileID: 4725573120478115683, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fe418a44cf29f44b88b303221af4240,
+        type: 3}
     - target: {fileID: 4725573120478115684, guid: 78fc2d20f41a4754a9fa92bd128f78c5,
         type: 3}
       propertyPath: m_Name
@@ -56895,8 +56937,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
+      propertyPath: enemyFleet
+      value: 
+      objectReference: {fileID: 210117438}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
       propertyPath: activeEnemies.Array.size
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: enemyPictures.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
@@ -56913,6 +56965,21 @@ PrefabInstance:
       propertyPath: activeEnemies.Array.data[2]
       value: 
       objectReference: {fileID: 1391190936}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: enemyPictures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2091658242}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: enemyPictures.Array.data[1]
+      value: 
+      objectReference: {fileID: 1108599767}
+    - target: {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: enemyPictures.Array.data[2]
+      value: 
+      objectReference: {fileID: 1348920822}
     - target: {fileID: 8959515001878388314, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -56923,5 +56990,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc8a4ff580ba02c4384fffcb9e92e15f, type: 3}
