@@ -39,8 +39,8 @@ public class Enemy : MonoBehaviour
     {
         _shipScript = gameObject.GetComponent<Ship>();
 
-        _movementTime = _shipScript.movementTime;
-        _rotationTime = _shipScript.rotationTime;
+        _movementTime = _shipScript.MovementTime;
+        _rotationTime = _shipScript.RotationTime;
         
         if (WaypointsScript == null) return;
         _currentWaypoint = WaypointsScript.GetNextWaypoint(_currentWaypoint);
