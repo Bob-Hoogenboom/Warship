@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -27,6 +26,8 @@ public class Ship : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private Slider healthBar;
     
+    [SerializeField] private GameObject DestroyedParticle;
+    
     public int Damage => damage;
     public Slider HealthBar => healthBar;
     
@@ -37,8 +38,9 @@ public class Ship : MonoBehaviour
     public event Action<Ship> MovementFinished;
     public bool shipTurn;
     public Sprite profileTag;
-    
-    
+
+    public bool shipDead;
+
     /// <summary>
     /// Gets glow manager to prevent Editor usage
     /// </summary>
@@ -53,10 +55,24 @@ public class Ship : MonoBehaviour
     {
         healthBar.value -= damageTaken;
         
-        if (healthBar.value > 0) return; 
-        gameObject.SetActive(false);
-    }
+        if (healthBar.value > 0) return;
+        
+        GameObject destroyedShip = gameObject;
+        
+        Vector3 position = destroyedShip.transform.position;
+        Quaternion rotation = destroyedShip.transform.rotation;
+        
+        position.y = (float)-0.2;
+        rotation = Quaternion.Euler(-50, rotation.eulerAngles.y, rotation.eulerAngles.z);
 
+        destroyedShip.transform.position = position;
+        destroyedShip.transform.rotation = rotation;
+        
+        healthBar.gameObject.SetActive(false);
+        destroyedShip.layer = 9;
+        destroyedShip.GetComponent<Ship>().shipDead = true;
+    }
+    
     internal void Deselect()
     {
         _glowManager.ToggleGlow(false);
