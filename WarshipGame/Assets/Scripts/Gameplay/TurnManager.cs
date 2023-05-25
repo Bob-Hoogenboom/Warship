@@ -25,6 +25,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private bool beginEnemyTurn;
     
     [SerializeField] private UnityEvent onGameWon;
+    [SerializeField] private UnityEvent onGameLost;
     private GameObject _currentTurn;
 
     private void Awake()
@@ -111,6 +112,7 @@ public class TurnManager : MonoBehaviour
             return;
         }
 
+        onGameLost.Invoke();
         enemyVictoryNotification.SetActive(true);
         StartCoroutine(EndGame());
     }
