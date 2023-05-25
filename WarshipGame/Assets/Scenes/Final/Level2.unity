@@ -7419,6 +7419,12 @@ PrefabInstance:
       propertyPath: enemyShips.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 5279529396846165520, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: b0d90aa15359afb45ab8c6de2dd2f1e6,
+        type: 3}
     - target: {fileID: 5279529396846165524, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -19469,6 +19475,12 @@ PrefabInstance:
       propertyPath: enemyShips.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 5279529396846165520, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: b0d90aa15359afb45ab8c6de2dd2f1e6,
+        type: 3}
     - target: {fileID: 5279529396846165524, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -21464,6 +21476,12 @@ PrefabInstance:
       propertyPath: enemyShips.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 5279529396846165520, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
+        type: 3}
+      propertyPath: profileTag
+      value: 
+      objectReference: {fileID: 21300000, guid: b0d90aa15359afb45ab8c6de2dd2f1e6,
+        type: 3}
     - target: {fileID: 5279529396846165524, guid: 01c6998bb6dc5b1449bfd6d3b7fda3b0,
         type: 3}
       propertyPath: m_RootOrder
