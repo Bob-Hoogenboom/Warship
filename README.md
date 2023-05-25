@@ -9,8 +9,7 @@ For this project we will be making a turn based strategy game. The goal of this 
 # Created Game Parts
 
 Student Bob Hoogenboom:
-  * [Movement System](https://github.com/Bob-Hoogenboom/Warship/wiki)
-  * [Camera controller]
+  * [Hexagon-Grid-System](https://github.com/Bob-Hoogenboom/Warship/wiki/Hexagon-Grid-System)
 
 Student Diego Ramon:
   * [UI](https://github.com/Bob-Hoogenboom/Warship/wiki)
@@ -20,6 +19,8 @@ Student Robin Knol:
 
 
 ## Movement System by Bob Hoogenboom
+
+![image](https://github.com/Bob-Hoogenboom/Warship/assets/55579218/ab122744-8181-43d5-9a4c-f2989a7d5c04)
 
 
 ## UI by Diego Ramon
