@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// The main function of this script is to allow the button to call EndTurn() which will activate the enemy AI and afterwards reset the PlayerFleet actions
@@ -22,8 +23,8 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private Button endTurnButton;
     [SerializeField] private float turnTimer = 3f;
     [SerializeField] private bool beginEnemyTurn;
-
     
+    [SerializeField] private UnityEvent onGameWon;
     private GameObject _currentTurn;
 
     private void Awake()
@@ -95,6 +96,7 @@ public class TurnManager : MonoBehaviour
             return;
         }
         
+        onGameWon.Invoke();
         playerVictoryNotification.SetActive(true);
         beginEnemyTurn = true;
         EndMovement();
