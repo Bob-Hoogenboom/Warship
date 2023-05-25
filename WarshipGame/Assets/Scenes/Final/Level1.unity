@@ -54362,6 +54362,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 676311559419196537, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb28dc326f99687479829d34e6cf0a20,
+        type: 3}
     - target: {fileID: 1043428043277065501, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -54432,6 +54438,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1322997125691146231, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d1405500cb90aa046a2f6f913d280e66,
+        type: 3}
     - target: {fileID: 2468008093145339764, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: _enemyShip
@@ -54681,6 +54693,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3928230190343833349, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 36ee531e3abde984d86665c1443824a3,
+        type: 3}
     - target: {fileID: 3955261174139683225, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: _enemyShip
@@ -54998,6 +55016,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415964828501037529, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7131966563973198948, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -55064,6 +55107,11 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7800856390131178144, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196245960124228083, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -55151,12 +55199,12 @@ PrefabInstance:
     - target: {fileID: 8959515001878388314, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8959515001878388314, guid: dc8a4ff580ba02c4384fffcb9e92e15f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8925530567947374790, guid: dc8a4ff580ba02c4384fffcb9e92e15f, type: 3}
