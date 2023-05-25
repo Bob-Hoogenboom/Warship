@@ -75,6 +75,7 @@ public class Ship : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         destroyedShip.layer = 9;
         destroyedShip.GetComponent<Ship>().shipDead = true;
+        destroyedParticle.SetActive(true);
     }
     
     internal void Deselect()
