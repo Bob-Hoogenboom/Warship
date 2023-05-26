@@ -29,21 +29,21 @@ All three developers:
 
 ## Hexagon Grid System System, by Bob Hoogenboom
 <img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/ce9c850c-2150-4888-80fa-8ea4b5127803" width=75% height=auto>
-<br>At the start of the game a grid gets instantiated and information is parsed to every grid object.
+<br>At the start of the game a grid gets instantiated and information is parsed to every grid object. This can be later accesed by the player to move the selected ships and by the enemy to find the best path to get to the player. 
 
 ## Movement, by Bob Hoogenboom
 <img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e5f20431-fa94-4883-970d-0c3c0a9cb5a2" width=75% height=auto>
-<br>Via the grid system the player can select a boat and select a tile on the radius to move to or a enemy to attack.
+<br>Via the grid system the player can select a boat and select a tile on the radius to move to or a enemy to attack. This will also turn on a radius and make a informationm menu pop-up
 
 ## Camera Movement, by Bob Hoogenboom
 
-<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e6368490-24c4-4616-a8c1-e196ba6240ab" width=50% height=auto>
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/48d8901d-cefe-4cca-88fa-364d4e579a11" width=50% height=auto>
 <br> By dragging and moving the camera is able to pan towards the dragging point.
 <br>
-<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/501f551d-c7d3-4bea-bc78-10f04eb99e7e" width=50% height=auto>
+<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/971d6833-b826-4f82-a1d7-921b60bb4dfc" width=50% height=auto>
 <br> By scrolling the scroll wheel the player is able to zoom in and out to have a better overview of the map.
 <br>
-<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/bd0e384d-52b9-493a-bc42-a1e10ae69b27" width=50% height=auto>
+<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/893ae871-93c8-41e9-94de-5e018871c071" width=50% height=auto>
 <br> When you click on a boat the camera zooms in and pans towards the selected boat and stays focussed on it untill the player moves away.
 
 
