@@ -37,14 +37,12 @@ All three developers:
 
 ## Camera Movement, by Bob Hoogenboom
 
-<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/48d8901d-cefe-4cca-88fa-364d4e579a11" width=50% height=auto>
-<br> By dragging and moving the camera is able to pan towards the dragging point.
-<br>
-<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/971d6833-b826-4f82-a1d7-921b60bb4dfc" width=50% height=auto>
-<br> By scrolling the scroll wheel the player is able to zoom in and out to have a better overview of the map.
-<br>
-<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/893ae871-93c8-41e9-94de-5e018871c071" width=50% height=auto>
-<br> When you click on a boat the camera zooms in and pans towards the selected boat and stays focussed on it untill the player moves away.
+![Camera](https://github.com/Bob-Hoogenboom/Warship/assets/55579218/f03f96fe-6bbb-4177-a43f-118dd0855670)
+
+The Camera is quite important for the game and tookmore then a week to make. We decided on using a camera system just like the hit game 'Civilization' in which the camera is able to:
+- Move via dragging over the screen
+- Zoom in and out
+- Focus on selected objects
 
 
 ***
