@@ -80,5 +80,12 @@ Most of these VFX effects are particle systems made by artists, and implemented 
 
 ## Turn Manager, by Robin Knol
 
+When the player has used every boat or selected the end turn button. The turn manager comes into play. It will change all players boat to be able to not take action and allow the enemies to do their turn.
+
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/51416880/a8b605d9-420c-444c-babe-05b9b80cd336" width=45% height=auto>
+
 ## Attack System, by Robin Knol
 
+The ships can find the opponent ships through a sphere collider and will look if the selected target is in the collider for the player and the enemies will fire on the first player found in the collider.
+
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/51416880/4d022d26-0a71-4962-a187-76148a7d8bce" width=45% height=auto>
