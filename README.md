@@ -1,4 +1,5 @@
-# Warship
+# <img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/f51db70c-b241-469e-af6f-92c9840004eb" width=7% height=auto> Warship!
+
 A game made for the Dutch Navy.
 
 In this repository you will find the information for this project.
