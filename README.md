@@ -29,12 +29,22 @@ All three developers:
 
 ## Hexagon Grid System System, by Bob Hoogenboom
 <img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/ce9c850c-2150-4888-80fa-8ea4b5127803" width=75% height=auto>
+<br>At the start of the game a grid gets instantiated and information is parsed to every grid object.
 
 ## Movement, by Bob Hoogenboom
 <img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e5f20431-fa94-4883-970d-0c3c0a9cb5a2" width=75% height=auto>
+<br>Via the grid system the player can select a boat and select a tile on the radius to move to or a enemy to attack.
 
 ## Camera Movement, by Bob Hoogenboom
-<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e5f20431-fa94-4883-970d-0c3c0a9cb5a2" width=75% height=auto>
+
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e6368490-24c4-4616-a8c1-e196ba6240ab" width=50% height=auto>
+<br> By dragging and moving the camera is able to pan towards the dragging point.
+<br>
+<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/501f551d-c7d3-4bea-bc78-10f04eb99e7e" width=50% height=auto>
+<br> By scrolling the scroll wheel the player is able to zoom in and out to have a better overview of the map.
+<br>
+<br><img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/bd0e384d-52b9-493a-bc42-a1e10ae69b27" width=50% height=auto>
+<br> When you click on a boat the camera zooms in and pans towards the selected boat and stays focussed on it untill the player moves away.
 
 
 ***
