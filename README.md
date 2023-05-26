@@ -28,10 +28,13 @@ All three developers:
   * [Ship](https://github.com/Bob-Hoogenboom/Warship/blob/master/WarshipGame/Assets/Scripts/Gameplay/Ship.cs)
 
 ## Hexagon Grid System System, by Bob Hoogenboom
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/ce9c850c-2150-4888-80fa-8ea4b5127803" width=75% height=auto>
 
 ## Movement, by Bob Hoogenboom
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e5f20431-fa94-4883-970d-0c3c0a9cb5a2" width=75% height=auto>
 
 ## Camera Movement, by Bob Hoogenboom
+<img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e5f20431-fa94-4883-970d-0c3c0a9cb5a2" width=75% height=auto>
 
 
 ***
