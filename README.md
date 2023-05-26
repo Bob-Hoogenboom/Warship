@@ -34,7 +34,7 @@ All three developers:
 
 ## Movement, by Bob Hoogenboom
 <img src="https://github.com/Bob-Hoogenboom/Warship/assets/55579218/e5f20431-fa94-4883-970d-0c3c0a9cb5a2" width=75% height=auto>
-<br>Via the grid system the player can select a boat and select a tile on the radius to move to or a enemy to attack. This will also turn on a radius and make a informationm menu pop-up
+<br>Via the grid system the player can select a boat and select a tile on the radius to move to or a enemy to attack. This will also turn on a radius and make an informationm menu pop-up
 
 ## Camera Movement, by Bob Hoogenboom
 
